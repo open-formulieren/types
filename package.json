@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "Typescript type definitions for Open Forms' Form.io extensions",
   "main": "index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
+    "build": "tsc --emitDeclarationOnly",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
