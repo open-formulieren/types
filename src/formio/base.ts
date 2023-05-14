@@ -1,4 +1,4 @@
-// import {ComponentSchema} from 'formiojs';
+import {ComponentSchema} from 'formiojs';
 
 import {
   OFValidateOptions,
@@ -9,12 +9,12 @@ import {
 
 // Refinements of form.io 'builtin' types.
 
-export interface HasValidation<N extends CuratedValidatorNames> {
-  validate?: OFValidateOptions<N | 'plugins'>;
-  errors?: ComponentErrors<ComponentErrorKeys<N>>;
+export interface HasValidation<VN extends CuratedValidatorNames> {
+  validate?: OFValidateOptions<VN | 'plugins'>;
+  errors?: ComponentErrors<ComponentErrorKeys<VN>>;
+  // TODO: can be refined more using generics!
+  translatedErrors?: Record<string, Record<string, string>>;
 }
-
-
 
 // Custom Open Forms types
 
@@ -27,6 +27,16 @@ export interface DisplayConfig {
 export interface PrefillConfig {
   plugin: string | null;
   attribute: string | null;
+}
+
+export interface OFExtensions {
+  isSensitiveData?: boolean;
+  openForms?: {
+    translations: TranslationsContainer;
+  };
+  registration?: {
+    attribute: string;
+  };
 }
 
 // Managing content translations
@@ -45,18 +55,24 @@ export type TranslationsContainer = {
 // Define our base schema which refines Form.io's (too loose) schema. This applies
 // to *most* of the component types we support.
 
+interface StrictComponentSchema<T> extends ComponentSchema<T> {
+  id: string;
+  key: string;
+  type: string;
+  label: string;
+}
+
 // (user) inputs
 
-// export interface InputComponentSchema<
-//   T = unknown,
-//   VK extends keyof ExtendedValidateOptions = keyof ExtendedValidateOptions
-// > extends ComponentSchema<T>, DisplayConfig {
-//   id: string;
-//   key: string;
-//   type: string;
-//   label: string;
-//   validate?: OFValidateOptions<VK>,
-// }
+export type InputComponentSchema<
+  T = unknown,
+  VN extends CuratedValidatorNames = CuratedValidatorNames,
+> =
+  StrictComponentSchema<T>
+  & HasValidation<VN>
+  & DisplayConfig
+  & OFExtensions
+;
 
 // // layout
 // export interface LayoutComponentSchema<T = never> extends ComponentSchema<T> {
@@ -67,15 +83,6 @@ export type TranslationsContainer = {
 
 // export type OpenFormsComponentSchemaBase<T = unknown> = ComponentSchema<T> &
 //   DisplayConfig & {
-//     validate?: ExtendedValidateOptions;
-//     isSensitiveData?: boolean;
-//     translatedErrors?: Record<string, Record<string, string>>;
-//     errors?: ComponentErrors;
 //     prefill?: PrefillConfig;
-//     registration?: {
-//       attribute: string;
-//     };
-//     openForms?: {
-//       translations: TranslationsContainer;
-//     };
+
 //   };
