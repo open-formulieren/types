@@ -25,8 +25,10 @@ export interface DisplayConfig {
 }
 
 export interface PrefillConfig {
-  plugin: string | null;
-  attribute: string | null;
+  prefill?: {
+    plugin: string | null;
+    attribute: string | null;
+  };
 }
 
 export interface OFExtensions {
