@@ -34,7 +34,6 @@ const number: NumberComponentSchema = {
     nl: {
       required: 'Je moet een waarde opgeven!!!',
       min: 'Je kan niet minder dan 1 dag per week bestaan.',
-      extra: 'TS Compiler should block this!'
     }
   },
   errors: {  // translatedErrors is converted into errors by the backend

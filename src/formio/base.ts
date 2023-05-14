@@ -6,14 +6,14 @@ import {
   ComponentErrors,
   CuratedValidatorNames,
 } from './validation';
+import {ComponentTranslations, ErrorTranslations} from './i18n';
 
 // Refinements of form.io 'builtin' types.
 
 export interface HasValidation<VN extends CuratedValidatorNames> {
   validate?: OFValidateOptions<VN | 'plugins'>;
   errors?: ComponentErrors<ComponentErrorKeys<VN>>;
-  // TODO: can be refined more using generics!
-  translatedErrors?: Record<string, Record<string, string>>;
+  translatedErrors?: ErrorTranslations<ComponentErrorKeys<VN>>;
 }
 
 // Custom Open Forms types
@@ -32,24 +32,11 @@ export interface PrefillConfig {
 export interface OFExtensions {
   isSensitiveData?: boolean;
   openForms?: {
-    translations: TranslationsContainer;
+    translations: ComponentTranslations;
   };
   registration?: {
     attribute: string;
   };
-}
-
-// Managing content translations
-
-type SupportedLocales = 'en' | 'nl';
-
-interface Translation {
-  literal: string;
-  translation: string;
-}
-
-export type TranslationsContainer = {
-  [key in SupportedLocales]?: Translation[];
 }
 
 // Define our base schema which refines Form.io's (too loose) schema. This applies
