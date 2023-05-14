@@ -7,7 +7,9 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc --emitDeclarationOnly",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build",
+    "format": "prettier --write 'src/**/*'",
+    "checkformat": "prettier --check 'src/**/*'"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,9 @@
   },
   "homepage": "https://github.com/open-formulieren/open-forms-types#readme",
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "formiojs": "^4.14.13",
+    "prettier": "^2.8.8",
     "typescript": "^5.0.4"
   }
 }
