@@ -1,5 +1,4 @@
-import { HasValidation } from ".";
-
+import {HasValidation} from '.';
 
 const validation: HasValidation<'required' | 'maxLength'> = {
   validate: {
@@ -9,7 +8,7 @@ const validation: HasValidation<'required' | 'maxLength'> = {
   errors: {
     maxLength: 'too long',
     // min: 'Not allowed',
-  }
-}
+  },
+};
 
 console.log(validation);

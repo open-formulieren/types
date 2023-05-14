@@ -1,5 +1,5 @@
-import { TranslationsContainer } from "../i18n";
-import { BaseErrorKeys } from "./validation";
+import {TranslationsContainer} from '../i18n';
+import {BaseErrorKeys} from './validation';
 
 interface Translation {
   literal: string;
@@ -7,4 +7,6 @@ interface Translation {
 }
 
 export type ComponentTranslations = TranslationsContainer<Translation[]>;
-export type ErrorTranslations<K extends BaseErrorKeys = BaseErrorKeys> = TranslationsContainer<{[key in K]?: string;}>;
+export type ErrorTranslations<K extends BaseErrorKeys = BaseErrorKeys> = TranslationsContainer<{
+  [key in K]?: string;
+}>;

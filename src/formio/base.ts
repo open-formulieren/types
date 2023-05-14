@@ -1,12 +1,12 @@
 import {ComponentSchema} from 'formiojs';
 
+import {ComponentTranslations, ErrorTranslations} from './i18n';
 import {
-  OFValidateOptions,
   ComponentErrorKeys,
   ComponentErrors,
   CuratedValidatorNames,
+  OFValidateOptions,
 } from './validation';
-import {ComponentTranslations, ErrorTranslations} from './i18n';
 
 // Refinements of form.io 'builtin' types.
 
@@ -39,20 +39,19 @@ export interface OFExtensions {
   };
 }
 
-
 // Form.io defines *a lot* of optional properties in their component schema. We can omit
 // the ones we never make use of to reduce confusion for the formio-renderer and
 // formio-builder libraries.
 type UnusedFormioProperties =
-  | 'input'  // often present in the schema, but I don't think we do anything with it
+  | 'input' // often present in the schema, but I don't think we do anything with it
   | 'tableView'
   | 'protected'
   | 'prefix'
   | 'suffix'
   | 'unique'
   | 'persistent'
-  | 'logic'  // the backend handles any logic - this may change in the future
-  | 'customClass'  // only used in the content component -> re-add it there
+  | 'logic' // the backend handles any logic - this may change in the future
+  | 'customClass' // only used in the content component -> re-add it there
   | 'dataGridLabel'
   | 'labelPosition'
   | 'labelWidth'
@@ -66,8 +65,7 @@ type UnusedFormioProperties =
   | 'calculateValue'
   | 'allowCalculateOverride'
   | 'refreshOn'
-  | 'clearOnRefresh'
-;
+  | 'clearOnRefresh';
 
 // Define our base schema which refines Form.io's (too loose) schema. This applies
 // to *most* of the component types we support.
@@ -82,14 +80,9 @@ interface StrictComponentSchema<T> extends Omit<ComponentSchema<T>, UnusedFormio
 
 export type InputComponentSchema<
   T = unknown,
-  VN extends CuratedValidatorNames = CuratedValidatorNames,
-> =
-  StrictComponentSchema<T>
-  & HasValidation<VN>
-  & DisplayConfig
-  & OFExtensions
-;
+  VN extends CuratedValidatorNames = CuratedValidatorNames
+> = StrictComponentSchema<T> & HasValidation<VN> & DisplayConfig & OFExtensions;
 
 // layout
-export interface LayoutComponentSchema<T = never> extends Omit<ComponentSchema<T>, UnusedFormioProperties | 'validate'> {
-}
+export interface LayoutComponentSchema<T = never>
+  extends Omit<ComponentSchema<T>, UnusedFormioProperties | 'validate'> {}

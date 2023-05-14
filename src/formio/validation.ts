@@ -14,8 +14,7 @@ export type BaseErrorKeys =
   | 'invalid_email'
   | 'pattern'
   | 'minDate'
-  | 'maxDate'
-;
+  | 'maxDate';
 
 export type ComponentErrors<Keys extends BaseErrorKeys = BaseErrorKeys> = {
   [K in Keys]?: string;
@@ -37,27 +36,29 @@ type UnsupportedValidateNames =
   | 'date'
   | 'day'
   | 'json'
-  | 'mask' // not to be confused with component.inputMask
-;
+  | 'mask'; // not to be confused with component.inputMask
 
 export type CuratedValidateOptions = Omit<ValidateOptions, UnsupportedValidateNames>;
 export type CuratedValidatorNames = keyof CuratedValidateOptions;
 
 type ValidatorToErrorMap = Required<{[K in CuratedValidatorNames]: BaseErrorKeys}>;
-const VALIDATOR_TO_ERROR_KEY = <const>{
-  'required': 'required',
-  'min': 'min',
-  'max': 'max',
-  'maxLength': 'maxLength',
-  'pattern': 'pattern',
+const VALIDATOR_TO_ERROR_KEY = {
+  required: 'required',
+  min: 'min',
+  max: 'max',
+  maxLength: 'maxLength',
+  pattern: 'pattern',
   // 'email': 'invalid_email',  // email component is exposed, but adds the validation implicitly
-  'minDate': 'minDate',
-  'maxDate': 'maxDate',
-} satisfies ValidatorToErrorMap;
+  minDate: 'minDate',
+  maxDate: 'maxDate',
+} as const satisfies ValidatorToErrorMap;
 
 // infer valid component error keys from the mapping of validation error code to the
 // error key (used for localisation/custom error messages)
-export type ComponentErrorKeys<VN extends CuratedValidatorNames> = Pick<typeof VALIDATOR_TO_ERROR_KEY, VN>[VN];
+export type ComponentErrorKeys<VN extends CuratedValidatorNames> = Pick<
+  typeof VALIDATOR_TO_ERROR_KEY,
+  VN
+>[VN];
 
 /*
   Open Forms-specific extensions.
@@ -70,4 +71,7 @@ export type OFValidatorNames = keyof ExtendedValidateOptions;
 
 // Get a subset of validate options
 //   OFValidateOptions<'required' | 'plugins'>
-export type OFValidateOptions<K extends OFValidatorNames = OFValidatorNames> = Pick<ExtendedValidateOptions, K>;
+export type OFValidateOptions<K extends OFValidatorNames = OFValidatorNames> = Pick<
+  ExtendedValidateOptions,
+  K
+>;

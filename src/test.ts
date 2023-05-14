@@ -1,4 +1,4 @@
-import { NumberComponentSchema } from "./formio";
+import {NumberComponentSchema} from './formio';
 
 const number: NumberComponentSchema = {
   id: '8aosjaw',
@@ -34,9 +34,10 @@ const number: NumberComponentSchema = {
     nl: {
       required: 'Je moet een waarde opgeven!!!',
       min: 'Je kan niet minder dan 1 dag per week bestaan.',
-    }
+    },
   },
-  errors: {  // translatedErrors is converted into errors by the backend
+  errors: {
+    // translatedErrors is converted into errors by the backend
     required: 'Je moet een waarde opgeven!!!',
     min: 'Je kan niet minder dan 1 dag per week bestaan.',
   },
@@ -48,9 +49,8 @@ const number: NumberComponentSchema = {
   openForms: {
     translations: {
       nl: [{literal: 'foo', translation: 'bar'}],
-    }
+    },
   },
-}
-
+};
 
 console.log(number);
