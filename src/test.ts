@@ -49,7 +49,7 @@ const number: NumberComponentSchema = {
     translations: {
       nl: [{literal: 'foo', translation: 'bar'}],
     }
-  }
+  },
 }
 
 
