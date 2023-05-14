@@ -1,6 +1,41 @@
-import {NumberComponentSchema} from './formio';
+import {expectAssignable, expectNotAssignable} from 'tsd';
 
-const number: NumberComponentSchema = {
+import {NumberComponentSchema} from '../lib/';
+
+// minimal number component schema
+expectAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+});
+
+// with additional, number-component specific properties
+expectAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  decimalLimit: 3,
+  allowNegative: true,
+});
+
+// different component type
+expectNotAssignable<NumberComponentSchema>({
+  type: 'textfield',
+});
+
+// using unsupported properties
+expectNotAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  hideLabel: true,
+});
+
+// full, correct schema
+expectAssignable<NumberComponentSchema>({
   id: '8aosjaw',
   type: 'number',
   // basic tab in builder form
@@ -51,6 +86,4 @@ const number: NumberComponentSchema = {
       nl: [{literal: 'foo', translation: 'bar'}],
     },
   },
-};
-
-console.log(number);
+});
