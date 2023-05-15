@@ -1,7 +1,9 @@
 import {InputComponentSchema} from '..';
 
+type Validator = 'required' | 'min' | 'max';
+
 export interface NumberComponentSchema
-  extends Omit<InputComponentSchema<number, 'required' | 'min' | 'max'>, 'hideLabel'> {
+  extends Omit<InputComponentSchema<number, Validator>, 'hideLabel'> {
   type: 'number';
   /*
     formio does math on `decimalLimit`` and feeds it to lodash.repeat -> must be int at
