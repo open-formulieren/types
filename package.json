@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/open-formulieren/open-forms-types.git"
+    "url": "git+ssh://git@github.com/open-formulieren/types.git"
   },
   "keywords": [
     "formio",
@@ -25,9 +25,9 @@
   "author": "Maykin Media <support@maykinmedia.nl>",
   "license": "EUPL-1.2",
   "bugs": {
-    "url": "https://github.com/open-formulieren/open-forms-types/issues"
+    "url": "https://github.com/open-formulieren/types/issues"
   },
-  "homepage": "https://github.com/open-formulieren/open-forms-types#readme",
+  "homepage": "https://github.com/open-formulieren/types#readme",
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "formiojs": "^4.14.13",
