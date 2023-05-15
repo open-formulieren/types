@@ -5,6 +5,7 @@
   "main": "index.js",
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "files": ["lib"],
   "scripts": {
     "build": "tsc --emitDeclarationOnly",
     "test": "tsd",
