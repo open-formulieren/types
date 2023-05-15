@@ -1,5 +1,5 @@
 {
-  "name": "@open-formulieren/open-forms-types",
+  "name": "@open-formulieren/types",
   "version": "0.1.0",
   "description": "Typescript type definitions for Open Forms' Form.io extensions",
   "main": "index.js",
