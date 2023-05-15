@@ -1,9 +1,10 @@
-import {InputComponentSchema} from '..';
+import {InputComponentSchema, PrefillConfig} from '..';
 
 type Validator = 'required' | 'maxLength' | 'pattern';
 
 export interface TextFieldComponentSchema
-  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'> {
+  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
+    PrefillConfig {
   type: 'textfield';
   // additional properties
   showCharCount?: boolean;
