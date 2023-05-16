@@ -80,10 +80,16 @@ interface StrictComponentSchema<T> extends Omit<ComponentSchema<T>, UnusedFormio
 
 // (user) inputs
 
-export type InputComponentSchema<
+export interface InputComponentSchema<
   T = unknown,
   VN extends CuratedValidatorNames = CuratedValidatorNames
-> = StrictComponentSchema<T> & HasValidation<VN> & DisplayConfig & OFExtensions;
+> extends StrictComponentSchema<T>,
+    DisplayConfig,
+    OFExtensions {
+  validate?: HasValidation<VN>['validate'];
+  errors?: HasValidation<VN>['errors'];
+  translatedErrors?: HasValidation<VN>['translatedErrors'];
+}
 
 // layout
 export interface LayoutComponentSchema<T = never>
