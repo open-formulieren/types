@@ -1,9 +1,9 @@
-import {InputComponentSchema} from '..';
+import {InputComponentSchema, MultipleCapable} from '..';
 
 type Validator = 'required';
 
-interface BaseEmailComponentSchema<T = string>
-  extends Omit<InputComponentSchema<T, Validator>, 'hideLabel' | 'disabled'> {
+interface BaseEmailComponentSchema
+  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel' | 'disabled'> {
   type: 'email';
   // additional properties
   autocomplete?: string;
@@ -11,12 +11,4 @@ interface BaseEmailComponentSchema<T = string>
   confirmationRecipient?: boolean;
 }
 
-interface SingleValueEmailComponentSchema extends BaseEmailComponentSchema<string> {
-  multiple?: false;
-}
-
-interface MultiValueEmailComponentSchema extends BaseEmailComponentSchema<string[]> {
-  multiple?: true;
-}
-
-export type EmailComponentSchema = SingleValueEmailComponentSchema | MultiValueEmailComponentSchema;
+export type EmailComponentSchema = MultipleCapable<BaseEmailComponentSchema>;

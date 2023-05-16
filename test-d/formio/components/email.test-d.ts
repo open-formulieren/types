@@ -1,4 +1,4 @@
-import {expectAssignable} from 'tsd';
+import {expectAssignable, expectNotAssignable} from 'tsd';
 
 import {EmailComponentSchema} from '../../../lib';
 
@@ -18,6 +18,16 @@ expectAssignable<EmailComponentSchema>({
   label: 'Some email',
   autocomplete: 'email',
   confirmationRecipient: false,
+});
+
+// multiple false and appropriate default value type
+expectAssignable<EmailComponentSchema>({
+  id: 'yejak',
+  type: 'email',
+  key: 'someEmail',
+  label: 'Some email',
+  multiple: false,
+  defaultValue: '',
 });
 
 // multiple true and appropriate default value type
@@ -73,4 +83,34 @@ expectAssignable<EmailComponentSchema>({
   },
   // fixed but not editable
   validateOn: 'blur',
+});
+
+// invalid, multiple true and non-array default value
+expectNotAssignable<EmailComponentSchema>({
+  id: 'yejak',
+  type: 'email',
+  key: 'someEmail',
+  label: 'Some email',
+  multiple: true,
+  defaultValue: '',
+});
+
+// invalid, multiple false and array default value
+expectNotAssignable<EmailComponentSchema>({
+  id: 'yejak',
+  type: 'email',
+  key: 'someEmail',
+  label: 'Some email',
+  multiple: false,
+  defaultValue: [''],
+});
+
+// invalid, multiple true and wrong default value in array element
+expectNotAssignable<EmailComponentSchema>({
+  id: 'yejak',
+  type: 'email',
+  key: 'someEmail',
+  label: 'Some email',
+  multiple: true,
+  defaultValue: [0],
 });
