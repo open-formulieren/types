@@ -1,0 +1,116 @@
+import {expectAssignable, expectNotAssignable} from 'tsd';
+
+import {TextFieldComponentSchema} from '../../../lib/';
+
+// minimal textfield component schema
+expectAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'someInput',
+  label: 'Some input',
+});
+
+// with additional, textfield-component specific properties
+expectAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'someInput',
+  label: 'Some input',
+  showCharCount: true,
+  autocomplete: 'name',
+  deriveStreetName: true,
+  deriveCity: true,
+  derivePostcode: 'postcode',
+  deriveHouseNumber: 'number',
+});
+
+// full, correct schema
+expectAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  // basic tab in builder form
+  label: 'Some input',
+  key: 'someInput',
+  description: 'A description',
+  showInSummary: true,
+  showInEmail: false,
+  showInPDF: true,
+  multiple: false,
+  hidden: false,
+  clearOnHide: true,
+  isSensitiveData: false,
+  defaultValue: '',
+  autocomplete: 'name',
+  disabled: false,
+  placeholder: '',
+  showCharCount: true,
+  // location tab in builder form
+  deriveStreetName: true,
+  deriveCity: true,
+  derivePostcode: 'postcode',
+  deriveHouseNumber: 'number',
+  // advanced tab in builder form
+  conditional: {
+    show: undefined,
+    when: undefined,
+    eq: undefined,
+  },
+  // validation tab in builder form
+  validate: {
+    required: false,
+    plugins: undefined,
+    maxLength: 20,
+    pattern: '',
+  },
+  translatedErrors: {
+    nl: {
+      required: 'Je moet een waarde opgeven!!!',
+      maxLength: 'Een maximale lengte.',
+    },
+  },
+  errors: {
+    // translatedErrors is converted into errors by the backend
+    required: 'Je moet een waarde opgeven!!!',
+    maxLength: 'Een maximale lengte.',
+  },
+  // registration tab in builder form
+  registration: {
+    attribute: '',
+  },
+  // prefill tab in builder form
+  prefill: {
+    plugin: '',
+    attribute: '',
+  },
+  // translations tab in builder form
+  openForms: {
+    translations: {
+      nl: [{literal: 'foo', translation: 'bar'}],
+    },
+  },
+});
+
+// different component type
+expectNotAssignable<TextFieldComponentSchema>({
+  type: 'fieldset',
+});
+
+// using unsupported properties
+expectNotAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'someInput',
+  label: 'Some input',
+  hideLabel: true,
+});
+
+// incorrect, invalid validator key
+expectNotAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'someInput',
+  label: 'Some input',
+  validate: {
+    min: 3,
+  },
+});
