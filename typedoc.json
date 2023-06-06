@@ -1,0 +1,14 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "groupOrder": [
+        "Form.io components",
+        "Schema primitives",
+        "Open Forms schema extensions",
+        "*",
+    ],
+    "categoryOrder": [
+        "Concrete types",
+        "Base types",
+        "*"
+    ]
+}

@@ -2,7 +2,11 @@ import {InputComponentSchema, MultipleCapable} from '..';
 
 type Validator = 'required';
 
-interface BaseEmailComponentSchema
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+export interface BaseEmailComponentSchema
   extends Omit<InputComponentSchema<string, Validator>, 'hideLabel' | 'disabled'> {
   type: 'email';
   // additional properties
@@ -11,4 +15,8 @@ interface BaseEmailComponentSchema
   confirmationRecipient?: boolean;
 }
 
+/**
+ * @group Form.io components
+ * @category Concrete types
+ */
 export type EmailComponentSchema = MultipleCapable<BaseEmailComponentSchema>;

@@ -5,9 +5,12 @@
   "main": "index.js",
   "module": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly",
+    "build:docs": "typedoc src/index.ts",
     "test": "npm run build && tsd",
     "format": "prettier --write 'src/**/*'",
     "checkformat": "prettier --check 'src/**/*'"
@@ -33,6 +36,7 @@
     "formiojs": "^4.14.13",
     "prettier": "^2.8.8",
     "tsd": "^0.28.1",
+    "typedoc": "^0.24.8",
     "typescript": "^5.0.4"
   }
 }
