@@ -1,5 +1,12 @@
 import {ValidateOptions} from 'formiojs';
 
+// extend formio's validate interface with our custom extension(s)
+declare module 'formiojs' {
+  interface ValidateOptions {
+    plugins?: string[];
+  }
+}
+
 /**
  * Types related to (client-side) formio validation and their error message overrides.
  */
@@ -38,7 +45,7 @@ type UnsupportedValidateNames =
   | 'json'
   | 'mask'; // not to be confused with component.inputMask
 
-export type CuratedValidateOptions = Omit<ValidateOptions, UnsupportedValidateNames>;
+export type CuratedValidateOptions = Omit<ValidateOptions, UnsupportedValidateNames | 'plugins'>;
 export type CuratedValidatorNames = keyof CuratedValidateOptions;
 
 type ValidatorToErrorMap = Required<{[K in CuratedValidatorNames]: BaseErrorKeys}>;

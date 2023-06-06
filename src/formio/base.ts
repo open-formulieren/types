@@ -78,12 +78,35 @@ interface StrictComponentSchema<T> extends Omit<ComponentSchema<T>, UnusedFormio
   label: string;
 }
 
+/**
+ * Make a given component schema multiple capable by type narrowing the `defaultValue`
+ * based on the (literal) value of the multiple key.
+ *
+ * This is done by inferring the canonical data type of the component schema and
+ * checking which generic type var is passed in to decide on the correct decision
+ * branch. The T typevar is fed all the way down to Form.io's ComponentSchema<T>.
+ *
+ * Note that this requires the InputComponentSchema to define upfront that the
+ * value can be T or T[], as the base type needs to be sufficiently wide.
+ */
+export type MultipleCapable<S> = S extends StrictComponentSchema<infer T>
+  ? T extends Array<infer NT>
+    ? S & {multiple?: true; defaultValue?: NT[]}
+    : S & {multiple?: false; defaultValue?: T}
+  : never;
+
 // (user) inputs
 
-export type InputComponentSchema<
+export interface InputComponentSchema<
   T = unknown,
   VN extends CuratedValidatorNames = CuratedValidatorNames
-> = StrictComponentSchema<T> & HasValidation<VN> & DisplayConfig & OFExtensions;
+> extends StrictComponentSchema<T | T[]>,
+    DisplayConfig,
+    OFExtensions {
+  validate?: HasValidation<VN>['validate'];
+  errors?: HasValidation<VN>['errors'];
+  translatedErrors?: HasValidation<VN>['translatedErrors'];
+}
 
 // layout
 export interface LayoutComponentSchema<T = never>
