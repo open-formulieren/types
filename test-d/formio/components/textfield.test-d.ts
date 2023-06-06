@@ -24,6 +24,26 @@ expectAssignable<TextFieldComponentSchema>({
   deriveHouseNumber: 'number',
 });
 
+// multiple false and appropriate default value type
+expectAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'someEmail',
+  label: 'Some input',
+  multiple: false,
+  defaultValue: '',
+});
+
+// multiple true and appropriate default value type
+expectAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'someEmail',
+  label: 'Some input',
+  multiple: true,
+  defaultValue: [''],
+});
+
 // full, correct schema
 expectAssignable<TextFieldComponentSchema>({
   id: 'yejak',
@@ -113,4 +133,34 @@ expectNotAssignable<TextFieldComponentSchema>({
   validate: {
     min: 3,
   },
+});
+
+// invalid, multiple true and non-array default value
+expectNotAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'textfield',
+  label: 'Some textfield',
+  multiple: true,
+  defaultValue: '',
+});
+
+// invalid, multiple false and array default value
+expectNotAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'textfield',
+  label: 'Some textfield',
+  multiple: false,
+  defaultValue: [''],
+});
+
+// invalid, multiple true and wrong default value in array element
+expectNotAssignable<TextFieldComponentSchema>({
+  id: 'yejak',
+  type: 'textfield',
+  key: 'textfield',
+  label: 'Some textfield',
+  multiple: true,
+  defaultValue: [0],
 });
