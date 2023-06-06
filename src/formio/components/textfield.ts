@@ -2,7 +2,11 @@ import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
 
 type Validator = 'required' | 'maxLength' | 'pattern';
 
-interface BaseTextFieldComponentSchema
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+export interface BaseTextFieldComponentSchema
   extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
     PrefillConfig {
   type: 'textfield';
@@ -16,4 +20,8 @@ interface BaseTextFieldComponentSchema
   deriveHouseNumber?: string;
 }
 
+/**
+ * @group Form.io components
+ * @category Concrete types
+ */
 export type TextFieldComponentSchema = MultipleCapable<BaseTextFieldComponentSchema>;

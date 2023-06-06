@@ -2,7 +2,11 @@ import {InputComponentSchema, MultipleCapable} from '..';
 
 type Validator = 'required' | 'min' | 'max';
 
-interface BaseNumberComponentSchema
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+export interface BaseNumberComponentSchema
   extends Omit<InputComponentSchema<number, Validator>, 'hideLabel'> {
   type: 'number';
   /*
@@ -13,4 +17,8 @@ interface BaseNumberComponentSchema
   allowNegative?: boolean;
 }
 
+/**
+ * @group Form.io components
+ * @category Concrete types
+ */
 export type NumberComponentSchema = MultipleCapable<BaseNumberComponentSchema>;

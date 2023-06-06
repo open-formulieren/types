@@ -16,14 +16,18 @@ export interface HasValidation<VN extends CuratedValidatorNames> {
   translatedErrors?: ErrorTranslations<ComponentErrorKeys<VN>>;
 }
 
-// Custom Open Forms types
-
+/**
+ * @group Open Forms schema extensions
+ */
 export interface DisplayConfig {
   showInSummary?: boolean;
   showInEmail?: boolean;
   showInPDF?: boolean;
 }
 
+/**
+ * @group Open Forms schema extensions
+ */
 export interface PrefillConfig {
   prefill?: {
     plugin: string | null;
@@ -31,6 +35,9 @@ export interface PrefillConfig {
   };
 }
 
+/**
+ * @group Open Forms schema extensions
+ */
 export interface OFExtensions {
   isSensitiveData?: boolean;
   openForms?: {
@@ -69,12 +76,18 @@ type UnusedFormioProperties =
   | 'refreshOn'
   | 'clearOnRefresh';
 
-// Define our base schema which refines Form.io's (too loose) schema. This applies
-// to *most* of the component types we support.
-//
-// We also exclude 'multiple' here to force people to explicitly opt-in through the
-// `MultipleCapable` for components that support it.
-interface StrictComponentSchema<T>
+/**
+ * Define a strict variant of Form.io's ComponentSchema interface.
+ *
+ * This schema refines Form.io's (too loose) schema. It applies to *most* of the
+ * component types we support.
+ *
+ * We also exclude 'multiple' here to force people to explicitly opt-in through the
+ * `MultipleCapable` for components that support it.
+ *
+ * @group Schema primitives
+ */
+export interface StrictComponentSchema<T>
   extends Omit<ComponentSchema<T>, UnusedFormioProperties | 'multiple'> {
   id: string;
   key: string;
@@ -101,6 +114,9 @@ export type MultipleCapable<S> = S extends StrictComponentSchema<infer T>
 
 // (user) inputs
 
+/**
+ * @group Schema primitives
+ */
 export interface InputComponentSchema<
   T = unknown,
   VN extends CuratedValidatorNames = CuratedValidatorNames
@@ -112,6 +128,8 @@ export interface InputComponentSchema<
   translatedErrors?: HasValidation<VN>['translatedErrors'];
 }
 
-// layout
+/**
+ * @group Schema primitives
+ */
 export interface LayoutComponentSchema<T = never>
   extends Omit<ComponentSchema<T>, UnusedFormioProperties | 'validate'> {}
