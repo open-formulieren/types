@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly",
-    "build:docs": "typedoc src/index.ts",
+    "build:docs": "typedoc",
     "test": "npm run build && tsd",
     "format": "prettier --write 'src/**/*'",
     "checkformat": "prettier --check 'src/**/*'"
