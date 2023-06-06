@@ -20,6 +20,26 @@ expectAssignable<NumberComponentSchema>({
   allowNegative: true,
 });
 
+// multiple false and appropriate default value type
+expectAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  multiple: false,
+  defaultValue: 3,
+});
+
+// multiple true and appropriate default value type
+expectAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  multiple: true,
+  defaultValue: [2.1],
+});
+
 // different component type
 expectNotAssignable<NumberComponentSchema>({
   type: 'textfield',
@@ -45,7 +65,7 @@ expectAssignable<NumberComponentSchema>({
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
-  multiple: false,
+  // multiple: false,
   hidden: false,
   clearOnHide: true,
   isSensitiveData: false,
@@ -86,4 +106,34 @@ expectAssignable<NumberComponentSchema>({
       nl: [{literal: 'foo', translation: 'bar'}],
     },
   },
+});
+
+// invalid, multiple true and non-array default value
+expectNotAssignable<NumberComponentSchema>({
+  id: '8aosjaw',
+  type: 'number',
+  key: 'number',
+  label: 'Some number',
+  multiple: true,
+  defaultValue: 31415926535,
+});
+
+// invalid, multiple false and array default value
+expectNotAssignable<NumberComponentSchema>({
+  id: '8aosjaw',
+  type: 'number',
+  key: 'number',
+  label: 'Some number',
+  multiple: false,
+  defaultValue: [42],
+});
+
+// invalid, multiple true and wrong default value in array element
+expectNotAssignable<NumberComponentSchema>({
+  id: '8aosjaw',
+  type: 'number',
+  key: 'number',
+  label: 'Some number',
+  multiple: true,
+  defaultValue: [''],
 });
