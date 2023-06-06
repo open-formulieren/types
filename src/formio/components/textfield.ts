@@ -1,8 +1,8 @@
-import {InputComponentSchema, PrefillConfig} from '..';
+import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
 
 type Validator = 'required' | 'maxLength' | 'pattern';
 
-export interface TextFieldComponentSchema
+interface BaseTextFieldComponentSchema
   extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
     PrefillConfig {
   type: 'textfield';
@@ -15,3 +15,5 @@ export interface TextFieldComponentSchema
   derivePostcode?: string;
   deriveHouseNumber?: string;
 }
+
+export type TextFieldComponentSchema = MultipleCapable<BaseTextFieldComponentSchema>;
