@@ -71,7 +71,11 @@ type UnusedFormioProperties =
 
 // Define our base schema which refines Form.io's (too loose) schema. This applies
 // to *most* of the component types we support.
-interface StrictComponentSchema<T> extends Omit<ComponentSchema<T>, UnusedFormioProperties> {
+//
+// We also exclude 'multiple' here to force people to explicitly opt-in through the
+// `MultipleCapable` for components that support it.
+interface StrictComponentSchema<T>
+  extends Omit<ComponentSchema<T>, UnusedFormioProperties | 'multiple'> {
   id: string;
   key: string;
   type: string;
