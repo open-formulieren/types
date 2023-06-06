@@ -1,7 +1,7 @@
 import {TranslationsContainer} from '../i18n';
 import {BaseErrorKeys} from './validation';
 
-interface Translation {
+export interface Translation {
   literal: string;
   translation: string;
 }
