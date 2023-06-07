@@ -8,10 +8,10 @@ type Validator = 'required';
  * @group Form.io components
  * @category Base types
  */
-export interface BaseDateComponentSchema
+export interface BaseDateTimeComponentSchema
   extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
     PrefillConfig {
-  type: 'date';
+  type: 'datetime';
   openForms?: OFExtensions['openForms'] & {
     minDate?: DateConstraintConfiguration;
     maxDate?: DateConstraintConfiguration;
@@ -24,9 +24,11 @@ export interface BaseDateComponentSchema
  *
  * Note that the value/`defaultValue` type is just a plain string, as native Date
  * objects must be serialized into a string for data exchange via JSON. The expected
- * date format is ISO-8601, i.e. YYYY-MM-DD.
+ * date format is ISO-8601 with time information, e.g. YYYY-MM-DDThh:mmZ.
+ *
+ * The smallest supported resolution is minutes, seconds are truncated to be 0 seconds.
  *
  * @group Form.io components
  * @category Concrete types
  */
-export type DateComponentSchema = MultipleCapable<BaseDateComponentSchema>;
+export type DateTimeComponentSchema = MultipleCapable<BaseDateTimeComponentSchema>;
