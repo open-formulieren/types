@@ -70,6 +70,7 @@ expectAssignable<DateTimeComponentSchema>({
   label: 'Datumtijd',
   key: 'datumtijd',
   description: '',
+  tooltip: 'A tooltip',
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,

@@ -52,6 +52,7 @@ expectAssignable<TextFieldComponentSchema>({
   label: 'Some input',
   key: 'someInput',
   description: 'A description',
+  tooltip: 'A tooltip',
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,

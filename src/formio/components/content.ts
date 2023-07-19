@@ -13,6 +13,7 @@ import {DisplayConfig, LayoutComponentSchema, OFExtensions} from '..';
 export interface ContentSchema
   extends Omit<
       LayoutComponentSchema<never>,
+      | 'tooltip'
       | 'multiple'
       | 'defaultValue'
       | 'clearOnHide'

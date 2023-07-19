@@ -48,6 +48,7 @@ expectAssignable<EmailComponentSchema>({
   label: 'Some email',
   key: 'someEmail',
   description: '',
+  tooltip: 'A tooltip',
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,

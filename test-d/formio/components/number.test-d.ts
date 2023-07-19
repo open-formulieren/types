@@ -62,6 +62,7 @@ expectAssignable<NumberComponentSchema>({
   label: 'A sample number',
   key: 'test',
   description: 'Sample description',
+  tooltip: 'A tooltip',
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,

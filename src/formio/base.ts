@@ -51,7 +51,7 @@ export interface OFExtensions {
 // Form.io defines *a lot* of optional properties in their component schema. We can omit
 // the ones we never make use of to reduce confusion for the formio-renderer and
 // formio-builder libraries.
-type UnusedFormioProperties =
+type UnusedFormioProperties = 
   | 'input' // often present in the schema, but I don't think we do anything with it
   | 'tableView'
   | 'protected'
@@ -66,7 +66,6 @@ type UnusedFormioProperties =
   | 'labelWidth'
   | 'labelMargin'
   | 'errorLabel'
-  | 'tooltip'
   | 'tabindex'
   | 'autofocus'
   | 'dbIndex'
