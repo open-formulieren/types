@@ -95,6 +95,16 @@ export interface StrictComponentSchema<T>
   label: string;
 }
 
+interface Multiple<T> {
+  multiple?: true;
+  defaultValue?: T[];
+}
+
+interface Single<T> {
+  multiple?: false;
+  defaultValue?: T;
+}
+
 /**
  * Make a given component schema multiple capable by type narrowing the `defaultValue`
  * based on the (literal) value of the multiple key.
@@ -108,8 +118,8 @@ export interface StrictComponentSchema<T>
  */
 export type MultipleCapable<S> = S extends StrictComponentSchema<infer T>
   ? T extends Array<infer NT>
-    ? S & {multiple?: true; defaultValue?: NT[]}
-    : S & {multiple?: false; defaultValue?: T}
+    ? S & Multiple<NT>
+    : S & Single<T>
   : never;
 
 // (user) inputs
