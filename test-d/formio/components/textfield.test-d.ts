@@ -102,6 +102,7 @@ expectAssignable<TextFieldComponentSchema>({
   prefill: {
     plugin: '',
     attribute: '',
+    identifierRole: 'main',
   },
   // translations tab in builder form
   openForms: {

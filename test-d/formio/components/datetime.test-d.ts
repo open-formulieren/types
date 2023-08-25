@@ -119,6 +119,7 @@ expectAssignable<DateTimeComponentSchema>({
   prefill: {
     plugin: '',
     attribute: '',
+    identifierRole: 'main',
   },
 
   // custom OF extensions
