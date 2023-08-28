@@ -16,6 +16,18 @@ export interface HasValidation<VN extends CuratedValidatorNames> {
   translatedErrors?: ErrorTranslations<ComponentErrorKeys<VN>>;
 }
 
+// any schema having (localised) validators
+export type SchemaWithValidation = HasValidation<CuratedValidatorNames>;
+// given a specific component schema, extract the possible keys that can be used for
+// translated/specific validation errors. This returns the translatable error keys, not
+// the validator names.
+export type PossibleValidatorErrorKeys<S extends SchemaWithValidation> = Exclude<
+  keyof Required<S>['errors'],
+  // MultiCapable causes objects to be part of the type, resulting in keyof Object
+  // also being a valid key, but it isn't.
+  keyof Object
+>;
+
 /**
  * @group Open Forms schema extensions
  */
@@ -95,6 +107,16 @@ export interface StrictComponentSchema<T>
   label: string;
 }
 
+interface Multiple<T> {
+  multiple?: true;
+  defaultValue?: T[];
+}
+
+interface Single<T> {
+  multiple?: false;
+  defaultValue?: T;
+}
+
 /**
  * Make a given component schema multiple capable by type narrowing the `defaultValue`
  * based on the (literal) value of the multiple key.
@@ -108,8 +130,8 @@ export interface StrictComponentSchema<T>
  */
 export type MultipleCapable<S> = S extends StrictComponentSchema<infer T>
   ? T extends Array<infer NT>
-    ? S & {multiple?: true; defaultValue?: NT[]}
-    : S & {multiple?: false; defaultValue?: T}
+    ? S & Multiple<NT>
+    : S & Single<T>
   : never;
 
 // (user) inputs
