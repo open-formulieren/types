@@ -107,12 +107,12 @@ export interface StrictComponentSchema<T>
   label: string;
 }
 
-interface Multiple<T> {
+export interface Multiple<T> {
   multiple?: true;
   defaultValue?: T[];
 }
 
-interface Single<T> {
+export interface Single<T> {
   multiple?: false;
   defaultValue?: T;
 }
