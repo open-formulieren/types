@@ -1,7 +1,21 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
 import {TextFieldComponentSchema} from '../../lib';
-import {PossibleValidatorErrorKeys} from '../../lib/formio/base';
+import {PossibleValidatorErrorKeys, SchemaWithValidation} from '../../lib/formio/base';
+
+// SchemaWithValidation tests
+
+expectAssignable<SchemaWithValidation>({
+  errors: {required: 'foo'},
+});
+
+type EK = PossibleValidatorErrorKeys<SchemaWithValidation>;
+expectAssignable<EK>('required');
+expectNotAssignable<EK>('any string');
+expectNotAssignable<EK>(Symbol('foo'));
+expectNotAssignable<EK>(123);
+
+// Extract error keys tests
 
 type ValidatorErrorKeys = PossibleValidatorErrorKeys<TextFieldComponentSchema>;
 
