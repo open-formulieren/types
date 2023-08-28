@@ -139,16 +139,10 @@ export type MultipleCapable<S> = S extends StrictComponentSchema<infer T>
 /**
  * @group Schema primitives
  */
-export interface InputComponentSchema<
+export type InputComponentSchema<
   T = unknown,
   VN extends CuratedValidatorNames = CuratedValidatorNames
-> extends StrictComponentSchema<T | T[]>,
-    DisplayConfig,
-    OFExtensions {
-  validate?: HasValidation<VN>['validate'];
-  errors?: HasValidation<VN>['errors'];
-  translatedErrors?: HasValidation<VN>['translatedErrors'];
-}
+> = StrictComponentSchema<T | T[]> & DisplayConfig & OFExtensions & HasValidation<VN>;
 
 /**
  * @group Schema primitives
