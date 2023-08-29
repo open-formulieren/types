@@ -7,7 +7,7 @@ type Validator = 'required' | 'min' | 'max';
  * @category Base types
  */
 export interface BaseNumberComponentSchema
-  extends Omit<InputComponentSchema<number, Validator>, 'hideLabel'> {
+  extends Omit<InputComponentSchema<number, Validator>, 'hideLabel' | 'placeholder'> {
   type: 'number';
   /*
     formio does math on `decimalLimit`` and feeds it to lodash.repeat -> must be int at
@@ -15,6 +15,9 @@ export interface BaseNumberComponentSchema
    */
   decimalLimit?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   allowNegative?: boolean;
+  // re-add
+  prefix?: string;
+  suffix?: string;
 }
 
 /**
