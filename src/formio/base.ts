@@ -86,7 +86,9 @@ type UnusedFormioProperties =
   | 'calculateValue'
   | 'allowCalculateOverride'
   | 'refreshOn'
-  | 'clearOnRefresh';
+  | 'clearOnRefresh'
+  // we roll our own validate with only the relevant keys for each component
+  | 'validate';
 
 /**
  * Define a strict variant of Form.io's ComponentSchema interface.
@@ -108,7 +110,7 @@ export interface StrictComponentSchema<T>
 }
 
 export interface Multiple<T> {
-  multiple?: true;
+  multiple: true;
   defaultValue?: T[];
 }
 
@@ -128,10 +130,10 @@ export interface Single<T> {
  * Note that this requires the InputComponentSchema to define upfront that the
  * value can be T or T[], as the base type needs to be sufficiently wide.
  */
-export type MultipleCapable<S> = S extends StrictComponentSchema<infer T>
-  ? T extends Array<infer NT>
+export type MultipleCapable<S> = S extends {defaultValue?: infer DV}
+  ? DV extends Array<infer NT>
     ? S & Multiple<NT>
-    : S & Single<T>
+    : S & Single<DV>
   : never;
 
 // (user) inputs
@@ -148,4 +150,4 @@ export type InputComponentSchema<
  * @group Schema primitives
  */
 export interface LayoutComponentSchema<T = never>
-  extends Omit<ComponentSchema<T>, UnusedFormioProperties | 'validate'> {}
+  extends Omit<ComponentSchema<T>, UnusedFormioProperties> {}
