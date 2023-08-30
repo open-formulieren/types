@@ -1,9 +1,9 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {ContentSchema} from '../../../lib';
+import {ContentComponentSchema} from '../../../lib';
 
 // Minimal schema
-expectAssignable<ContentSchema>({
+expectAssignable<ContentComponentSchema>({
   id: 'eqegfc',
   type: 'content',
   html: '',
@@ -11,7 +11,7 @@ expectAssignable<ContentSchema>({
 });
 
 // Full schema
-expectAssignable<ContentSchema>({
+expectAssignable<ContentComponentSchema>({
   id: 'eqegfc',
   type: 'content',
   // Display tab
@@ -38,19 +38,19 @@ expectAssignable<ContentSchema>({
 });
 
 // Bad customClass value
-expectNotAssignable<ContentSchema>({
+expectNotAssignable<ContentComponentSchema>({
   id: 'eqegfc',
   type: 'content',
   html: '',
   key: 'content',
   customClass: 'arbitraryValue',
-});
+} as const);
 
 // Default value makes no sense for a layout component
-expectNotAssignable<ContentSchema>({
+expectNotAssignable<ContentComponentSchema>({
   id: 'eqegfc',
   type: 'content',
   html: '',
   key: 'content',
   defaultValue: '',
-});
+} as const);
