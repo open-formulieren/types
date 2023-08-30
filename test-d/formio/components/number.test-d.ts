@@ -20,25 +20,14 @@ expectAssignable<NumberComponentSchema>({
   allowNegative: true,
 } as const);
 
-// multiple false and appropriate default value type
+// multiple false (implicit) and appropriate default value type
 expectAssignable<NumberComponentSchema>({
   id: '123',
   type: 'number',
   key: 'aNumber',
   label: 'A number',
-  multiple: false,
   defaultValue: 3,
 } as const);
-
-// multiple true and appropriate default value type
-expectAssignable<NumberComponentSchema>({
-  id: '123',
-  type: 'number',
-  key: 'aNumber',
-  label: 'A number',
-  multiple: true,
-  defaultValue: [2.1],
-});
 
 // different component type
 expectNotAssignable<NumberComponentSchema>({
@@ -52,6 +41,34 @@ expectNotAssignable<NumberComponentSchema>({
   key: 'aNumber',
   label: 'A number',
   hideLabel: true,
+} as const);
+
+// no multiple support -> no array defaultValue
+expectNotAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  defaultValue: [],
+} as const);
+expectNotAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  multiple: true,
+  defaultValue: [],
+} as const);
+
+// invalid, only the number validators may be assignable
+expectNotAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  validate: {
+    maxLength: 100,
+  },
 } as const);
 
 // full, correct schema
@@ -108,44 +125,3 @@ expectAssignable<NumberComponentSchema>({
     },
   },
 });
-
-// invalid, multiple true and non-array default value
-expectNotAssignable<NumberComponentSchema>({
-  id: '8aosjaw',
-  type: 'number',
-  key: 'number',
-  label: 'Some number',
-  multiple: true,
-  defaultValue: 31415926535,
-});
-
-// invalid, multiple false and array default value
-expectNotAssignable<NumberComponentSchema>({
-  id: '8aosjaw',
-  type: 'number',
-  key: 'number',
-  label: 'Some number',
-  multiple: false,
-  defaultValue: [42],
-});
-
-// invalid, multiple true and wrong default value in array element
-expectNotAssignable<NumberComponentSchema>({
-  id: '8aosjaw',
-  type: 'number',
-  key: 'number',
-  label: 'Some number',
-  multiple: true,
-  defaultValue: [''],
-});
-
-// invalid, only the number validators may be assignable
-expectNotAssignable<NumberComponentSchema>({
-  id: '123',
-  type: 'number',
-  key: 'aNumber',
-  label: 'A number',
-  validate: {
-    maxLength: 100,
-  },
-} as const);
