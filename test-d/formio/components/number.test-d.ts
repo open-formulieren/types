@@ -51,6 +51,7 @@ expectNotAssignable<NumberComponentSchema>({
   label: 'A number',
   defaultValue: [],
 } as const);
+
 expectNotAssignable<NumberComponentSchema>({
   id: '123',
   type: 'number',

@@ -10,7 +10,7 @@ import {DisplayConfig, LayoutComponentSchema, OFExtensions} from '..';
  * @group Form.io components
  * @category Concrete types
  */
-export interface ContentSchema
+export interface ContentComponentSchema
   extends Omit<
       LayoutComponentSchema<never>,
       | 'tooltip'
