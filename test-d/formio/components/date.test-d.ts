@@ -20,7 +20,6 @@ expectAssignable<DateComponentSchema>({
     translations: {},
     minDate: {
       mode: 'relativeToVariable',
-      includeToday: null,
       operator: 'add',
       variable: 'someVariable',
       delta: {
@@ -125,28 +124,8 @@ expectAssignable<DateComponentSchema>({
   // custom OF extensions
   openForms: {
     // validation processed server-side
-    minDate: {
-      mode: '',
-      includeToday: null,
-      operator: 'add',
-      variable: 'now',
-      delta: {
-        years: null,
-        months: null,
-        days: null,
-      },
-    },
-    maxDate: {
-      mode: '',
-      includeToday: null,
-      operator: 'add',
-      variable: 'now',
-      delta: {
-        years: null,
-        months: null,
-        days: null,
-      },
-    },
+    minDate: {mode: ''},
+    maxDate: {mode: ''},
     // translations tab in builder form
     translations: {
       nl: [{literal: 'foo', translation: 'bar'}],

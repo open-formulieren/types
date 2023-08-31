@@ -1,6 +1,11 @@
 import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
 import {OFExtensions} from '../base';
-import {DateConstraintConfiguration, DatePickerConfig} from '../dates';
+import {
+  DateConstraintConfiguration,
+  DatePickerConfig,
+  FutureDateConstraint,
+  PastDateConstraint,
+} from '../dates';
 
 type Validator = 'required';
 
@@ -13,8 +18,8 @@ export interface BaseDateTimeComponentSchema
     PrefillConfig {
   type: 'datetime';
   openForms?: OFExtensions['openForms'] & {
-    minDate?: DateConstraintConfiguration;
-    maxDate?: DateConstraintConfiguration;
+    minDate?: Exclude<DateConstraintConfiguration, PastDateConstraint>;
+    maxDate?: Exclude<DateConstraintConfiguration, FutureDateConstraint>;
   };
   datePicker?: DatePickerConfig;
 }

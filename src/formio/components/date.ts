@@ -1,8 +1,21 @@
 import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
 import {OFExtensions} from '../base';
-import {DateConstraintConfiguration, DatePickerConfig} from '../dates';
+import {
+  FutureDateConstraint as BaseFutureDateConstraint,
+  PastDateConstraint as BasePastDateConstraint,
+  DateConstraintConfiguration,
+  DatePickerConfig,
+} from '../dates';
 
 type Validator = 'required';
+
+export interface IncludeToday {
+  includeToday: boolean | null;
+}
+
+type FutureOrPastDateConstraint = BaseFutureDateConstraint | BasePastDateConstraint;
+type FutureDateConstraint = BaseFutureDateConstraint & IncludeToday;
+type PastDateConstraint = BasePastDateConstraint & IncludeToday;
 
 /**
  * @group Form.io components
@@ -13,8 +26,10 @@ export interface BaseDateComponentSchema
     PrefillConfig {
   type: 'date';
   openForms?: OFExtensions['openForms'] & {
-    minDate?: DateConstraintConfiguration;
-    maxDate?: DateConstraintConfiguration;
+    minDate?:
+      | Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint>
+      | FutureDateConstraint;
+    maxDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | PastDateConstraint;
   };
   datePicker?: DatePickerConfig;
 }

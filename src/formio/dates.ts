@@ -21,13 +21,50 @@ export interface DateConstraintDelta {
 /**
  * @group Utilities
  */
-export interface DateConstraintConfiguration {
-  mode: '' | 'fixedValue' | 'future' | 'past' | 'relativeToVariable';
-  includeToday: boolean | null;
+export interface NoDateConstraint {
+  mode: '';
+}
+
+/**
+ * @group Utilities
+ */
+export interface FixedValueDateConstraint {
+  mode: 'fixedValue';
+}
+
+/**
+ * @group Utilities
+ */
+export interface FutureDateConstraint {
+  mode: 'future';
+}
+
+/**
+ * @group Utilities
+ */
+export interface PastDateConstraint {
+  mode: 'past';
+}
+
+/**
+ * @group Utilities
+ */
+export interface RelativeDateConstraint {
+  mode: 'relativeToVariable';
   variable?: string;
   delta: DateConstraintDelta;
   operator?: 'add' | 'subtract';
 }
+
+/**
+ * @group Utilities
+ */
+export type DateConstraintConfiguration =
+  | NoDateConstraint
+  | FixedValueDateConstraint
+  | FutureDateConstraint
+  | PastDateConstraint
+  | RelativeDateConstraint;
 
 /**
  * A lot of this is *guesswork*, except for `minDate`/`maxDate`. At this time it's also
