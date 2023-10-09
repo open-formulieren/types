@@ -32,7 +32,9 @@ expectAssignable<ContentComponentSchema>({
   // Translations
   openForms: {
     translations: {
-      nl: [],
+      nl: {
+        html: '<p>Ik ben vertaald!</p>',
+      },
     },
   },
 });

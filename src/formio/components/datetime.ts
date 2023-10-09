@@ -8,16 +8,19 @@ import {
 } from '../dates';
 
 type Validator = 'required';
+type TranslatableKeys = 'label' | 'description' | 'tooltip';
+
+export type DateTimeInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
  * @category Base types
  */
 export interface BaseDateTimeComponentSchema
-  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
+  extends Omit<DateTimeInputSchema, 'hideLabel'>,
     PrefillConfig {
   type: 'datetime';
-  openForms?: OFExtensions['openForms'] & {
+  openForms?: OFExtensions<TranslatableKeys>['openForms'] & {
     minDate?: Exclude<DateConstraintConfiguration, PastDateConstraint>;
     maxDate?: Exclude<DateConstraintConfiguration, FutureDateConstraint>;
   };

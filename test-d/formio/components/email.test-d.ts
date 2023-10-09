@@ -79,7 +79,7 @@ expectAssignable<EmailComponentSchema>({
   // translations tab in builder form
   openForms: {
     translations: {
-      nl: [{literal: 'foo', translation: 'bar'}],
+      nl: {label: 'foo'},
     },
   },
   // fixed but not editable

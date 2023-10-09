@@ -1,12 +1,18 @@
 import {TranslationsContainer} from '../i18n';
 import {BaseErrorKeys} from './validation';
 
-export interface Translation {
-  literal: string;
-  translation: string;
-}
+/**
+ * A single translated literal.
+ *
+ * Keys should be possible properties of the component.
+ */
+export type Translation<K extends string> = {
+  [key in K]?: string;
+};
 
-export type ComponentTranslations = TranslationsContainer<Translation[]>;
+export type ComponentTranslations<K extends string = string> = TranslationsContainer<
+  Translation<K>
+>;
 export type ErrorTranslations<K extends BaseErrorKeys = BaseErrorKeys> = TranslationsContainer<{
   [key in K]?: string;
 }>;
