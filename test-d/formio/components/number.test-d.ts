@@ -122,7 +122,7 @@ expectAssignable<NumberComponentSchema>({
   // translations tab in builder form
   openForms: {
     translations: {
-      nl: [{literal: 'foo', translation: 'bar'}],
+      nl: {suffix: 'foo', tooltip: 'bar'},
     },
   },
 });

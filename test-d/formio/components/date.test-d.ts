@@ -128,7 +128,10 @@ expectAssignable<DateComponentSchema>({
     maxDate: {mode: ''},
     // translations tab in builder form
     translations: {
-      nl: [{literal: 'foo', translation: 'bar'}],
+      nl: {
+        label: 'foo',
+        description: 'bar',
+      },
     },
   },
 });

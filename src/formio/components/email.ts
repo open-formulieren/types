@@ -1,13 +1,15 @@
 import {InputComponentSchema, MultipleCapable} from '..';
 
 type Validator = 'required';
+type TranslatableKeys = 'label' | 'description' | 'tooltip';
+
+export type EmailInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
  * @category Base types
  */
-export interface BaseEmailComponentSchema
-  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel' | 'disabled'> {
+export interface BaseEmailComponentSchema extends Omit<EmailInputSchema, 'hideLabel' | 'disabled'> {
   type: 'email';
   // additional properties
   autocomplete?: string;

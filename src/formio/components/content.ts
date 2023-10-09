@@ -1,5 +1,7 @@
 import {DisplayConfig, LayoutComponentSchema, OFExtensions} from '..';
 
+type TranslatableKeys = 'html';
+
 /**
  * The content component schema, intended for WYSIWYG content.
  *
@@ -27,7 +29,7 @@ export interface ContentComponentSchema
       | 'placeholder'
     >,
     DisplayConfig,
-    OFExtensions {
+    OFExtensions<TranslatableKeys> {
   id: string;
   key: string;
   type: 'content';

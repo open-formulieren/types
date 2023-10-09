@@ -1,13 +1,16 @@
 import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
 
 type Validator = 'required' | 'maxLength' | 'pattern';
+type TranslatableKeys = 'label' | 'description' | 'tooltip' | 'defaultValue' | 'placeholder';
+
+export type TextFieldInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
  * @category Base types
  */
 export interface BaseTextFieldComponentSchema
-  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
+  extends Omit<TextFieldInputSchema, 'hideLabel'>,
     PrefillConfig {
   type: 'textfield';
   // additional properties

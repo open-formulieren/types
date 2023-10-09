@@ -8,6 +8,9 @@ import {
 } from '../dates';
 
 type Validator = 'required';
+type TranslatableKeys = 'label' | 'description' | 'tooltip';
+
+export type DateInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
 
 export interface IncludeToday {
   includeToday: boolean | null;
@@ -21,11 +24,9 @@ type PastDateConstraint = BasePastDateConstraint & IncludeToday;
  * @group Form.io components
  * @category Base types
  */
-export interface BaseDateComponentSchema
-  extends Omit<InputComponentSchema<string, Validator>, 'hideLabel'>,
-    PrefillConfig {
+export interface BaseDateComponentSchema extends Omit<DateInputSchema, 'hideLabel'>, PrefillConfig {
   type: 'date';
-  openForms?: OFExtensions['openForms'] & {
+  openForms?: OFExtensions<TranslatableKeys>['openForms'] & {
     minDate?:
       | Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint>
       | FutureDateConstraint;

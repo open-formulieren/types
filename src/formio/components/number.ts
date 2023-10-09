@@ -1,13 +1,16 @@
 import {InputComponentSchema} from '..';
 
 type Validator = 'required' | 'min' | 'max';
+type TranslatableKeys = 'label' | 'description' | 'tooltip' | 'suffix';
+
+export type NumberInputSchema = InputComponentSchema<number, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
  * @category Base types
  */
 export interface BaseNumberComponentSchema
-  extends Omit<InputComponentSchema<number, Validator>, 'hideLabel' | 'placeholder'> {
+  extends Omit<NumberInputSchema, 'hideLabel' | 'placeholder'> {
   type: 'number';
   defaultValue?: number;
   /*

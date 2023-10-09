@@ -107,7 +107,10 @@ expectAssignable<TextFieldComponentSchema>({
   // translations tab in builder form
   openForms: {
     translations: {
-      nl: [{literal: 'foo', translation: 'bar'}],
+      nl: {
+        label: 'foo',
+        description: 'bar',
+      },
     },
   },
 });

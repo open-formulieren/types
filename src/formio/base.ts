@@ -51,10 +51,10 @@ export interface PrefillConfig {
 /**
  * @group Open Forms schema extensions
  */
-export interface OFExtensions {
+export interface OFExtensions<TK extends string = string> {
   isSensitiveData?: boolean;
   openForms?: {
-    translations: ComponentTranslations;
+    translations: ComponentTranslations<TK>;
   };
   registration?: {
     attribute: string;
@@ -143,8 +143,9 @@ export type MultipleCapable<S> = S extends {defaultValue?: infer DV}
  */
 export type InputComponentSchema<
   T = unknown,
-  VN extends CuratedValidatorNames = CuratedValidatorNames
-> = StrictComponentSchema<T | T[]> & DisplayConfig & OFExtensions & HasValidation<VN>;
+  VN extends CuratedValidatorNames = CuratedValidatorNames,
+  TK extends string = string
+> = StrictComponentSchema<T | T[]> & DisplayConfig & OFExtensions<TK> & HasValidation<VN>;
 
 /**
  * @group Schema primitives
