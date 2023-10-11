@@ -4,6 +4,7 @@ import {
   DateTimeComponentSchema,
   EmailComponentSchema,
   NumberComponentSchema,
+  PhoneNumberComponentSchema,
   TextFieldComponentSchema,
   TimeComponentSchema,
 } from './components';
@@ -38,6 +39,7 @@ export type AnyComponentSchema =
   | DateComponentSchema
   | DateTimeComponentSchema
   | TimeComponentSchema
+  | PhoneNumberComponentSchema
   | NumberComponentSchema
   // layout
   | ContentComponentSchema;
