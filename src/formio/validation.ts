@@ -3,6 +3,9 @@ import {ValidateOptions} from 'formiojs';
 // extend formio's validate interface with our custom extension(s)
 declare module 'formiojs' {
   interface ValidateOptions {
+    // it's not a validator but formio uses it and we can provide translations support
+    // in the future
+    customMessage?: string;
     plugins?: string[];
     minTime?: string | null;
     maxTime?: string | null;
@@ -24,6 +27,7 @@ export type BaseErrorKeys =
   | 'pattern'
   | 'minDate'
   | 'maxDate'
+  | 'customMessage'
   // custom, added by OF
   | 'minTime'
   | 'maxTime'
@@ -56,6 +60,7 @@ export type CuratedValidatorNames = keyof CuratedValidateOptions;
 
 type ValidatorToErrorMap = Required<{[K in CuratedValidatorNames]: BaseErrorKeys}>;
 const VALIDATOR_TO_ERROR_KEY = {
+  customMessage: 'customMessage',
   required: 'required',
   min: 'min',
   max: 'max',
