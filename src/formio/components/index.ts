@@ -7,6 +7,7 @@ export * from './time';
 export * from './phonenumber';
 export * from './postcode';
 export * from './number';
+export * from './file';
 
 // Layout components
 export * from './content';

@@ -3,6 +3,7 @@ import {
   DateComponentSchema,
   DateTimeComponentSchema,
   EmailComponentSchema,
+  FileComponentSchema,
   NumberComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
@@ -42,6 +43,7 @@ export type AnyComponentSchema =
   | TimeComponentSchema
   | PhoneNumberComponentSchema
   | PostcodeComponentSchema
+  | FileComponentSchema
   | NumberComponentSchema
   // layout
   | ContentComponentSchema;
