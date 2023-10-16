@@ -63,6 +63,14 @@ export interface FileUploadData {
   url: string;
 }
 
+export interface FileUploadConfiguration {
+  // vanilla Form.io
+  name: string;
+  type: string[];
+  // custom, injected by the backend or calculated by the builder
+  allowedTypesLabels: string[];
+}
+
 /**
  * @group Form.io components
  * @category Base types
@@ -70,10 +78,42 @@ export interface FileUploadData {
 export interface BaseFileComponentSchema
   extends Omit<StrictComponentSchema<FileUploadData[]>, UnusedFileProperties | 'errors'>,
     DisplayConfig,
-    OFExtensions<TranslatableKeys>,
+    Omit<OFExtensions<TranslatableKeys>, 'registration'>,
     HasValidation<Validator> {
   type: 'file';
   multiple?: boolean;
+
+  // (possibly) more-constrained existing formio properties
+  storage: 'url';
+  url: string;
+  file: FileUploadConfiguration;
+  filePattern: string; // can be empty string, which sort of acts like wildcard
+  fileMaxSize?: string; // strings like 10MB, 1GB... parsed by Form.io
+
+  // custom open forms properties.
+  // TODO: this should all be merged in the openForms namespace, but that's a rather
+  // big refactor/cleanup :(
+  useConfigFiletypes?: boolean;
+  // backend gloms it with defaults, so it anticipates keys being absent. Note that this
+  // is also only used in the backend!
+  of?: {
+    image?: {
+      resize?: {
+        apply?: boolean;
+        // backend falls back to defaults if the keys are absent, but if they are
+        // provided, they must be ints
+        width?: number;
+        height?: number;
+      };
+    };
+  };
+  maxNumberOfFiles?: number | null; // should maybe go in validate.maxNumberOfFiles?
+  registration?: {
+    informatieobjecttype?: string;
+    bronorganisatie?: string;
+    docVertrouwelijkheidaanduiding?: string;
+    titel?: string;
+  };
 }
 
 export type SingleFileComponentSchema = BaseFileComponentSchema & {
