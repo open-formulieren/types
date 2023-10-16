@@ -15,6 +15,7 @@
     "strictBindCallApply": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": true,
     "paths": {
       "@/*": ["./*"],
     }

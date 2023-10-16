@@ -3,7 +3,12 @@ import {ValidateOptions} from 'formiojs';
 // extend formio's validate interface with our custom extension(s)
 declare module 'formiojs' {
   interface ValidateOptions {
+    // it's not a validator but formio uses it and we can provide translations support
+    // in the future
+    customMessage?: string;
     plugins?: string[];
+    minTime?: string | null;
+    maxTime?: string | null;
   }
 }
 
@@ -21,7 +26,12 @@ export type BaseErrorKeys =
   | 'invalid_email'
   | 'pattern'
   | 'minDate'
-  | 'maxDate';
+  | 'maxDate'
+  | 'customMessage'
+  // custom, added by OF
+  | 'minTime'
+  | 'maxTime'
+  | 'invalid_time';
 
 export type ComponentErrors<Keys extends BaseErrorKeys = BaseErrorKeys> = {
   [K in Keys]?: string;
@@ -50,6 +60,7 @@ export type CuratedValidatorNames = keyof CuratedValidateOptions;
 
 type ValidatorToErrorMap = Required<{[K in CuratedValidatorNames]: BaseErrorKeys}>;
 const VALIDATOR_TO_ERROR_KEY = {
+  customMessage: 'customMessage',
   required: 'required',
   min: 'min',
   max: 'max',
@@ -58,6 +69,9 @@ const VALIDATOR_TO_ERROR_KEY = {
   // 'email': 'invalid_email',  // email component is exposed, but adds the validation implicitly
   minDate: 'minDate',
   maxDate: 'maxDate',
+  // custom, for time component
+  minTime: 'minTime' as 'minTime' | 'invalid_time',
+  maxTime: 'maxTime' as 'maxTime' | 'invalid_time',
 } as const satisfies ValidatorToErrorMap;
 
 // infer valid component error keys from the mapping of validation error code to the
