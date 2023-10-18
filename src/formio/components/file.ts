@@ -17,7 +17,7 @@ export interface FileUploadData {
      */
     url: string;
     /**
-     * Does not seems to be set to a meaningful value.
+     * Does not seem to be set to a meaningful value.
      */
     form: '';
     /**
@@ -37,7 +37,7 @@ export interface FileUploadData {
      */
     baseUrl: string;
     /**
-     * Does not seems to be set to a meaningful value.
+     * Does not seem to be set to a meaningful value.
      */
     project: '';
   };
@@ -130,8 +130,8 @@ export type MultipleFileComponentSchema = BaseFileComponentSchema & {
  * @group Form.io components
  * @category Concrete types
  *
- * Note that while `defaultValue` is defined here, this is only to be able to type
- * define the submission data type. A file upload component cannot actually have
- * default values.
+ * Note that while `defaultValue` is defined here, this is only to be able to derive
+ * the submission data type. A file upload component cannot actually have default
+ * values.
  */
 export type FileComponentSchema = SingleFileComponentSchema | MultipleFileComponentSchema;
