@@ -1,4 +1,5 @@
 import {
+  CheckboxComponentSchema,
   ContentComponentSchema,
   CurrencyComponentSchema,
   DateComponentSchema,
@@ -10,6 +11,7 @@ import {
   NumberComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
+  SelectboxesComponentSchema,
   TextFieldComponentSchema,
   TimeComponentSchema,
 } from './components';
@@ -40,12 +42,14 @@ export * from './components';
 export type AnyComponentSchema =
   // inputs
   | TextFieldComponentSchema
+  | CheckboxComponentSchema
   | EmailComponentSchema
   | DateComponentSchema
   | DateTimeComponentSchema
   | TimeComponentSchema
   | PhoneNumberComponentSchema
   | PostcodeComponentSchema
+  | SelectboxesComponentSchema
   | FileComponentSchema
   | NumberComponentSchema
   | CurrencyComponentSchema

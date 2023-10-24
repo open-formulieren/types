@@ -10,6 +10,8 @@ export * from './postcode';
 export * from './iban';
 export * from './licenseplate';
 export * from './number';
+export * from './checkbox';
+export * from './selectboxes';
 export * from './file';
 
 // Layout components
