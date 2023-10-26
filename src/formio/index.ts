@@ -1,5 +1,6 @@
 import {
   ContentComponentSchema,
+  CurrencyComponentSchema,
   DateComponentSchema,
   DateTimeComponentSchema,
   EmailComponentSchema,
@@ -47,6 +48,7 @@ export type AnyComponentSchema =
   | PostcodeComponentSchema
   | FileComponentSchema
   | NumberComponentSchema
+  | CurrencyComponentSchema
   // special types
   | IbanComponentSchema
   | LicensePlateComponentSchema
