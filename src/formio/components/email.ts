@@ -11,6 +11,7 @@ export type EmailInputSchema = InputComponentSchema<string, Validator, Translata
  */
 export interface BaseEmailComponentSchema extends Omit<EmailInputSchema, 'hideLabel' | 'disabled'> {
   type: 'email';
+  validateOn?: 'blur';
   // additional properties
   autocomplete?: string;
   // OF custom properties

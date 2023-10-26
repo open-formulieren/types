@@ -3,7 +3,7 @@ import {InputComponentSchema} from '..';
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type CheckboxInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
+export type CheckboxInputSchema = InputComponentSchema<boolean, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
@@ -12,4 +12,6 @@ export type CheckboxInputSchema = InputComponentSchema<string, Validator, Transl
 export interface CheckboxComponentSchema
   extends Omit<CheckboxInputSchema, 'hideLabel' | 'disabled'> {
   type: 'checkbox';
+  defaultValue?: boolean;
+  multiple?: false;
 }

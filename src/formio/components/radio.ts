@@ -5,20 +5,15 @@ import {ManualValues, Option, VariableValues} from '../common';
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type SelectboxesInputSchema = InputComponentSchema<
-  Record<string, boolean>,
-  Validator,
-  TranslatableKeys
->;
+export type RadioInputSchema = InputComponentSchema<string | null, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
  * @category Base types
  */
-interface SelectboxesManualValuesSchema
-  extends Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> {
-  type: 'selectboxes';
-  defaultValue?: Record<string, boolean>;
+interface RadioManualValuesSchema extends Omit<RadioInputSchema, 'hideLabel' | 'disabled'> {
+  type: 'radio';
+  defaultValue?: string | null;
   multiple?: false;
   // additional properties
   openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
@@ -29,10 +24,9 @@ interface SelectboxesManualValuesSchema
  * @group Form.io components
  * @category Base types
  */
-interface SelectboxesVariableValuesSchema
-  extends Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> {
-  type: 'selectboxes';
-  defaultValue?: Record<string, boolean>;
+interface RadioVariableValuesSchema extends Omit<RadioInputSchema, 'hideLabel' | 'disabled'> {
+  type: 'radio';
+  defaultValue?: string | null;
   multiple?: false;
   // additional properties
   openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
@@ -42,6 +36,4 @@ interface SelectboxesVariableValuesSchema
  * @group Form.io components
  * @category Concrete types
  */
-export type SelectboxesComponentSchema =
-  | SelectboxesManualValuesSchema
-  | SelectboxesVariableValuesSchema;
+export type RadioComponentSchema = RadioManualValuesSchema | RadioVariableValuesSchema;

@@ -86,6 +86,15 @@ expectAssignable<EmailComponentSchema>({
   validateOn: 'blur',
 });
 
+// validateOn not `blur`
+expectNotAssignable<EmailComponentSchema>({
+  id: 'yejak',
+  type: 'email',
+  key: 'someEmail',
+  label: 'Some email',
+  validateOn: 'change',
+});
+
 // invalid, multiple true and non-array default value
 expectNotAssignable<EmailComponentSchema>({
   id: 'yejak',

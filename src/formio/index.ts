@@ -11,6 +11,7 @@ import {
   NumberComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
+  RadioComponentSchema,
   SelectboxesComponentSchema,
   TextFieldComponentSchema,
   TimeComponentSchema,
@@ -42,20 +43,24 @@ export * from './components';
 export type AnyComponentSchema =
   // inputs
   | TextFieldComponentSchema
-  | CheckboxComponentSchema
   | EmailComponentSchema
   | DateComponentSchema
   | DateTimeComponentSchema
   | TimeComponentSchema
   | PhoneNumberComponentSchema
   | PostcodeComponentSchema
-  | SelectboxesComponentSchema
   | FileComponentSchema
   | NumberComponentSchema
+<<<<<<< HEAD
   | CurrencyComponentSchema
   // special types
   | IbanComponentSchema
   | LicensePlateComponentSchema
+=======
+  | CheckboxComponentSchema
+  | SelectboxesComponentSchema
+  | RadioComponentSchema
+>>>>>>> dab8ef2 (✨ [#2] Apply feedback and add `radio` component)
   // layout
   | ContentComponentSchema;
 
