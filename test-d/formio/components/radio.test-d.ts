@@ -8,6 +8,7 @@ expectAssignable<RadioComponentSchema>({
   type: 'radio',
   key: 'aRadio',
   label: 'A radio',
+  defaultValue: null,
   openForms: {
     dataSrc: 'manual',
     translations: {},
@@ -26,9 +27,10 @@ expectAssignable<RadioComponentSchema>({
   type: 'radio',
   key: 'aRadio',
   label: 'A radio',
+  defaultValue: null,
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'dummy'},
     translations: {},
   },
 });
@@ -82,10 +84,10 @@ expectAssignable<RadioComponentSchema>({
       openForms: {
         translations: {
           en: {
-            dummy: 'dummy_en',
+            label: 'dummy_en',
           },
           nl: {
-            dummy_: 'dummy_nl',  // TODO this should not be possible
+            label: 'dummy_nl',
           }
         }
       }
@@ -197,4 +199,33 @@ expectNotAssignable<RadioComponentSchema>({
     dataSrc: 'variable',
     translations: {},
   },
+});
+
+// manual with both itemsExpression and values
+expectNotAssignable<RadioComponentSchema>({
+  id: 'yejak',
+  type: 'radio',
+  key: 'aRadio',
+  label: 'A radio',
+  openForms: {
+    dataSrc: 'manual',
+    itemsExpression: 'dummy',
+    translations: {},
+  },
+  values: [
+    {
+      value: 'dummy',
+      label: 'dummy',
+      openForms: {
+        translations: {
+          en: {
+            label: 'dummy_en',
+          },
+          nl: {
+            label: 'dummy_nl',
+          }
+        }
+      }
+    }
+  ]
 });

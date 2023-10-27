@@ -8,6 +8,7 @@ expectAssignable<SelectboxesComponentSchema>({
   type: 'selectboxes',
   key: 'someSelectboxes',
   label: 'Some selectboxes',
+  defaultValue: {},
   openForms: {
     dataSrc: 'manual',
     translations: {},
@@ -26,6 +27,7 @@ expectAssignable<SelectboxesComponentSchema>({
   type: 'selectboxes',
   key: 'someSelectboxes',
   label: 'Some selectboxes',
+  defaultValue: {},
   openForms: {
     dataSrc: 'variable',
     itemsExpression: 'dummy',
@@ -67,10 +69,10 @@ expectAssignable<SelectboxesComponentSchema>({
       openForms: {
         translations: {
           en: {
-            dummy: 'dummy_en',
+            label: 'dummy_en',
           },
           nl: {
-            dummy_: 'dummy_nl',  // TODO this should not be possible
+            label: 'dummy_nl',
           }
         }
       }

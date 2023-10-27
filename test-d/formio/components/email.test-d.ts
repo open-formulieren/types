@@ -8,6 +8,7 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
 });
 
 // with additional, email-component specific properties
@@ -16,6 +17,7 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
   autocomplete: 'email',
   confirmationRecipient: false,
 });
@@ -26,6 +28,7 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
   multiple: false,
   defaultValue: '',
 });
@@ -36,6 +39,7 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
   multiple: true,
   defaultValue: [''],
 });
@@ -95,12 +99,21 @@ expectNotAssignable<EmailComponentSchema>({
   validateOn: 'change',
 });
 
+// missing validateOn
+expectNotAssignable<EmailComponentSchema>({
+  id: 'yejak',
+  type: 'email',
+  key: 'someEmail',
+  label: 'Some email',
+});
+
 // invalid, multiple true and non-array default value
 expectNotAssignable<EmailComponentSchema>({
   id: 'yejak',
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 });
@@ -111,6 +124,7 @@ expectNotAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 });
@@ -121,6 +135,7 @@ expectNotAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
+  validateOn: 'blur',
   multiple: true,
   defaultValue: [0],
 });

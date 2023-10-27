@@ -11,26 +11,30 @@ export type RadioInputSchema = InputComponentSchema<string | null, Validator, Tr
  * @group Form.io components
  * @category Base types
  */
-interface RadioManualValuesSchema extends Omit<RadioInputSchema, 'hideLabel' | 'disabled'> {
+interface BaseRadioSchema {
   type: 'radio';
-  defaultValue?: string | null;
+  defaultValue: string | null;
   multiple?: false;
-  // additional properties
-  openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
-  values: Option[];
 }
 
 /**
  * @group Form.io components
  * @category Base types
  */
-interface RadioVariableValuesSchema extends Omit<RadioInputSchema, 'hideLabel' | 'disabled'> {
-  type: 'radio';
-  defaultValue?: string | null;
-  multiple?: false;
-  // additional properties
-  openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
-}
+type RadioManualValuesSchema = Omit<RadioInputSchema, 'hideLabel' | 'disabled'> &
+  BaseRadioSchema & {
+    openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
+    values: Option[];
+  };
+
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+type RadioVariableValuesSchema = Omit<RadioInputSchema, 'hideLabel' | 'disabled'> &
+  BaseRadioSchema & {
+    openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
+  };
 
 /**
  * @group Form.io components

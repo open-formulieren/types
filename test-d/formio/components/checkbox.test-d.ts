@@ -8,6 +8,7 @@ expectAssignable<CheckboxComponentSchema>({
   type: 'checkbox',
   key: 'someCheckbox',
   label: 'Some checkbox',
+  defaultValue: true,
 });
 
 

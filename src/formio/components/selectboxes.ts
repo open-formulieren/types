@@ -15,28 +15,30 @@ export type SelectboxesInputSchema = InputComponentSchema<
  * @group Form.io components
  * @category Base types
  */
-interface SelectboxesManualValuesSchema
-  extends Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> {
+interface BaseSelectboxesSchema {
   type: 'selectboxes';
-  defaultValue?: Record<string, boolean>;
+  defaultValue: Record<string, boolean>;
   multiple?: false;
-  // additional properties
-  openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
-  values: Option[];
 }
 
 /**
  * @group Form.io components
  * @category Base types
  */
-interface SelectboxesVariableValuesSchema
-  extends Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> {
-  type: 'selectboxes';
-  defaultValue?: Record<string, boolean>;
-  multiple?: false;
-  // additional properties
-  openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
-}
+type SelectboxesManualValuesSchema = Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> &
+  BaseSelectboxesSchema & {
+    openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
+    values: Option[];
+  };
+
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+type SelectboxesVariableValuesSchema = Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> &
+  BaseSelectboxesSchema & {
+    openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
+  };
 
 /**
  * @group Form.io components

@@ -12,6 +12,6 @@ export type CheckboxInputSchema = InputComponentSchema<boolean, Validator, Trans
 export interface CheckboxComponentSchema
   extends Omit<CheckboxInputSchema, 'hideLabel' | 'disabled'> {
   type: 'checkbox';
-  defaultValue?: boolean;
+  defaultValue: boolean;
   multiple?: false;
 }

@@ -9,7 +9,7 @@ export interface Option {
   value: string;
   label: string;
   openForms?: {
-    translations: ComponentTranslations;
+    translations: ComponentTranslations<'label'>;
   };
 }
 
