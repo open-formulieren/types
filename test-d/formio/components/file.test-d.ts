@@ -26,6 +26,8 @@ expectAssignable<FileComponentSchema>({
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   file: {
@@ -43,6 +45,8 @@ const explicitSingleUpload: FileComponentSchema = {
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   file: {
@@ -63,6 +67,8 @@ const explicitMultipleUpload: FileComponentSchema = {
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   file: {
@@ -83,6 +89,8 @@ const implicitSingleUpload: FileComponentSchema = {
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   file: {
@@ -106,6 +114,8 @@ expectAssignable<FileComponentSchema>({
   key: 'someInput',
   label: 'Some input',
   // builder sets empty URL, backend dynamically makes this non-empty
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   file: {
@@ -143,6 +153,8 @@ expectAssignable<FileComponentSchema>({
 expectAssignable<FileComponentSchema>({
   id: 'yejak',
   type: 'file',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   // basic tab in builder form
@@ -219,6 +231,8 @@ expectNotAssignable<FileComponentSchema>({
   type: 'content',
   key: 'someFile',
   label: 'Attachment',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 'url',
   url: '',
   file: {
@@ -235,6 +249,8 @@ expectNotAssignable<FileComponentSchema>({
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
+  webcam: false,
+  options: {withCredentials: true},
   storage: 's3', // we only support url
   url: '',
   file: {
