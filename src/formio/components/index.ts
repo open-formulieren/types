@@ -1,5 +1,6 @@
 // Input components
 export * from './textfield';
+export * from './currency';
 export * from './email';
 export * from './date';
 export * from './datetime';
