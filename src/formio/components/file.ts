@@ -82,8 +82,9 @@ export interface BaseFileComponentSchema
     HasValidation<Validator> {
   type: 'file';
   multiple?: boolean;
-
   // (possibly) more-constrained existing formio properties
+  webcam: false;
+  options: {withCredentials: true};
   storage: 'url';
   url: string;
   file: FileUploadConfiguration;
