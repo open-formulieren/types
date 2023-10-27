@@ -56,7 +56,7 @@ expectNotAssignable<CurrencyComponentSchema>({
   hideLabel: true,
 } as const);
 
-expectNotAssignable<CurrencyComponentSchema>({
+expectAssignable<CurrencyComponentSchema>({
   id: '123',
   type: 'currency',
   key: 'aCurrency',
@@ -64,7 +64,7 @@ expectNotAssignable<CurrencyComponentSchema>({
   currency: 'EUR',
   multiple: true,
   defaultValue: [],
-} as const);
+});
 
 // invalid, only the number validators may be assignable
 expectNotAssignable<CurrencyComponentSchema>({
