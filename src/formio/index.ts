@@ -4,6 +4,8 @@ import {
   DateTimeComponentSchema,
   EmailComponentSchema,
   FileComponentSchema,
+  IbanComponentSchema,
+  LicensePlateComponentSchema,
   NumberComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
@@ -45,6 +47,9 @@ export type AnyComponentSchema =
   | PostcodeComponentSchema
   | FileComponentSchema
   | NumberComponentSchema
+  // special types
+  | IbanComponentSchema
+  | LicensePlateComponentSchema
   // layout
   | ContentComponentSchema;
 

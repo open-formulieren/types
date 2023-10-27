@@ -6,6 +6,8 @@ export * from './datetime';
 export * from './time';
 export * from './phonenumber';
 export * from './postcode';
+export * from './iban';
+export * from './licenseplate';
 export * from './number';
 export * from './file';
 
