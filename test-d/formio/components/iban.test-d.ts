@@ -8,6 +8,7 @@ expectAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
+  validateOn: 'blur',
 });
 
 
@@ -17,6 +18,7 @@ expectAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
+  validateOn: 'blur',
   multiple: false,
   defaultValue: '',
 });
@@ -27,6 +29,7 @@ expectAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
+  validateOn: 'blur',
   multiple: true,
   defaultValue: [''],
 });
@@ -59,7 +62,7 @@ expectAssignable<IbanComponentSchema>({
     required: false,
     plugins: [],
   },
-  translatedErrors: {nl: {required: 'Geef email.'}},
+  translatedErrors: {nl: {required: 'Geef IBAN.'}},
   errors: {required: 'Geef email.'},
   // registration tab
   registration: {
@@ -84,12 +87,21 @@ expectNotAssignable<IbanComponentSchema>({
   validateOn: 'change',
 });
 
+// missing validateOn
+expectNotAssignable<IbanComponentSchema>({
+  id: 'yejak',
+  type: 'iban',
+  key: 'someIban',
+  label: 'Some IBAN',
+});
+
 // invalid, multiple true and non-array default value
 expectNotAssignable<IbanComponentSchema>({
   id: 'yejak',
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
+  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 });
@@ -100,6 +112,7 @@ expectNotAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
+  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 });
@@ -110,6 +123,7 @@ expectNotAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
+  validateOn: 'blur',
   multiple: true,
   defaultValue: [0],
 });

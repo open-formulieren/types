@@ -177,3 +177,14 @@ expectNotAssignable<LicensePlateComponentSchema>({
   multiple: true,
   defaultValue: [123],
 } as const);
+
+// missing validateOn
+expectNotAssignable<LicensePlateComponentSchema>({
+  id: 'yejak',
+  type: 'licenseplate',
+  key: 'someInput',
+  label: 'Some input',
+  validate: {
+    pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
+  },
+});

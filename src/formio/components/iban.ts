@@ -11,7 +11,7 @@ export type IbanInputSchema = InputComponentSchema<string, Validator, Translatab
  */
 export interface BaseIbanComponentSchema extends Omit<IbanInputSchema, 'hideLabel' | 'disabled'> {
   type: 'iban';
-  validateOn?: 'blur';
+  validateOn: 'blur';
 }
 
 /**
