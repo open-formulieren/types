@@ -56,16 +56,6 @@ expectNotAssignable<CurrencyComponentSchema>({
   hideLabel: true,
 } as const);
 
-// no multiple support -> no array defaultValue
-expectNotAssignable<CurrencyComponentSchema>({
-  id: '123',
-  type: 'currency',
-  key: 'aCurrency',
-  label: 'A currency',
-  currency: 'EUR',
-  defaultValue: [],
-} as const);
-
 expectNotAssignable<CurrencyComponentSchema>({
   id: '123',
   type: 'currency',
@@ -139,7 +129,40 @@ expectAssignable<CurrencyComponentSchema>({
   // translations tab in builder form
   openForms: {
     translations: {
-      nl: {suffix: 'foo', tooltip: 'bar'},
+      nl: {tooltip: 'bar'},
     },
   },
+});
+
+// invalid, multiple true and non-array default value
+expectNotAssignable<CurrencyComponentSchema>({
+  id: '123',
+  type: 'currency',
+  key: 'aCurrency',
+  label: 'A currency',
+  currency: 'EUR',
+  multiple: true,
+  defaultValue: 2,
+});
+
+// invalid, multiple false and array default value
+expectNotAssignable<CurrencyComponentSchema>({
+  id: '123',
+  type: 'currency',
+  key: 'aCurrency',
+  label: 'A currency',
+  currency: 'EUR',
+  multiple: false,
+  defaultValue: [1],
+});
+
+// invalid, multiple true and wrong default value in array element
+expectNotAssignable<CurrencyComponentSchema>({
+  id: '123',
+  type: 'currency',
+  key: 'aCurrency',
+  label: 'A currency',
+  currency: 'EUR',
+  multiple: true,
+  defaultValue: ['a string and not a number'],
 });
