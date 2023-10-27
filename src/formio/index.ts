@@ -51,16 +51,13 @@ export type AnyComponentSchema =
   | PostcodeComponentSchema
   | FileComponentSchema
   | NumberComponentSchema
-<<<<<<< HEAD
+  | CheckboxComponentSchema
+  | SelectboxesComponentSchema
   | CurrencyComponentSchema
+  | RadioComponentSchema
   // special types
   | IbanComponentSchema
   | LicensePlateComponentSchema
-=======
-  | CheckboxComponentSchema
-  | SelectboxesComponentSchema
-  | RadioComponentSchema
->>>>>>> dab8ef2 (✨ [#2] Apply feedback and add `radio` component)
   // layout
   | ContentComponentSchema;
 

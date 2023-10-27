@@ -35,28 +35,12 @@ expectAssignable<SelectboxesComponentSchema>({
   },
 });
 
-// multiple false and appropriate default value type
-expectAssignable<SelectboxesComponentSchema>({
-  id: 'yejak',
-  type: 'selectboxes',
-  key: 'someSelectboxes',
-  label: 'Some selectboxes',
-  multiple: false,
-  defaultValue: {dummy: true},
-  openForms: {
-    dataSrc: 'variable',
-    itemsExpression: 'dummy',
-    translations: {},
-  },
-});
-
 // values translations
 expectAssignable<SelectboxesComponentSchema>({
   id: 'yejak',
   type: 'selectboxes',
   key: 'someSelectboxes',
   label: 'Some selectboxes',
-  multiple: false,
   defaultValue: {dummy: true},
   openForms: {
     dataSrc: 'manual',
@@ -92,7 +76,6 @@ expectAssignable<SelectboxesComponentSchema>({
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
-  multiple: false,
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
@@ -134,13 +117,13 @@ expectNotAssignable<SelectboxesComponentSchema>({
   label: 'Some selectboxes',
 });
 
-// multiple true not allowed
+// multiple not allowed
 expectNotAssignable<SelectboxesComponentSchema>({
   id: 'yejak',
   type: 'selectboxes',
   key: 'someSelectboxes',
   label: 'Some selectboxes',
-  multiple: true,
+  multiple: 'dummy',
   openForms: {
     dataSrc: 'variable',
     itemsExpression: 'dummy',

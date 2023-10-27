@@ -12,16 +12,6 @@ expectAssignable<CheckboxComponentSchema>({
 });
 
 
-// multiple false and appropriate default value type
-expectAssignable<CheckboxComponentSchema>({
-  id: 'yejak',
-  type: 'checkbox',
-  key: 'someCheckbox',
-  label: 'Some checkbox',
-  multiple: false,
-  defaultValue: true,
-});
-
 // full, correct schema
 expectAssignable<CheckboxComponentSchema>({
   id: 'yejak',
@@ -34,7 +24,6 @@ expectAssignable<CheckboxComponentSchema>({
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
-  multiple: false,
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
@@ -66,13 +55,13 @@ expectAssignable<CheckboxComponentSchema>({
   validateOn: 'blur',
 });
 
-// multiple true not allowed
+// multiple not allowed
 expectNotAssignable<CheckboxComponentSchema>({
   id: 'yejak',
   type: 'checkbox',
   key: 'someCheckbox',
   label: 'Some checkbox',
-  multiple: true,
+  multiple: 'dummy',
 });
 
 // defaultValue not allowed

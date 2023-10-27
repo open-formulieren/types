@@ -14,7 +14,6 @@ export type RadioInputSchema = InputComponentSchema<string | null, Validator, Tr
 interface BaseRadioSchema {
   type: 'radio';
   defaultValue: string | null;
-  multiple?: false;
 }
 
 /**

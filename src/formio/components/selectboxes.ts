@@ -18,7 +18,6 @@ export type SelectboxesInputSchema = InputComponentSchema<
 interface BaseSelectboxesSchema {
   type: 'selectboxes';
   defaultValue: Record<string, boolean>;
-  multiple?: false;
 }
 
 /**

@@ -35,43 +35,12 @@ expectAssignable<RadioComponentSchema>({
   },
 });
 
-// multiple false and appropriate default value type
-expectAssignable<RadioComponentSchema>({
-  id: 'yejak',
-  type: 'radio',
-  key: 'aRadio',
-  label: 'A radio',
-  multiple: false,
-  defaultValue: 'dummy',
-  openForms: {
-    dataSrc: 'variable',
-    itemsExpression: 'dummy',
-    translations: {},
-  },
-});
-
-// multiple false and default value type to null
-expectAssignable<RadioComponentSchema>({
-  id: 'yejak',
-  type: 'radio',
-  key: 'aRadio',
-  label: 'A radio',
-  multiple: false,
-  defaultValue: null,
-  openForms: {
-    dataSrc: 'variable',
-    itemsExpression: 'dummy',
-    translations: {},
-  },
-});
-
 // values translations
 expectAssignable<RadioComponentSchema>({
   id: 'yejak',
   type: 'radio',
   key: 'aRadio',
   label: 'A radio',
-  multiple: false,
   defaultValue: 'dummy',
   openForms: {
     dataSrc: 'manual',
@@ -107,7 +76,6 @@ expectAssignable<RadioComponentSchema>({
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
-  multiple: false,
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
@@ -149,13 +117,13 @@ expectNotAssignable<RadioComponentSchema>({
   label: 'A radio',
 });
 
-// multiple true not allowed
+// multiple not allowed
 expectNotAssignable<RadioComponentSchema>({
   id: 'yejak',
   type: 'radio',
   key: 'aRadio',
   label: 'A radio',
-  multiple: true,
+  multiple: false,
   openForms: {
     dataSrc: 'variable',
     itemsExpression: 'dummy',

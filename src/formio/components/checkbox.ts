@@ -13,5 +13,4 @@ export interface CheckboxComponentSchema
   extends Omit<CheckboxInputSchema, 'hideLabel' | 'disabled'> {
   type: 'checkbox';
   defaultValue: boolean;
-  multiple?: false;
 }
