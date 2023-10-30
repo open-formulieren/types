@@ -70,3 +70,18 @@ import {
   PrefillConfig,
 } from '@open-formulieren/types';
 ```
+
+## Release flow
+
+We don't let `npm` apply the git tags when releasing a new version, instead follow this process:
+
+```bash
+npm version --no-git-tag-version minor
+git commit -am ":bookmark: Bump to version <newVersion>"
+git tag "<newVersion>"
+git push origin main --tags
+```
+
+If you have PGP keys set up, you can use them for the git tag operation.
+
+The CI pipeline will then publish the new version to npmjs.
