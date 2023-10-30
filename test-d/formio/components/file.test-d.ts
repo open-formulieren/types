@@ -260,3 +260,24 @@ expectNotAssignable<FileComponentSchema>({
   },
   filePattern: '*',
 });
+
+// plugins validator is not relevant for file component
+expectNotAssignable<FileComponentSchema>({
+  id: 'yejak',
+  type: 'file' as const,
+  key: 'someFile',
+  label: 'Attachment',
+  webcam: false as const,
+  options: {withCredentials: true} as const,
+  storage: 'url' as const,
+  url: '' as const,
+  file: {
+    name: '',
+    type: ['image/png'],
+    allowedTypesLabels: ['.png'],
+  },
+  filePattern: 'image/*',
+  validate: {
+    plugins: ['some-plugin'],
+  },
+});

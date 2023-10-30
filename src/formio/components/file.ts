@@ -1,4 +1,5 @@
 import {DisplayConfig, HasValidation, OFExtensions, StrictComponentSchema} from '../base';
+import {OFValidateOptions} from '../validation';
 
 type UnusedFileProperties = 'hideLabel' | 'placeholder' | 'disabled' | 'widget' | 'validate';
 
@@ -80,6 +81,7 @@ export interface BaseFileComponentSchema
     DisplayConfig,
     Omit<OFExtensions<TranslatableKeys>, 'registration'>,
     HasValidation<Validator> {
+  validate?: OFValidateOptions<Validator>;
   type: 'file';
   multiple?: boolean;
   // (possibly) more-constrained existing formio properties
