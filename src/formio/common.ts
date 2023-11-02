@@ -1,5 +1,4 @@
-import {JSONObject} from '@/types';
-
+import {JSONObject} from '../types';
 import {ComponentTranslations} from './i18n';
 
 /**

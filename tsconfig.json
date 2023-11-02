@@ -15,10 +15,7 @@
     "strictBindCallApply": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "noErrorTruncation": true,
-    "paths": {
-      "@/*": ["./*"],
-    }
+    "noErrorTruncation": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "lib"]
