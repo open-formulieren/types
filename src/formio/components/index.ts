@@ -11,6 +11,7 @@ export * from './iban';
 export * from './licenseplate';
 export * from './bsn';
 export * from './number';
+export * from './select';
 export * from './checkbox';
 export * from './selectboxes';
 export * from './file';
