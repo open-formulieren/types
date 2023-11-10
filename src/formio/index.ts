@@ -1,4 +1,5 @@
 import {
+  BsnComponentSchema,
   CheckboxComponentSchema,
   ContentComponentSchema,
   CurrencyComponentSchema,
@@ -58,6 +59,7 @@ export type AnyComponentSchema =
   // special types
   | IbanComponentSchema
   | LicensePlateComponentSchema
+  | BsnComponentSchema
   // layout
   | ContentComponentSchema;
 
