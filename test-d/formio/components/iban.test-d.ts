@@ -2,7 +2,7 @@ import {expectAssignable, expectNotAssignable} from 'tsd';
 
 import {IbanComponentSchema} from '../../../lib';
 
-// minimal textfield component schema
+// minimal iban component schema
 expectAssignable<IbanComponentSchema>({
   id: 'yejak',
   type: 'iban',
@@ -127,3 +127,12 @@ expectNotAssignable<IbanComponentSchema>({
   multiple: true,
   defaultValue: [0],
 });
+
+expectNotAssignable<IbanComponentSchema>({
+  id: 'yejak',
+  type: 'iban',
+  key: 'someIban',
+  label: 'Some IBAN',
+  validateOn: 'blur',
+  placeholder: '',
+} as const);
