@@ -10,6 +10,7 @@ export * from './postcode';
 export * from './iban';
 export * from './licenseplate';
 export * from './bsn';
+export * from './npFamilyMembers';
 export * from './number';
 export * from './select';
 export * from './checkbox';
