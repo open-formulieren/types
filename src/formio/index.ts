@@ -14,6 +14,7 @@ import {
   RadioComponentSchema,
   SelectboxesComponentSchema,
   TextFieldComponentSchema,
+  TextareaComponentSchema,
   TimeComponentSchema,
 } from './components';
 
@@ -50,6 +51,7 @@ export type AnyComponentSchema =
   | PhoneNumberComponentSchema
   | PostcodeComponentSchema
   | FileComponentSchema
+  | TextareaComponentSchema
   | NumberComponentSchema
   | CheckboxComponentSchema
   | SelectboxesComponentSchema
