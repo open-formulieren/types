@@ -85,6 +85,7 @@ type UnusedFormioProperties =
   | 'customDefaultValue'
   | 'calculateValue'
   | 'allowCalculateOverride'
+  | 'widget'
   | 'refreshOn'
   | 'clearOnRefresh'
   // we roll our own validate with only the relevant keys for each component
