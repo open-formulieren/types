@@ -13,6 +13,7 @@ import {
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
   RadioComponentSchema,
+  SelectComponentSchema,
   SelectboxesComponentSchema,
   TextFieldComponentSchema,
   TimeComponentSchema,
@@ -52,6 +53,7 @@ export type AnyComponentSchema =
   | PostcodeComponentSchema
   | FileComponentSchema
   | NumberComponentSchema
+  | SelectComponentSchema
   | CheckboxComponentSchema
   | SelectboxesComponentSchema
   | CurrencyComponentSchema
