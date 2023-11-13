@@ -9,7 +9,8 @@ export type IbanInputSchema = InputComponentSchema<string, Validator, Translatab
  * @group Form.io components
  * @category Base types
  */
-export interface BaseIbanComponentSchema extends Omit<IbanInputSchema, 'hideLabel' | 'disabled'> {
+export interface BaseIbanComponentSchema
+  extends Omit<IbanInputSchema, 'hideLabel' | 'disabled' | 'placeholder'> {
   type: 'iban';
   validateOn: 'blur';
 }
