@@ -9,6 +9,7 @@ expectAssignable<TextareaComponentSchema>({
   key: 'someInput',
   label: 'Some input',
   rows: 3,
+  autoExpand: true,
 });
 
 // multiple false and appropriate default value type
@@ -18,6 +19,7 @@ expectAssignable<TextareaComponentSchema>({
   key: 'someEmail',
   label: 'Some input',
   rows: 3,
+  autoExpand: true,
   multiple: false,
   defaultValue: '',
 });
@@ -29,6 +31,7 @@ expectAssignable<TextareaComponentSchema>({
   key: 'someEmail',
   label: 'Some input',
   rows: 3,
+  autoExpand: true,
   multiple: true,
   defaultValue: [''],
 });
@@ -40,6 +43,7 @@ expectAssignable<TextareaComponentSchema>({
   // basic tab in builder form
   label: 'Some input',
   rows: 3,
+  autoExpand: true,
   key: 'someInput',
   description: 'A description',
   tooltip: 'A tooltip',
@@ -106,6 +110,7 @@ expectNotAssignable<TextareaComponentSchema>({
   key: 'someInput',
   label: 'Some input',
   rows: 3,
+  autoExpand: true,
   hideLabel: true,
 });
 
@@ -116,6 +121,7 @@ expectNotAssignable<TextareaComponentSchema>({
   key: 'someInput',
   label: 'Some input',
   rows: 3,
+  autoExpand: true,
   validate: {
     min: 3,
   },
@@ -128,6 +134,7 @@ expectNotAssignable<TextareaComponentSchema>({
   key: 'textarea',
   label: 'Some textarea',
   rows: 3,
+  autoExpand: true,
   multiple: true,
   defaultValue: '',
 });
@@ -139,6 +146,7 @@ expectNotAssignable<TextareaComponentSchema>({
   key: 'textarea',
   label: 'Some textarea',
   rows: 3,
+  autoExpand: true,
   multiple: false,
   defaultValue: [''],
 });
@@ -150,6 +158,7 @@ expectNotAssignable<TextareaComponentSchema>({
   key: 'textarea',
   label: 'Some textarea',
   rows: 3,
+  autoExpand: true,
   multiple: true,
   defaultValue: [0],
 });
@@ -166,4 +175,5 @@ expectNotAssignable<TextareaComponentSchema>({
     identifierRole: 'main',
   },
   rows: 3,
+  autoExpand: true,
 });
