@@ -9,6 +9,7 @@ import {
   FileComponentSchema,
   IbanComponentSchema,
   LicensePlateComponentSchema,
+  NpFamilyMembersComponentSchema,
   NumberComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
@@ -62,6 +63,7 @@ export type AnyComponentSchema =
   | IbanComponentSchema
   | LicensePlateComponentSchema
   | BsnComponentSchema
+  | NpFamilyMembersComponentSchema
   // layout
   | ContentComponentSchema;
 
