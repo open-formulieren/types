@@ -14,7 +14,7 @@ export interface BaseTextareaComponentSchema extends Omit<TextareaInputSchema, '
   // additional properties
   showCharCount?: boolean;
   autocomplete?: string;
-  rows: number;
+  rows?: number;
   autoExpand: boolean;
 }
 
