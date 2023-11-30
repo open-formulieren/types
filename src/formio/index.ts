@@ -2,6 +2,7 @@ import {
   AddressComponentSchema,
   BsnComponentSchema,
   CheckboxComponentSchema,
+  ColumnsComponentSchema,
   ContentComponentSchema,
   CurrencyComponentSchema,
   DateComponentSchema,
@@ -69,7 +70,8 @@ export type AnyComponentSchema =
   | NpFamilyMembersComponentSchema
   | AddressComponentSchema
   // layout
-  | ContentComponentSchema;
+  | ContentComponentSchema
+  | ColumnsComponentSchema;
 
 /**
  * Convenience type alias for all supported concrete component schema types.
