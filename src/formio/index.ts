@@ -8,6 +8,7 @@ import {
   DateComponentSchema,
   DateTimeComponentSchema,
   EmailComponentSchema,
+  FieldsetComponentSchema,
   FileComponentSchema,
   IbanComponentSchema,
   LicensePlateComponentSchema,
@@ -71,7 +72,8 @@ export type AnyComponentSchema =
   | AddressComponentSchema
   // layout
   | ContentComponentSchema
-  | ColumnsComponentSchema;
+  | ColumnsComponentSchema
+  | FieldsetComponentSchema;
 
 /**
  * Convenience type alias for all supported concrete component schema types.
