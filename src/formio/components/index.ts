@@ -21,3 +21,4 @@ export * from './radio';
 
 // Layout components
 export * from './content';
+export * from './columns';
