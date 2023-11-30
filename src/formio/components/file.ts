@@ -130,11 +130,13 @@ export type MultipleFileComponentSchema = BaseFileComponentSchema & {
 };
 
 /**
- * @group Form.io components
- * @category Concrete types
+ * The shape of a file upload component.
  *
  * Note that while `defaultValue` is defined here, this is only to be able to derive
  * the submission data type. A file upload component cannot actually have default
  * values.
+ *
+ * @group Form.io components
+ * @category Concrete types
  */
 export type FileComponentSchema = SingleFileComponentSchema | MultipleFileComponentSchema;
