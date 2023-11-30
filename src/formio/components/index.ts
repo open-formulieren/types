@@ -19,6 +19,7 @@ export * from './selectboxes';
 export * from './file';
 export * from './radio';
 export * from './addressNL';
+export * from './map';
 
 // Layout components
 export * from './content';
