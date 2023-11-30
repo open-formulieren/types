@@ -23,3 +23,4 @@ export * from './address';
 // Layout components
 export * from './content';
 export * from './columns';
+export * from './fieldset';
