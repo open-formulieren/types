@@ -5,9 +5,9 @@ type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
 export interface AddressData {
   postcode: string;
-  housenumber: string;
-  houseletter?: string;
-  housenumberaddition?: string;
+  houseNumber: string;
+  houseLetter: string;
+  houseNumberAddition: string;
 }
 
 export type AddressInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
@@ -17,6 +17,6 @@ export type AddressInputSchema = InputComponentSchema<AddressData, Validator, Tr
  * @category Concrete types
  */
 export interface AddressComponentSchema
-  extends Omit<AddressInputSchema, 'hideLabel' | 'placeholder' | 'disabled'> {
+  extends Omit<AddressInputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
   type: 'address';
 }
