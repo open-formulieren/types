@@ -72,3 +72,97 @@ expectAssignable<EditGridComponentSchema>({
     },
   },
 });
+
+// different component type
+expectNotAssignable<EditGridComponentSchema>({
+  type: 'fieldset',
+} as const);
+
+// multiple: true is implicit
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  multiple: false,
+});
+
+// currently we don't support plugin validators
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  validate: {
+    plugins: [],
+  },
+});
+
+// currently we don't support providing validation error translations
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  validate: {
+    required: true,
+  },
+  translatedErrors: {
+    nl: {
+      required: 'Je moet een waarde opgeven!!!',
+    },
+  },
+});
+
+// the 'showIn*' properties are also not (yet?) exposed
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  showInSummary: true,
+});
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  showInEmail: true,
+});
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  showInPDF: true,
+});
+
+// there's no registration configuration (yet?)
+expectNotAssignable<EditGridComponentSchema>({
+  id: 'yejak',
+  type: 'editgrid' as const,
+  key: 'someEditGrid',
+  label: 'Some edit grid',
+  components: [],
+  disableAddingRemovingRows: false,
+  groupLabel: 'Item',
+  registration: {attribute: ''},
+});

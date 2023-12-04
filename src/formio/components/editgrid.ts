@@ -23,7 +23,7 @@ type KeysToOmit =
   // added by HasValidation, but currently not exposed in the form builder
   | 'errors'
   // added by HasValidation, but currently not exposed in the form builder
-  | 'translatedError'
+  | 'translatedErrors'
   | 'disabled'
   | 'validateOn'
   | 'showInSummary'
