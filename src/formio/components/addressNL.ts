@@ -10,13 +10,13 @@ export interface AddressData {
   houseNumberAddition: string;
 }
 
-export type AddressInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
+export type AddressNLInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
  * @category Concrete types
  */
-export interface AddressComponentSchema
-  extends Omit<AddressInputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
-  type: 'address';
+export interface AddressNLComponentSchema
+  extends Omit<AddressNLInputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
+  type: 'addressNL';
 }

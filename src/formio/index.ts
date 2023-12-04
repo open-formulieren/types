@@ -1,5 +1,5 @@
 import {
-  AddressComponentSchema,
+  AddressNLComponentSchema,
   BsnComponentSchema,
   CheckboxComponentSchema,
   ColumnsComponentSchema,
@@ -69,7 +69,7 @@ export type AnyComponentSchema =
   | LicensePlateComponentSchema
   | BsnComponentSchema
   | NpFamilyMembersComponentSchema
-  | AddressComponentSchema
+  | AddressNLComponentSchema
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema

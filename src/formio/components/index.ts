@@ -18,7 +18,7 @@ export * from './checkbox';
 export * from './selectboxes';
 export * from './file';
 export * from './radio';
-export * from './address';
+export * from './addressNL';
 
 // Layout components
 export * from './content';
