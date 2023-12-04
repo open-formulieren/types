@@ -7,6 +7,7 @@ import {
   CurrencyComponentSchema,
   DateComponentSchema,
   DateTimeComponentSchema,
+  EditGridComponentSchema,
   EmailComponentSchema,
   FieldsetComponentSchema,
   FileComponentSchema,
@@ -72,6 +73,7 @@ export type AnyComponentSchema =
   | AddressNLComponentSchema
   | NpFamilyMembersComponentSchema
   | MapComponentSchema
+  | EditGridComponentSchema
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema
