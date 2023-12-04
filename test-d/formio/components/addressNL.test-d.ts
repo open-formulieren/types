@@ -75,4 +75,4 @@ expectNotAssignable<AddressNLComponentSchema>({
   disabled: true,
   placeholder: '',
   hideLabel: true,
-});
+} as const);

@@ -2,7 +2,7 @@ import {expectAssignable, expectNotAssignable} from 'tsd';
 
 import {EmailComponentSchema} from '../../../lib';
 
-// minimal address component schema
+// minimal email component schema
 expectAssignable<EmailComponentSchema>({
   id: 'yejak',
   type: 'email',
