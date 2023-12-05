@@ -21,6 +21,7 @@ export * from './radio';
 export * from './addressNL';
 export * from './map';
 export * from './editgrid';
+export * from './signature';
 
 // Layout components
 export * from './content';

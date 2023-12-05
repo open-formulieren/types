@@ -21,6 +21,7 @@ import {
   RadioComponentSchema,
   SelectComponentSchema,
   SelectboxesComponentSchema,
+  SignatureComponentSchema,
   TextFieldComponentSchema,
   TextareaComponentSchema,
   TimeComponentSchema,
@@ -72,6 +73,7 @@ export type AnyComponentSchema =
   | BsnComponentSchema
   | AddressNLComponentSchema
   | NpFamilyMembersComponentSchema
+  | SignatureComponentSchema
   | MapComponentSchema
   | EditGridComponentSchema
   // layout
