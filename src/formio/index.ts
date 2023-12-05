@@ -18,6 +18,7 @@ import {
   MapComponentSchema,
   NpFamilyMembersComponentSchema,
   NumberComponentSchema,
+  PasswordComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
   RadioComponentSchema,
@@ -60,7 +61,6 @@ export type AnyComponentSchema =
   | DateTimeComponentSchema
   | TimeComponentSchema
   | PhoneNumberComponentSchema
-  | PostcodeComponentSchema
   | FileComponentSchema
   | TextareaComponentSchema
   | NumberComponentSchema
@@ -84,6 +84,8 @@ export type AnyComponentSchema =
   | ColumnsComponentSchema
   | FieldsetComponentSchema
   // deprecated
+  | PostcodeComponentSchema
+  | PasswordComponentSchema
   | CosignV1ComponentSchema;
 
 /**
