@@ -4,6 +4,7 @@ import {
   CheckboxComponentSchema,
   ColumnsComponentSchema,
   ContentComponentSchema,
+  CosignV1ComponentSchema,
   CurrencyComponentSchema,
   DateComponentSchema,
   DateTimeComponentSchema,
@@ -79,7 +80,9 @@ export type AnyComponentSchema =
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema
-  | FieldsetComponentSchema;
+  | FieldsetComponentSchema
+  // deprecated
+  | CosignV1ComponentSchema;
 
 /**
  * Convenience type alias for all supported concrete component schema types.
