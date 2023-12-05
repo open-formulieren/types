@@ -1,4 +1,5 @@
 import {OFExtensions, StrictComponentSchema} from '..';
+import {EmailInputSchema} from './email';
 
 type TranslatableKeys = 'label' | 'description';
 
@@ -30,8 +31,36 @@ export type CosignV1InputSchema = StrictComponentSchema<never> &
  *
  * @group Form.io components
  * @category Concrete types
+ *
+ * @deprecated
+ *
+ * The in-band cosign flow is problematic with existing DigiD/eHerkenning sessions. It
+ * is currently not scheduled for removal, but we recommend using the V2 variant for
+ * better UX.
  */
 export interface CosignV1ComponentSchema extends Omit<CosignV1InputSchema, KeysToOmit> {
   type: 'coSign';
   authPlugin: string; // plugin identifiers in the backend are dynamic
+}
+
+type V2KeysToOmit = 'hideLabel' | 'disabled' | 'placeholder';
+
+/**
+ * The cosign component type, otherwise known as 'Cosign'.
+ *
+ * This is a custom component sharing most of the functionality with the email input
+ * component type - it collects the e-mail address of any/a cosigner so that they
+ * receive a notification they're expected to cosign. The actual cosigning happens
+ * out-of-band. This component *does* take form data input, as opposed to the V1
+ * component implementation.
+ *
+ * @group Form.io components
+ * @category Concrete types
+ */
+export interface CosignV2ComponentSchema extends Omit<EmailInputSchema, V2KeysToOmit> {
+  type: 'cosign';
+  validateOn: 'blur';
+  authPlugin: string; // plugin identifiers in the backend are dynamic
+  defaultValue?: string; // no multiple support, so must always be a single string
+  autocomplete?: string;
 }

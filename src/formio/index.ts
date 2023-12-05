@@ -5,6 +5,7 @@ import {
   ColumnsComponentSchema,
   ContentComponentSchema,
   CosignV1ComponentSchema,
+  CosignV2ComponentSchema,
   CurrencyComponentSchema,
   DateComponentSchema,
   DateTimeComponentSchema,
@@ -75,6 +76,7 @@ export type AnyComponentSchema =
   | AddressNLComponentSchema
   | NpFamilyMembersComponentSchema
   | SignatureComponentSchema
+  | CosignV2ComponentSchema
   | MapComponentSchema
   | EditGridComponentSchema
   // layout
