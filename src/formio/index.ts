@@ -4,6 +4,8 @@ import {
   CheckboxComponentSchema,
   ColumnsComponentSchema,
   ContentComponentSchema,
+  CosignV1ComponentSchema,
+  CosignV2ComponentSchema,
   CurrencyComponentSchema,
   DateComponentSchema,
   DateTimeComponentSchema,
@@ -74,12 +76,15 @@ export type AnyComponentSchema =
   | AddressNLComponentSchema
   | NpFamilyMembersComponentSchema
   | SignatureComponentSchema
+  | CosignV2ComponentSchema
   | MapComponentSchema
   | EditGridComponentSchema
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema
-  | FieldsetComponentSchema;
+  | FieldsetComponentSchema
+  // deprecated
+  | CosignV1ComponentSchema;
 
 /**
  * Convenience type alias for all supported concrete component schema types.

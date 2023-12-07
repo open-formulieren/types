@@ -22,6 +22,7 @@ export * from './addressNL';
 export * from './map';
 export * from './editgrid';
 export * from './signature';
+export * from './cosign';
 
 // Layout components
 export * from './content';
