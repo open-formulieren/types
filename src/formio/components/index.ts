@@ -20,6 +20,7 @@ export * from './file';
 export * from './radio';
 export * from './addressNL';
 export * from './map';
+export * from './editgrid';
 
 // Layout components
 export * from './content';
