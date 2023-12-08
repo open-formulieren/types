@@ -1,6 +1,5 @@
-import {OFValidateOptions} from 'formio/validation';
-
 import {AnyComponentSchema, InputComponentSchema} from '..';
+import {OFValidateOptions} from '../validation';
 
 type Validator = 'required' | 'maxLength';
 type TranslatableKeys =
