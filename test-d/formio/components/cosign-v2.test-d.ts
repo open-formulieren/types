@@ -51,6 +51,10 @@ expectAssignable<CosignV2ComponentSchema>({
     // translatedErrors is converted into errors by the backend
     required: 'Je moet een waarde opgeven!!!',
   },
+  // registration tab in builder form
+  registration: {
+    attribute: 'foo',
+  },
   // translations tab in builder form
   openForms: {
     translations: {
@@ -109,17 +113,4 @@ expectNotAssignable<CosignV2ComponentSchema>({
   label: 'Some cosign',
   authPlugin: 'digid',
   confirmationRecipient: true,
-});
-
-// registration attributes are not supported
-expectNotAssignable<CosignV2ComponentSchema>({
-  id: 'yejak',
-  type: 'cosign' as const,
-  validateOn: 'blur' as const,
-  key: 'someCoSign',
-  label: 'Some cosign',
-  authPlugin: 'digid',
-  registration: {
-    attribute: 'foo',
-  },
 });

@@ -43,7 +43,7 @@ export interface CosignV1ComponentSchema extends Omit<CosignV1InputSchema, KeysT
   authPlugin: string; // plugin identifiers in the backend are dynamic
 }
 
-type V2KeysToOmit = 'hideLabel' | 'disabled' | 'placeholder' | 'registration';
+type V2KeysToOmit = 'hideLabel' | 'disabled' | 'placeholder';
 
 /**
  * The cosign component type, otherwise known as 'Cosign'.
