@@ -9,7 +9,17 @@ expectAssignable<CurrencyComponentSchema>({
   key: 'aCurrency',
   label: 'A currency',
   currency: 'EUR',
-} as const);
+});
+
+// no defaultValue, but using formio.js default of `null`
+expectAssignable<CurrencyComponentSchema>({
+  id: '123',
+  type: 'currency',
+  key: 'aCurrency',
+  label: 'A currency',
+  currency: 'EUR',
+  defaultValue: null,
+});
 
 // with additional, number-component specific properties
 expectAssignable<CurrencyComponentSchema>({
@@ -20,7 +30,7 @@ expectAssignable<CurrencyComponentSchema>({
   currency: 'EUR',
   decimalLimit: 3,
   allowNegative: true,
-} as const);
+});
 
 // multiple false (implicit) and appropriate default value type
 expectAssignable<CurrencyComponentSchema>({
@@ -30,43 +40,43 @@ expectAssignable<CurrencyComponentSchema>({
   label: 'A currency',
   currency: 'EUR',
   defaultValue: 3,
-} as const);
+});
 
 // different component type
 expectNotAssignable<CurrencyComponentSchema>({
-  type: 'textfield',
-} as const);
+  type: 'textfield' as const,
+});
 
 // wrong currency
 expectNotAssignable<CurrencyComponentSchema>({
   id: '123',
-  type: 'currency',
+  type: 'currency' as const,
   key: 'aCurrency',
   label: 'A currency',
-  currency: 'dummy',
-} as const);
+  currency: 'dummy' as const,
+});
 
 // using unsupported properties
 expectNotAssignable<CurrencyComponentSchema>({
   id: '123',
-  type: 'currency',
+  type: 'currency' as const,
   key: 'aCurrency',
   label: 'A currency',
-  currency: 'EUR',
+  currency: 'EUR' as const,
   hideLabel: true,
-} as const);
+});
 
 // invalid, only the number validators may be assignable
 expectNotAssignable<CurrencyComponentSchema>({
   id: '123',
-  type: 'currency',
+  type: 'currency' as const,
   key: 'aCurrency',
   label: 'A currency',
-  currency: 'EUR',
+  currency: 'EUR' as const,
   validate: {
     maxLength: 100,
   },
-} as const);
+});
 
 // full, correct schema
 expectAssignable<CurrencyComponentSchema>({
@@ -127,20 +137,20 @@ expectAssignable<CurrencyComponentSchema>({
 // invalid, multiple true
 expectNotAssignable<CurrencyComponentSchema>({
   id: '123',
-  type: 'currency',
+  type: 'currency' as const,
   key: 'aCurrency',
   label: 'A currency',
-  currency: 'EUR',
+  currency: 'EUR' as const,
   multiple: true,
 });
 
 // invalid, multiple false and array default value
 expectNotAssignable<CurrencyComponentSchema>({
   id: '123',
-  type: 'currency',
+  type: 'currency' as const,
   key: 'aCurrency',
   label: 'A currency',
-  currency: 'EUR',
+  currency: 'EUR' as const,
   multiple: false,
   defaultValue: [1],
 });
