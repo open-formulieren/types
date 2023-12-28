@@ -3,7 +3,7 @@ import {InputComponentSchema} from '..';
 type Validator = 'required' | 'min' | 'max';
 type TranslatableKeys = 'label' | 'description' | 'tooltip' | 'suffix';
 
-export type NumberInputSchema = InputComponentSchema<number, Validator, TranslatableKeys>;
+export type NumberInputSchema = InputComponentSchema<number | null, Validator, TranslatableKeys>;
 
 /**
  * @group Form.io components
@@ -12,7 +12,7 @@ export type NumberInputSchema = InputComponentSchema<number, Validator, Translat
 export interface BaseNumberComponentSchema
   extends Omit<NumberInputSchema, 'hideLabel' | 'placeholder'> {
   type: 'number';
-  defaultValue?: number;
+  defaultValue?: number | null;
   /*
     formio does math on `decimalLimit`` and feeds it to lodash.repeat -> must be int at
     runtime. There does not appear to be a more elegant way to only allow positive integers.

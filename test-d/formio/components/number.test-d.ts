@@ -8,7 +8,7 @@ expectAssignable<NumberComponentSchema>({
   type: 'number',
   key: 'aNumber',
   label: 'A number',
-} as const);
+});
 
 // with additional, number-component specific properties
 expectAssignable<NumberComponentSchema>({
@@ -18,7 +18,16 @@ expectAssignable<NumberComponentSchema>({
   label: 'A number',
   decimalLimit: 3,
   allowNegative: true,
-} as const);
+});
+
+// no defaultValue, but using formio.js default of `null`
+expectAssignable<NumberComponentSchema>({
+  id: '123',
+  type: 'number',
+  key: 'aNumber',
+  label: 'A number',
+  defaultValue: null,
+});
 
 // multiple false (implicit) and appropriate default value type
 expectAssignable<NumberComponentSchema>({
@@ -27,50 +36,50 @@ expectAssignable<NumberComponentSchema>({
   key: 'aNumber',
   label: 'A number',
   defaultValue: 3,
-} as const);
+});
 
 // different component type
 expectNotAssignable<NumberComponentSchema>({
-  type: 'textfield',
-} as const);
+  type: 'textfield' as const,
+});
 
 // using unsupported properties
 expectNotAssignable<NumberComponentSchema>({
   id: '123',
-  type: 'number',
+  type: 'number' as const,
   key: 'aNumber',
   label: 'A number',
   hideLabel: true,
-} as const);
+});
 
 // no multiple support -> no array defaultValue
 expectNotAssignable<NumberComponentSchema>({
   id: '123',
-  type: 'number',
+  type: 'number' as const,
   key: 'aNumber',
   label: 'A number',
   defaultValue: [],
-} as const);
+});
 
 expectNotAssignable<NumberComponentSchema>({
   id: '123',
-  type: 'number',
+  type: 'number' as const,
   key: 'aNumber',
   label: 'A number',
   multiple: true,
   defaultValue: [],
-} as const);
+});
 
 // invalid, only the number validators may be assignable
 expectNotAssignable<NumberComponentSchema>({
   id: '123',
-  type: 'number',
+  type: 'number' as const,
   key: 'aNumber',
   label: 'A number',
   validate: {
     maxLength: 100,
   },
-} as const);
+});
 
 // full, correct schema
 expectAssignable<NumberComponentSchema>({
