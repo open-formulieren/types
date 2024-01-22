@@ -83,3 +83,8 @@ export interface DatePickerConfig {
   minDate: string | null;
   maxDate: string | null;
 }
+
+/** Flatpickr specific custom options for the widget **/
+export interface PickerCustomOptions {
+  allowInvalidPreload?: boolean;
+}

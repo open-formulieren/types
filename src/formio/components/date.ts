@@ -5,6 +5,7 @@ import {
   PastDateConstraint as BasePastDateConstraint,
   DateConstraintConfiguration,
   DatePickerConfig,
+  PickerCustomOptions,
 } from '../dates';
 
 type Validator = 'required';
@@ -33,6 +34,7 @@ export interface BaseDateComponentSchema extends Omit<DateInputSchema, 'hideLabe
     maxDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | PastDateConstraint;
   };
   datePicker?: DatePickerConfig;
+  customOptions?: PickerCustomOptions;
 }
 
 /**

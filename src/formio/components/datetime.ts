@@ -5,6 +5,7 @@ import {
   DatePickerConfig,
   FutureDateConstraint,
   PastDateConstraint,
+  PickerCustomOptions,
 } from '../dates';
 
 type Validator = 'required';
@@ -25,6 +26,7 @@ export interface BaseDateTimeComponentSchema
     maxDate?: Exclude<DateConstraintConfiguration, FutureDateConstraint>;
   };
   datePicker?: DatePickerConfig;
+  customOptions?: PickerCustomOptions;
 }
 
 /**
