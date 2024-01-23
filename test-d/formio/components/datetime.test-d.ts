@@ -134,6 +134,9 @@ expectAssignable<DateTimeComponentSchema>({
       },
     },
   },
+  customOptions: {
+    allowInvalidPreload: true,
+  },
 });
 
 // invalid, multiple true and non-array default value
