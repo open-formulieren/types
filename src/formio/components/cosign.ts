@@ -60,7 +60,6 @@ type V2KeysToOmit = 'hideLabel' | 'disabled' | 'placeholder';
 export interface CosignV2ComponentSchema extends Omit<EmailInputSchema, V2KeysToOmit> {
   type: 'cosign';
   validateOn: 'blur';
-  authPlugin: string; // plugin identifiers in the backend are dynamic
   defaultValue?: string; // no multiple support, so must always be a single string
   autocomplete?: string;
 }
