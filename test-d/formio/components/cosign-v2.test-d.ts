@@ -9,7 +9,6 @@ expectAssignable<CosignV2ComponentSchema>({
   validateOn: 'blur',
   key: 'someCoSign',
   label: 'Some cosign',
-  authPlugin: 'digid',
 });
 
 // full, correct schema
@@ -22,7 +21,6 @@ expectAssignable<CosignV2ComponentSchema>({
   key: 'someCoSign',
   description: 'A description',
   tooltip: 'A tooltip',
-  authPlugin: 'oidc-digid',
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
@@ -79,7 +77,6 @@ expectNotAssignable<CosignV2ComponentSchema>({
   validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
-  authPlugin: 'digid',
   hideLabel: true,
 });
 
@@ -90,7 +87,6 @@ expectNotAssignable<CosignV2ComponentSchema>({
   validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
-  authPlugin: 'digid',
   multiple: true as boolean,
 });
 expectNotAssignable<CosignV2ComponentSchema>({
@@ -99,7 +95,6 @@ expectNotAssignable<CosignV2ComponentSchema>({
   validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
-  authPlugin: 'digid',
   defaultValue: [],
 });
 
@@ -111,6 +106,5 @@ expectNotAssignable<CosignV2ComponentSchema>({
   validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
-  authPlugin: 'digid',
   confirmationRecipient: true,
 });
