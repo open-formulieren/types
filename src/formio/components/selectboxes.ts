@@ -2,7 +2,7 @@ import {InputComponentSchema} from '..';
 import {OFExtensions} from '../base';
 import {ManualValues, Option, VariableValues} from '../common';
 
-type Validator = 'required';
+type Validator = 'required' | 'minSelectedCount' | 'maxSelectedCount';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
 export type SelectboxesInputSchema = InputComponentSchema<

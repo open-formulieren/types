@@ -28,6 +28,8 @@ export type BaseErrorKeys =
   | 'minDate'
   | 'maxDate'
   | 'customMessage'
+  | 'minSelectedCount'
+  | 'maxSelectedCount'
   // custom, added by OF
   | 'minTime'
   | 'maxTime'
@@ -44,8 +46,6 @@ type UnsupportedValidateNames =
   | 'minLength'
   | 'custom'
   | 'customPrivate'
-  | 'minSelectedCount'
-  | 'maxSelectedCount'
   | 'minWords'
   | 'maxWords'
   | 'email' // email component is exposed, but adds the validation implicitly
@@ -66,6 +66,8 @@ const VALIDATOR_TO_ERROR_KEY = {
   max: 'max',
   maxLength: 'maxLength',
   pattern: 'pattern',
+  minSelectedCount: 'minSelectedCount',
+  maxSelectedCount: 'maxSelectedCount',
   // 'email': 'invalid_email',  // email component is exposed, but adds the validation implicitly
   minDate: 'minDate',
   maxDate: 'maxDate',

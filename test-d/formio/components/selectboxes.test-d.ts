@@ -17,7 +17,7 @@ expectAssignable<SelectboxesComponentSchema>({
     {
       value: 'dummy',
       label: 'dummy',
-    }
+    },
   ],
 });
 
@@ -57,11 +57,11 @@ expectAssignable<SelectboxesComponentSchema>({
           },
           nl: {
             label: 'dummy_nl',
-          }
-        }
-      }
-    }
-  ]
+          },
+        },
+      },
+    },
+  ],
 });
 
 // full, correct schema
@@ -90,6 +90,8 @@ expectAssignable<SelectboxesComponentSchema>({
   validate: {
     required: false,
     plugins: [],
+    minSelectedCount: 2,
+    maxSelectedCount: 3,
   },
   translatedErrors: {nl: {required: 'Geef checkbox.'}},
   errors: {required: 'Geef checkbox.'},
