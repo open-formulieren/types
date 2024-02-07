@@ -1,5 +1,4 @@
-import {OFExtensions, StrictComponentSchema} from '..';
-import {EmailInputSchema} from './email';
+import {InputComponentSchema, OFExtensions, StrictComponentSchema} from '..';
 
 type TranslatableKeys = 'label' | 'description';
 
@@ -43,7 +42,20 @@ export interface CosignV1ComponentSchema extends Omit<CosignV1InputSchema, KeysT
   authPlugin: string; // plugin identifiers in the backend are dynamic
 }
 
-type V2KeysToOmit = 'hideLabel' | 'disabled' | 'placeholder';
+type Validator = 'required';
+
+export interface CosignData {
+  email: string;
+  bsn?: string;
+}
+
+type TranslatableKeysCosignV2 = TranslatableKeys | 'tooltip';
+
+export type CosignV2InputSchema = InputComponentSchema<
+  CosignData,
+  Validator,
+  TranslatableKeysCosignV2
+>;
 
 /**
  * The cosign component type, otherwise known as 'Cosign'.
@@ -57,9 +69,8 @@ type V2KeysToOmit = 'hideLabel' | 'disabled' | 'placeholder';
  * @group Form.io components
  * @category Concrete types
  */
-export interface CosignV2ComponentSchema extends Omit<EmailInputSchema, V2KeysToOmit> {
+export interface CosignV2ComponentSchema
+  extends Omit<CosignV2InputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
   type: 'cosign';
-  validateOn: 'blur';
-  defaultValue?: string; // no multiple support, so must always be a single string
-  autocomplete?: string;
+  checkBsn: boolean;
 }
