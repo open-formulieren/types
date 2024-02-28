@@ -42,8 +42,8 @@ export interface DisplayConfig {
  */
 export interface PrefillConfig {
   prefill?: {
-    plugin: string | null;
-    attribute: string | null;
+    plugin: string; // when no prefill is applicable, the value must be empty string
+    attribute: string; // when no prefill is applicable, the value must be empty string
     identifierRole: 'main' | 'authorised_person';
   };
 }
