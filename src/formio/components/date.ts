@@ -8,7 +8,7 @@ import {
   PickerCustomOptions,
 } from '../dates';
 
-type Validator = 'required';
+type Validator = 'required' | 'minDate' | 'maxDate';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
 export type DateInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
