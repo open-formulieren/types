@@ -6,16 +6,15 @@ import {CosignV2ComponentSchema} from '../../../lib/';
 expectAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign',
-  validateOn: 'blur',
   key: 'someCoSign',
   label: 'Some cosign',
+  checkBsn: true,
 });
 
 // full, correct schema
 expectAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign',
-  validateOn: 'blur',
   // basic tab in builder form
   label: 'Some cosign',
   key: 'someCoSign',
@@ -27,8 +26,11 @@ expectAssignable<CosignV2ComponentSchema>({
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
-  defaultValue: '',
-  autocomplete: 'email',
+  defaultValue: {
+    bsn: '',
+    email: ''
+  },
+  checkBsn: false,
   // advanced tab in builder form
   conditional: {
     show: undefined,
@@ -84,7 +86,6 @@ expectNotAssignable<CosignV2ComponentSchema>({
 expectNotAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign' as const,
-  validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
   multiple: true as boolean,
@@ -92,7 +93,6 @@ expectNotAssignable<CosignV2ComponentSchema>({
 expectNotAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign' as const,
-  validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
   defaultValue: [],
@@ -103,7 +103,6 @@ expectNotAssignable<CosignV2ComponentSchema>({
 expectNotAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign' as const,
-  validateOn: 'blur' as const,
   key: 'someCoSign',
   label: 'Some cosign',
   confirmationRecipient: true,
