@@ -7,8 +7,9 @@ import {ComponentTranslations} from './i18n';
 export interface Option {
   value: string;
   label: string;
+  description?: string;
   openForms?: {
-    translations: ComponentTranslations<'label'>;
+    translations: ComponentTranslations<'label' | 'description'>;
   };
 }
 
