@@ -1,3 +1,47 @@
+/**
+ * @file Types related to (client-side) formio validation and their error message overrides.
+ *
+ * This module is responsible for defining:
+ * - the available validation constraints
+ * - the corresponding (translatable) error codes.
+ *
+ * The `ValidateOptions` interface (which is extended/restricted for our needs) defines
+ * the available validation constraints that can be used by a component. By using our custom
+ * `OFValidateOptions` interface, one can define the available `validate` keys:
+ *
+ * ```ts
+ * type TimeComponentSchema = SomeBaseComponent & {validate: OFValidateOptions<'min' | 'max'>};
+ *
+ * // a component with such a type can be defined as:
+ * const timeComponent: TimeComponentSchema = {
+ *   validate: {
+ *     minTime: '11:00',
+ *     maxTime: '13:00',
+ *   }
+ * }
+ * ```
+ *
+ * Each validation constraint key can provide possible error keys if validation fails. This mapping
+ * of constraint keys (e.g. `minTime`, `maxTime`) to the error keys is defined in `VALIDATOR_TO_ERROR_KEY`.
+ *
+ * This can be used when defining the error messages:
+ *
+ * ```ts
+ * type TimeComponentSchema = SomeBaseComponent & {errors: ComponentErrors<ComponentErrorKeys<'minTime' | 'maxTime'>>};
+ *
+ * // a component with such a type can be defined as:
+ * const numberComponent: NumberComponentSchema = {
+ *   errors: {
+ *     minTime: 'Time should be greater than ...',
+ *     maxTime: 'Time should be lower than ...',
+ *     invalid_time: 'Invalid time', // Both `minTime` and `maxTime` provides the `invalid_time` error key.
+ *   }
+ * }
+ * ```
+ *
+ * NOTE: In some places of the file, we refer to the validation constraint keys as "validator names". Those should
+ * *NOT* be confused with validator keys used in the SDK (e.g. `timeMinMax`).
+ */
 import {ValidateOptions} from 'formiojs';
 
 // extend formio's validate interface with our custom extension(s)
@@ -11,10 +55,6 @@ declare module 'formiojs' {
     maxTime?: string | null;
   }
 }
-
-/**
- * Types related to (client-side) formio validation and their error message overrides.
- */
 
 // See formio.js/src/validator/Validator.js constructor for the source of available
 // (translatable) error keys.
@@ -30,10 +70,12 @@ export type BaseErrorKeys =
   | 'customMessage'
   | 'minSelectedCount'
   | 'maxSelectedCount'
+  | 'invalid_date'
   // custom, added by OF
   | 'minTime'
   | 'maxTime'
-  | 'invalid_time';
+  | 'invalid_time'
+  | 'invalid_datetime';
 
 export type ComponentErrors<Keys extends BaseErrorKeys = BaseErrorKeys> = {
   [K in Keys]?: string;
@@ -69,8 +111,9 @@ const VALIDATOR_TO_ERROR_KEY = {
   minSelectedCount: 'minSelectedCount',
   maxSelectedCount: 'maxSelectedCount',
   // 'email': 'invalid_email',  // email component is exposed, but adds the validation implicitly
-  minDate: 'minDate',
-  maxDate: 'maxDate',
+  // `min/maxDate` is a constraint used by both the date and datetime component:
+  minDate: 'minDate' as 'minDate' | 'invalid_date' | 'invalid_datetime',
+  maxDate: 'maxDate' as 'maxDate' | 'invalid_date' | 'invalid_datetime',
   // custom, for time component
   minTime: 'minTime' as 'minTime' | 'invalid_time',
   maxTime: 'maxTime' as 'maxTime' | 'invalid_time',
