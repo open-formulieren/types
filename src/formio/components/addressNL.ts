@@ -8,6 +8,9 @@ export interface AddressData {
   houseNumber: string;
   houseLetter: string;
   houseNumberAddition: string;
+  city?: string;
+  streetName?: string;
+  secretStreetCity?: string;
 }
 
 export type AddressNLInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
@@ -19,4 +22,5 @@ export type AddressNLInputSchema = InputComponentSchema<AddressData, Validator, 
 export interface AddressNLComponentSchema
   extends Omit<AddressNLInputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
   type: 'addressNL';
+  deriveAddress: boolean;
 }
