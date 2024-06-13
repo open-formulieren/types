@@ -1,7 +1,7 @@
 import {InputComponentSchema, MultipleCapable} from '..';
 
 type Validator = 'required' | 'maxLength' | 'pattern';
-type TranslatableKeys = 'label' | 'description' | 'tooltip' | 'defaultValue' | 'placeholder';
+type TranslatableKeys = 'label' | 'description' | 'tooltip' | 'placeholder';
 
 export type TextareaInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
 
