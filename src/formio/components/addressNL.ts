@@ -23,4 +23,5 @@ export interface AddressNLComponentSchema
   extends Omit<AddressNLInputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
   type: 'addressNL';
   deriveAddress: boolean;
+  layout: 'singleColumn' | 'doubleColumn';
 }
