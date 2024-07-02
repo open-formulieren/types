@@ -9,6 +9,7 @@ expectAssignable<AddressNLComponentSchema>({
   key: 'someAddressNL',
   label: 'Some AddressNL',
   deriveAddress: false,
+  layout: 'doubleColumn',
 });
 
 // appropriate default value type
@@ -18,6 +19,7 @@ expectAssignable<AddressNLComponentSchema>({
   key: 'someAddressNL',
   label: 'Some AddressNL',
   deriveAddress: false,
+  layout: 'doubleColumn',
   defaultValue: {
     postcode: '',
     houseNumber: '',
@@ -45,6 +47,7 @@ expectAssignable<AddressNLComponentSchema>({
   clearOnHide: true,
   isSensitiveData: true,
   deriveAddress: false,
+  layout: 'doubleColumn',
   // Advanced tab
   conditional: {
     show: undefined,
@@ -82,4 +85,5 @@ expectNotAssignable<AddressNLComponentSchema>({
   placeholder: '',
   hideLabel: true,
   deriveAddress: false,
+  layout: 'doubleColumn',
 } as const);
