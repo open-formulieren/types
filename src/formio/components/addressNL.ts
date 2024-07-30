@@ -13,6 +13,16 @@ export interface AddressData {
   secretStreetCity?: string;
 }
 
+export interface ComponentValidation {
+  validate: {pattern: string};
+  translatedErrors: object;
+}
+
+export interface AddressComponents {
+  postcode: ComponentValidation;
+  city: ComponentValidation;
+}
+
 export type AddressNLInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
 
 /**
@@ -24,4 +34,5 @@ export interface AddressNLComponentSchema
   type: 'addressNL';
   deriveAddress: boolean;
   layout: 'singleColumn' | 'doubleColumn';
+  ofComponents?: AddressComponents;
 }
