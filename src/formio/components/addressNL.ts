@@ -1,4 +1,5 @@
 import {InputComponentSchema} from '..';
+import {HasValidation} from '../base';
 import {ComponentTranslations, ErrorTranslations} from '../i18n';
 
 type Validator = 'required';
@@ -15,7 +16,7 @@ export interface AddressData {
 }
 
 export interface ComponentValidation {
-  validate: {pattern: string};
+  validate: HasValidation<'pattern'>;
   translatedErrors: ErrorTranslations;
 }
 
