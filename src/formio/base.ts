@@ -10,8 +10,40 @@ import {
 
 // Refinements of form.io 'builtin' types.
 
-export interface HasValidation<VN extends CuratedValidatorNames> {
-  validate?: OFValidateOptions<VN | 'plugins'>;
+/**
+ * The `HasValidation` interfaces encapsulates properties involved in validation.
+ *
+ * - The `validate` property defines the types for each possible Formio validator, e.g.
+ *   a `pattern` must be a string, while a `maxLength` must be a number. Open Forms
+ *   also supports backend validators that are called async, which is specified as a
+ *   list of strings for the validator names.
+ * - The `errors` property defines the (translated) error messages that may be returned
+ *   by the backend, at runtime. The possible keys are coupled with the possible
+ *   validator names in the `validate` property. The resulting strings are the strings
+ *   that are ultimately presented to the end user.
+ * - The `translatedErrors` property is used to store the translated error messages. The
+ *   keys are the supported language codes, the values have the same shape as the
+ *   `errors` property. Effectively, at runtime, this object is assigned for the active
+ *   language: `Object.assign(obj.errors, obj.translatedErrors[activeLanguage])`.
+ *
+ * There are some generics involed:
+ *
+ * - `VN`: the relevant validator names. Most components only use a small subset of
+ *   validator options depending on their type. E.g. a `pattern` makes no sense for a
+ *   number field, only for textfield/textarea etc. Likewise, `max` only has meaning for
+ *   numbers, but not for strings. Typically you pass in a union:
+ *   `'pattern' | 'maxLength'`. This generic is then used to populate the `errors` and
+ *   `translatedErrors` objects with only the relevant keys.
+ * - `WithPlugins` - most components support plugin validation, but the error messages
+ *   come from the server. The `plugins` key is never included in the `errors` and
+ *   `translatedErrors` objects. Pass `false` if plugin validation is not available for
+ *   the component.
+ */
+export interface HasValidation<
+  VN extends CuratedValidatorNames,
+  WithPlugins extends boolean = true
+> {
+  validate?: OFValidateOptions<WithPlugins extends true ? VN | 'plugins' : VN>;
   errors?: ComponentErrors<ComponentErrorKeys<VN>>;
   translatedErrors?: ErrorTranslations<ComponentErrorKeys<VN>>;
 }
