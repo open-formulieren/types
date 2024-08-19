@@ -1,5 +1,4 @@
 import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
-import {OFExtensions} from '../base';
 import {
   DateConstraintConfiguration,
   DatePickerConfig,
@@ -11,7 +10,17 @@ import {
 type Validator = 'required' | 'minDate' | 'maxDate';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type DateTimeInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
+export interface DateTimeExtensions {
+  minDate?: Exclude<DateConstraintConfiguration, PastDateConstraint>;
+  maxDate?: Exclude<DateConstraintConfiguration, FutureDateConstraint>;
+}
+
+export type DateTimeInputSchema = InputComponentSchema<
+  string,
+  Validator,
+  TranslatableKeys,
+  DateTimeExtensions
+>;
 
 /**
  * @group Form.io components
@@ -21,10 +30,6 @@ export interface BaseDateTimeComponentSchema
   extends Omit<DateTimeInputSchema, 'hideLabel'>,
     PrefillConfig {
   type: 'datetime';
-  openForms?: OFExtensions<TranslatableKeys>['openForms'] & {
-    minDate?: Exclude<DateConstraintConfiguration, PastDateConstraint>;
-    maxDate?: Exclude<DateConstraintConfiguration, FutureDateConstraint>;
-  };
   datePicker?: DatePickerConfig;
   customOptions?: PickerCustomOptions;
 }

@@ -82,12 +82,15 @@ export interface PrefillConfig {
 
 /**
  * @group Open Forms schema extensions
+ *
+ * The `Extra` type variable allows specifying additional, component-specific,
+ * extensions namespaced under the `openForms` key.
  */
-export interface OFExtensions<TK extends string = string> {
+export interface OFExtensions<TK extends string = string, Extra = {}> {
   isSensitiveData?: boolean;
   openForms?: {
     translations: ComponentTranslations<TK>;
-  };
+  } & Extra;
   registration?: {
     attribute: string;
   };
@@ -173,12 +176,19 @@ export type MultipleCapable<S> = S extends {defaultValue?: infer DV}
 
 /**
  * @group Schema primitives
+ *
+ * The `ExtraExtensions` type variable allows specifying additional, component-specific,
+ * extensions namespaced under the `openForms` key.
  */
 export type InputComponentSchema<
   T = unknown,
   VN extends CuratedValidatorNames = CuratedValidatorNames,
-  TK extends string = string
-> = StrictComponentSchema<T | T[]> & DisplayConfig & OFExtensions<TK> & HasValidation<VN>;
+  TK extends string = string,
+  ExtraExtensions = {}
+> = StrictComponentSchema<T | T[]> &
+  DisplayConfig &
+  OFExtensions<TK, ExtraExtensions> &
+  HasValidation<VN>;
 
 /**
  * @group Schema primitives

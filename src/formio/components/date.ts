@@ -1,5 +1,4 @@
 import {InputComponentSchema, MultipleCapable, PrefillConfig} from '..';
-import {OFExtensions} from '../base';
 import {
   FutureDateConstraint as BaseFutureDateConstraint,
   PastDateConstraint as BasePastDateConstraint,
@@ -11,8 +10,6 @@ import {
 type Validator = 'required' | 'minDate' | 'maxDate';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type DateInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
-
 export interface IncludeToday {
   includeToday: boolean | null;
 }
@@ -21,18 +18,24 @@ type FutureOrPastDateConstraint = BaseFutureDateConstraint | BasePastDateConstra
 type FutureDateConstraint = BaseFutureDateConstraint & IncludeToday;
 type PastDateConstraint = BasePastDateConstraint & IncludeToday;
 
+export interface DateExtensions {
+  minDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | FutureDateConstraint;
+  maxDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | PastDateConstraint;
+}
+
+export type DateInputSchema = InputComponentSchema<
+  string,
+  Validator,
+  TranslatableKeys,
+  DateExtensions
+>;
+
 /**
  * @group Form.io components
  * @category Base types
  */
 export interface BaseDateComponentSchema extends Omit<DateInputSchema, 'hideLabel'>, PrefillConfig {
   type: 'date';
-  openForms?: OFExtensions<TranslatableKeys>['openForms'] & {
-    minDate?:
-      | Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint>
-      | FutureDateConstraint;
-    maxDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | PastDateConstraint;
-  };
   datePicker?: DatePickerConfig;
   customOptions?: PickerCustomOptions;
 }
