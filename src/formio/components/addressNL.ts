@@ -1,5 +1,5 @@
-import {InputComponentSchema} from '..';
-import {ComponentTranslations, ErrorTranslations} from '../i18n';
+import {HasValidation, InputComponentSchema} from '..';
+import {ComponentTranslations} from '../i18n';
 
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
@@ -14,14 +14,9 @@ export interface AddressData {
   secretStreetCity?: string;
 }
 
-export interface ComponentValidation {
-  validate: {pattern: string};
-  translatedErrors: ErrorTranslations;
-}
-
 export interface AddressComponents {
-  postcode?: ComponentValidation;
-  city?: ComponentValidation;
+  postcode?: HasValidation<'pattern', false>;
+  city?: HasValidation<'pattern', false>;
 }
 
 export type AddressNLInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
