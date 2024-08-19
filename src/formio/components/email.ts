@@ -3,7 +3,16 @@ import {InputComponentSchema, MultipleCapable} from '..';
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type EmailInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
+export interface EmailExtensions {
+  requireVerification?: boolean;
+}
+
+export type EmailInputSchema = InputComponentSchema<
+  string,
+  Validator,
+  TranslatableKeys,
+  EmailExtensions
+>;
 
 /**
  * @group Form.io components
