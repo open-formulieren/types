@@ -85,6 +85,7 @@ expectAssignable<EmailComponentSchema>({
     translations: {
       nl: {label: 'foo'},
     },
+    requireVerification: true,
   },
   // fixed but not editable
   validateOn: 'blur',

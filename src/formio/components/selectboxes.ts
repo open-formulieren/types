@@ -1,14 +1,15 @@
 import {InputComponentSchema} from '..';
-import {OFExtensions} from '../base';
 import {ManualValues, Option, VariableValues} from '../common';
+import {Require} from '../util';
 
 type Validator = 'required' | 'minSelectedCount' | 'maxSelectedCount';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type SelectboxesInputSchema = InputComponentSchema<
+export type SelectboxesInputSchema<Extensions> = InputComponentSchema<
   Record<string, boolean>,
   Validator,
-  TranslatableKeys
+  TranslatableKeys,
+  Extensions
 >;
 
 /**
@@ -24,9 +25,11 @@ interface BaseSelectboxesSchema {
  * @group Form.io components
  * @category Base types
  */
-type SelectboxesManualValuesSchema = Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> &
+type SelectboxesManualValuesSchema = Omit<
+  SelectboxesInputSchema<ManualValues>,
+  'hideLabel' | 'disabled'
+> &
   BaseSelectboxesSchema & {
-    openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
     values: Option[];
   };
 
@@ -34,15 +37,17 @@ type SelectboxesManualValuesSchema = Omit<SelectboxesInputSchema, 'hideLabel' | 
  * @group Form.io components
  * @category Base types
  */
-type SelectboxesVariableValuesSchema = Omit<SelectboxesInputSchema, 'hideLabel' | 'disabled'> &
-  BaseSelectboxesSchema & {
-    openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
-  };
+type SelectboxesVariableValuesSchema = Omit<
+  SelectboxesInputSchema<VariableValues>,
+  'hideLabel' | 'disabled'
+> &
+  BaseSelectboxesSchema;
 
 /**
  * @group Form.io components
  * @category Concrete types
  */
-export type SelectboxesComponentSchema =
-  | SelectboxesManualValuesSchema
-  | SelectboxesVariableValuesSchema;
+export type SelectboxesComponentSchema = Require<
+  SelectboxesManualValuesSchema | SelectboxesVariableValuesSchema,
+  'openForms'
+>;

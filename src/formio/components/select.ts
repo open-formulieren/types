@@ -1,11 +1,17 @@
 import {InputComponentSchema} from '..';
-import {MultipleCapable, OFExtensions} from '../base';
+import {MultipleCapable} from '../base';
 import {ManualValues, Option, VariableValues} from '../common';
+import {Require} from '../util';
 
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type SelectInputSchema = InputComponentSchema<string, Validator, TranslatableKeys>;
+export type SelectInputSchema<Extensions> = InputComponentSchema<
+  string,
+  Validator,
+  TranslatableKeys,
+  Extensions
+>;
 
 export type SelectUnsupported = 'hideLabel' | 'disabled' | 'placeholder';
 
@@ -26,9 +32,8 @@ interface BaseSelectSchema {
  * @group Form.io components
  * @category Base types
  */
-type SelectManualValuesSchema = Omit<SelectInputSchema, SelectUnsupported> &
+type SelectManualValuesSchema = Omit<SelectInputSchema<ManualValues>, SelectUnsupported> &
   BaseSelectSchema & {
-    openForms: OFExtensions<TranslatableKeys>['openForms'] & ManualValues;
     data: {
       values: Option[];
     };
@@ -38,15 +43,13 @@ type SelectManualValuesSchema = Omit<SelectInputSchema, SelectUnsupported> &
  * @group Form.io components
  * @category Base types
  */
-type SelectVariableValuesSchema = Omit<SelectInputSchema, SelectUnsupported> &
-  BaseSelectSchema & {
-    openForms: OFExtensions<TranslatableKeys>['openForms'] & VariableValues;
-  };
+type SelectVariableValuesSchema = Omit<SelectInputSchema<VariableValues>, SelectUnsupported> &
+  BaseSelectSchema;
 
 /**
  * @group Form.io components
  * @category Concrete types
  */
 export type SelectComponentSchema = MultipleCapable<
-  SelectManualValuesSchema | SelectVariableValuesSchema
+  Require<SelectManualValuesSchema | SelectVariableValuesSchema, 'openForms'>
 >;

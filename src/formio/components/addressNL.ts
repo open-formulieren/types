@@ -1,5 +1,4 @@
 import {HasValidation, InputComponentSchema} from '..';
-import {ComponentTranslations} from '../i18n';
 
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
@@ -19,22 +18,24 @@ export interface AddressComponents {
   city?: HasValidation<'pattern', false>;
 }
 
-export type AddressNLInputSchema = InputComponentSchema<AddressData, Validator, TranslatableKeys>;
+export interface AddressNLExtensions {
+  components?: AddressComponents;
+}
+
+export type AddressNLInputSchema = InputComponentSchema<
+  AddressData,
+  Validator,
+  TranslatableKeys,
+  AddressNLExtensions
+>;
 
 /**
  * @group Form.io components
  * @category Concrete types
  */
 export interface AddressNLComponentSchema
-  extends Omit<
-    AddressNLInputSchema,
-    'hideLabel' | 'placeholder' | 'disabled' | 'validateOn' | 'openForms'
-  > {
+  extends Omit<AddressNLInputSchema, 'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'> {
   type: 'addressNL';
   deriveAddress: boolean;
   layout: 'singleColumn' | 'doubleColumn';
-  openForms?: {
-    components?: AddressComponents;
-    translations?: ComponentTranslations<TranslatableKeys>;
-  };
 }
