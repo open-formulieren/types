@@ -6,8 +6,10 @@ type TranslatableKeys = 'label' | 'description' | 'tooltip';
 export type ProductPriceInputSchema = InputComponentSchema<never, Validator, TranslatableKeys>;
 
 /**
+ * Experimental feature that could change.
+ * @experimental
  * @group Form.io components
- * @category Base types
+ * @category Concrete types
  */
 export interface ProductPriceComponentSchema
   extends Omit<ProductPriceInputSchema, 'hideLabel' | 'disabled'> {
