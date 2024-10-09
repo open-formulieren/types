@@ -8,7 +8,6 @@ expectAssignable<ProductPriceComponentSchema>({
   type: 'productPrice',
   key: 'aProductPrice',
   label: 'A Product Price',
-  product: '123'
 } as const);
 
 // different component type
@@ -22,7 +21,6 @@ expectNotAssignable<ProductPriceComponentSchema>({
   type: 'productPrice',
   key: 'aProductPrice',
   label: 'A Product Price',
-  product: '123',
   hideLabel: true,
 } as const);
 
@@ -32,7 +30,6 @@ expectNotAssignable<ProductPriceComponentSchema>({
   type: 'productPrice',
   key: 'aProductPrice',
   label: 'A Product Price',
-  product: '123',
   defaultValue: 1,
 });
 
@@ -43,7 +40,6 @@ expectAssignable<ProductPriceComponentSchema>({
   // basic tab in builder form
   key: 'aProductPrice',
   label: 'A Product Price',
-  product: '123',
   description: 'Sample description',
   tooltip: 'A tooltip',
   showInSummary: true,
