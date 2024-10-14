@@ -215,8 +215,9 @@ expectAssignable<FileComponentSchema>({
     docVertrouwelijkheidaanduiding: 'openbaar',
     titel: '',
   },
-  // translations tab in builder form
+  // (mostly) translations tab in builder form
   openForms: {
+    softRequired: true,
     translations: {
       nl: {
         label: 'Bestand toevoegen',
