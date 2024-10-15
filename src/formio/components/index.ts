@@ -30,3 +30,4 @@ export * from './password';
 export * from './content';
 export * from './columns';
 export * from './fieldset';
+export * from './softRequiredErrors';

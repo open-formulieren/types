@@ -26,6 +26,7 @@ import {
   SelectComponentSchema,
   SelectboxesComponentSchema,
   SignatureComponentSchema,
+  SoftRequiredErrorsComponentSchema,
   TextFieldComponentSchema,
   TextareaComponentSchema,
   TimeComponentSchema,
@@ -85,6 +86,7 @@ export type AnyComponentSchema =
   | ContentComponentSchema
   | ColumnsComponentSchema
   | FieldsetComponentSchema
+  | SoftRequiredErrorsComponentSchema
   // deprecated
   | PostcodeComponentSchema
   | PasswordComponentSchema

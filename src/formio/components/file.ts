@@ -79,7 +79,7 @@ export interface FileUploadConfiguration {
 export interface BaseFileComponentSchema
   extends Omit<StrictComponentSchema<FileUploadData[]>, UnusedFileProperties | 'errors'>,
     DisplayConfig,
-    Omit<OFExtensions<TranslatableKeys>, 'registration'>,
+    Omit<OFExtensions<TranslatableKeys, {softRequired?: boolean}>, 'registration'>,
     HasValidation<Validator> {
   validate?: OFValidateOptions<Validator>;
   type: 'file';
