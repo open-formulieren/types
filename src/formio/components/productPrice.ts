@@ -14,5 +14,4 @@ export type ProductPriceInputSchema = InputComponentSchema<never, Validator, Tra
 export interface ProductPriceComponentSchema
   extends Omit<ProductPriceInputSchema, 'hideLabel' | 'disabled'> {
   type: 'productPrice';
-  product: string;
 }
