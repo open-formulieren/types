@@ -1,4 +1,4 @@
-import {InputComponentSchema} from '..';
+import {InputComponentSchema, PrefillConfig} from '..';
 
 type Validator = 'required' | 'min' | 'max';
 type TranslatableKeys = 'label' | 'description' | 'tooltip' | 'suffix';
@@ -10,7 +10,8 @@ export type NumberInputSchema = InputComponentSchema<number | null, Validator, T
  * @category Base types
  */
 export interface BaseNumberComponentSchema
-  extends Omit<NumberInputSchema, 'hideLabel' | 'placeholder'> {
+  extends Omit<NumberInputSchema, 'hideLabel' | 'placeholder'>,
+    PrefillConfig {
   type: 'number';
   defaultValue?: number | null;
   /*
