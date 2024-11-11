@@ -26,6 +26,10 @@ interface BaseSelectSchema {
   // dynamic values into data.values already.
   // So our openForms.dataSrc == itemsExpression results in dataSrc == values.
   dataSrc: 'values';
+  // Fix for https://github.com/open-formulieren/open-forms/issues/4772
+  // ensure the datatype is set to string to avoid formio casting it to other
+  // types (such as integer)
+  dataType: 'string';
 }
 
 /**
