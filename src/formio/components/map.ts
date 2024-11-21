@@ -42,6 +42,10 @@ export interface MapComponentSchema
     lng?: number;
   };
   /**
+   * The tile layer identifier used for the map component tile layer.
+   */
+  tileLayerIdentifier?: string;
+  /**
    * If true, the backend must apply the globally configured defaults to a particular
    * map instance. This results in populating `defaultZoom` and `initialCenter`, so for
    * the SDK this property has no effect.
