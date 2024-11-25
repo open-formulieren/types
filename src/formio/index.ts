@@ -18,7 +18,6 @@ import {
   MapComponentSchema,
   NpFamilyMembersComponentSchema,
   NumberComponentSchema,
-  PasswordComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
   ProductPriceComponentSchema,
@@ -89,7 +88,6 @@ export type AnyComponentSchema =
   | SoftRequiredErrorsComponentSchema
   // deprecated
   | PostcodeComponentSchema
-  | PasswordComponentSchema
   | CosignV1ComponentSchema;
 
 /**

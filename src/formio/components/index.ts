@@ -24,7 +24,6 @@ export * from './map';
 export * from './editgrid';
 export * from './signature';
 export * from './cosign';
-export * from './password';
 
 // Layout components
 export * from './content';
