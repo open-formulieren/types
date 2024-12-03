@@ -42,6 +42,15 @@ export interface MapComponentSchema
     lng?: number;
   };
   /**
+   * Interaction types users can use when interacting with the map.
+   */
+  interactions?: {
+    circle: boolean,
+    polygon: boolean,
+    polyline: boolean,
+    marker: boolean,
+  }
+  /**
    * If true, the backend must apply the globally configured defaults to a particular
    * map instance. This results in populating `defaultZoom` and `initialCenter`, so for
    * the SDK this property has no effect.
