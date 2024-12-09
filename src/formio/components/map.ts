@@ -46,6 +46,15 @@ export interface MapComponentSchema
    */
   tileLayerIdentifier?: string;
   /**
+   * The url belonging to the connected tile layer object, determined by
+   * tileLayerIdentifier.
+   *
+   * This value should not be definable by admins, but should be fetched
+   * from the related tile layer object. This happens when fetching the
+   * component from the backend.
+   */
+  tileLayerUrl?: string;
+  /**
    * If true, the backend must apply the globally configured defaults to a particular
    * map instance. This results in populating `defaultZoom` and `initialCenter`, so for
    * the SDK this property has no effect.
