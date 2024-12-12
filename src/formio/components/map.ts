@@ -55,6 +55,18 @@ export interface MapComponentSchema
    */
   tileLayerUrl?: string;
   /**
+   * Interactions users can use when working with the map component.
+   *
+   * These interaction options are based on the options available in leaflet draw:
+   * https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html#drawoptions
+   */
+  interactions?: {
+    circle: boolean;
+    polygon: boolean;
+    polyline: boolean;
+    marker: boolean;
+  };
+  /**
    * If true, the backend must apply the globally configured defaults to a particular
    * map instance. This results in populating `defaultZoom` and `initialCenter`, so for
    * the SDK this property has no effect.
