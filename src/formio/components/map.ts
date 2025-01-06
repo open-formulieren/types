@@ -61,7 +61,6 @@ export interface MapComponentSchema
    * https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html#drawoptions
    */
   interactions?: {
-    circle: boolean;
     polygon: boolean;
     polyline: boolean;
     marker: boolean;
