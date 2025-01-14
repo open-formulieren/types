@@ -27,3 +27,12 @@ export interface VariableValues {
   dataSrc: 'variable';
   itemsExpression: string | JSONObject;
 }
+
+/**
+ * @category Utilities
+ */
+export interface ReferentielijstenValues {
+  dataSrc: 'referentielijsten';
+  service: string;
+  code: string;
+}

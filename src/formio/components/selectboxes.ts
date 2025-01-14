@@ -1,5 +1,5 @@
 import {InputComponentSchema} from '..';
-import {ManualValues, Option, VariableValues} from '../common';
+import {ManualValues, Option, ReferentielijstenValues, VariableValues} from '../common';
 import {Require} from '../util';
 
 type Validator = 'required' | 'minSelectedCount' | 'maxSelectedCount';
@@ -11,6 +11,8 @@ export type SelectboxesInputSchema<Extensions> = InputComponentSchema<
   TranslatableKeys,
   Extensions
 >;
+
+export type SelectboxesUnsupported = 'hideLabel' | 'disabled';
 
 /**
  * @group Form.io components
@@ -27,7 +29,7 @@ interface BaseSelectboxesSchema {
  */
 type SelectboxesManualValuesSchema = Omit<
   SelectboxesInputSchema<ManualValues>,
-  'hideLabel' | 'disabled'
+  SelectboxesUnsupported
 > &
   BaseSelectboxesSchema & {
     values: Option[];
@@ -39,7 +41,17 @@ type SelectboxesManualValuesSchema = Omit<
  */
 type SelectboxesVariableValuesSchema = Omit<
   SelectboxesInputSchema<VariableValues>,
-  'hideLabel' | 'disabled'
+  SelectboxesUnsupported
+> &
+  BaseSelectboxesSchema;
+
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+type SelectboxesReferentielijstenValuesSchema = Omit<
+  SelectboxesInputSchema<ReferentielijstenValues>,
+  SelectboxesUnsupported
 > &
   BaseSelectboxesSchema;
 
@@ -48,6 +60,8 @@ type SelectboxesVariableValuesSchema = Omit<
  * @category Concrete types
  */
 export type SelectboxesComponentSchema = Require<
-  SelectboxesManualValuesSchema | SelectboxesVariableValuesSchema,
+  | SelectboxesManualValuesSchema
+  | SelectboxesVariableValuesSchema
+  | SelectboxesReferentielijstenValuesSchema,
   'openForms'
 >;
