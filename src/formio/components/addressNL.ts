@@ -11,6 +11,7 @@ export interface AddressData {
   city?: string;
   streetName?: string;
   secretStreetCity?: string;
+  autoPopulated?: boolean;
 }
 
 export interface AddressComponents {

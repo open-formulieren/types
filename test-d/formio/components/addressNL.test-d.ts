@@ -28,6 +28,7 @@ expectAssignable<AddressNLComponentSchema>({
     city: '',
     streetName: '',
     secretStreetCity: '',
+    autoPopulated: false,
   },
 });
 
