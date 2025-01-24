@@ -11,6 +11,7 @@ export interface AddressData {
   city?: string;
   streetName?: string;
   secretStreetCity?: string;
+  autoPopulated?: boolean;
 }
 
 export interface AddressComponents {
@@ -38,4 +39,5 @@ export interface AddressNLComponentSchema
   type: 'addressNL';
   deriveAddress: boolean;
   layout: 'singleColumn' | 'doubleColumn';
+  showStreetCity: boolean;
 }
