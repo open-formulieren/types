@@ -12,6 +12,7 @@ expectAssignable<SelectboxesComponentSchema>({
   openForms: {
     dataSrc: 'manual',
     translations: {},
+    transformData: false,
   },
   values: [
     {
@@ -32,6 +33,7 @@ expectAssignable<SelectboxesComponentSchema>({
     dataSrc: 'variable',
     itemsExpression: 'dummy',
     translations: {},
+    transformData: false,
   },
 });
 
@@ -45,6 +47,7 @@ expectAssignable<SelectboxesComponentSchema>({
   openForms: {
     dataSrc: 'manual',
     translations: {},
+    transformData: false,
   },
   values: [
     {
@@ -106,6 +109,7 @@ expectAssignable<SelectboxesComponentSchema>({
     },
     dataSrc: 'variable',
     itemsExpression: 'dummy',
+    transformData: false,
   },
   // fixed but not editable
   validateOn: 'blur',
