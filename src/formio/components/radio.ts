@@ -1,5 +1,5 @@
 import {InputComponentSchema} from '..';
-import {ManualValues, Option, VariableValues} from '../common';
+import {ManualValues, Option, ReferentielijstenValues, VariableValues} from '../common';
 import {Require} from '../util';
 
 type Validator = 'required';
@@ -11,6 +11,8 @@ export type RadioInputSchema<Extensions> = InputComponentSchema<
   TranslatableKeys,
   Extensions
 >;
+
+export type RadioUnsupported = 'hideLabel' | 'disabled';
 
 /**
  * @group Form.io components
@@ -25,7 +27,7 @@ interface BaseRadioSchema {
  * @group Form.io components
  * @category Base types
  */
-type RadioManualValuesSchema = Omit<RadioInputSchema<ManualValues>, 'hideLabel' | 'disabled'> &
+type RadioManualValuesSchema = Omit<RadioInputSchema<ManualValues>, RadioUnsupported> &
   BaseRadioSchema & {
     values: Option[];
   };
@@ -34,7 +36,17 @@ type RadioManualValuesSchema = Omit<RadioInputSchema<ManualValues>, 'hideLabel' 
  * @group Form.io components
  * @category Base types
  */
-type RadioVariableValuesSchema = Omit<RadioInputSchema<VariableValues>, 'hideLabel' | 'disabled'> &
+type RadioVariableValuesSchema = Omit<RadioInputSchema<VariableValues>, RadioUnsupported> &
+  BaseRadioSchema;
+
+/**
+ * @group Form.io components
+ * @category Base types
+ */
+type RadioReferentielijstenValuesSchema = Omit<
+  RadioInputSchema<ReferentielijstenValues>,
+  RadioUnsupported
+> &
   BaseRadioSchema;
 
 /**
@@ -42,6 +54,6 @@ type RadioVariableValuesSchema = Omit<RadioInputSchema<VariableValues>, 'hideLab
  * @category Concrete types
  */
 export type RadioComponentSchema = Require<
-  RadioManualValuesSchema | RadioVariableValuesSchema,
+  RadioManualValuesSchema | RadioVariableValuesSchema | RadioReferentielijstenValuesSchema,
   'openForms'
 >;
