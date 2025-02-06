@@ -21,6 +21,7 @@ export type SelectboxesUnsupported = 'hideLabel' | 'disabled';
 interface BaseSelectboxesSchema {
   type: 'selectboxes';
   defaultValue: Record<string, boolean>;
+  openForms?: {transformData?: boolean};
 }
 
 /**
