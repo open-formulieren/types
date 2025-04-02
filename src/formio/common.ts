@@ -31,8 +31,8 @@ export interface VariableValues {
 /**
  * @category Utilities
  */
-export interface ReferentielijstenValues {
-  dataSrc: 'referentielijsten';
+export interface ReferenceListsValues {
+  dataSrc: 'referenceLists';
   service: string;
   code: string;
 }

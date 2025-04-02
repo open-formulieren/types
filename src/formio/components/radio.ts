@@ -1,5 +1,5 @@
 import {InputComponentSchema} from '..';
-import {ManualValues, Option, ReferentielijstenValues, VariableValues} from '../common';
+import {ManualValues, Option, ReferenceListsValues, VariableValues} from '../common';
 import {Require} from '../util';
 
 type Validator = 'required';
@@ -43,8 +43,8 @@ type RadioVariableValuesSchema = Omit<RadioInputSchema<VariableValues>, RadioUns
  * @group Form.io components
  * @category Base types
  */
-type RadioReferentielijstenValuesSchema = Omit<
-  RadioInputSchema<ReferentielijstenValues>,
+type RadioReferenceListsValuesSchema = Omit<
+  RadioInputSchema<ReferenceListsValues>,
   RadioUnsupported
 > &
   BaseRadioSchema;
@@ -54,6 +54,6 @@ type RadioReferentielijstenValuesSchema = Omit<
  * @category Concrete types
  */
 export type RadioComponentSchema = Require<
-  RadioManualValuesSchema | RadioVariableValuesSchema | RadioReferentielijstenValuesSchema,
+  RadioManualValuesSchema | RadioVariableValuesSchema | RadioReferenceListsValuesSchema,
   'openForms'
 >;

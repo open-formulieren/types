@@ -1,5 +1,5 @@
 import {InputComponentSchema} from '..';
-import {ManualValues, Option, ReferentielijstenValues, VariableValues} from '../common';
+import {ManualValues, Option, ReferenceListsValues, VariableValues} from '../common';
 import {Require} from '../util';
 
 type Validator = 'required' | 'minSelectedCount' | 'maxSelectedCount';
@@ -49,8 +49,8 @@ type SelectboxesVariableValuesSchema = Omit<
  * @group Form.io components
  * @category Base types
  */
-type SelectboxesReferentielijstenValuesSchema = Omit<
-  SelectboxesInputSchema<ReferentielijstenValues>,
+type SelectboxesReferenceListsValuesSchema = Omit<
+  SelectboxesInputSchema<ReferenceListsValues>,
   SelectboxesUnsupported
 > &
   BaseSelectboxesSchema;
@@ -62,6 +62,6 @@ type SelectboxesReferentielijstenValuesSchema = Omit<
 export type SelectboxesComponentSchema = Require<
   | SelectboxesManualValuesSchema
   | SelectboxesVariableValuesSchema
-  | SelectboxesReferentielijstenValuesSchema,
+  | SelectboxesReferenceListsValuesSchema,
   'openForms'
 >;

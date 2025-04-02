@@ -1,6 +1,6 @@
 import {InputComponentSchema} from '..';
 import {MultipleCapable} from '../base';
-import {ManualValues, Option, ReferentielijstenValues, VariableValues} from '../common';
+import {ManualValues, Option, ReferenceListsValues, VariableValues} from '../common';
 import {Require} from '../util';
 
 type Validator = 'required';
@@ -54,8 +54,8 @@ type SelectVariableValuesSchema = Omit<SelectInputSchema<VariableValues>, Select
  * @group Form.io components
  * @category Base types
  */
-type SelectReferentielijstenValuesSchema = Omit<
-  SelectInputSchema<ReferentielijstenValues>,
+type SelectReferenceListsValuesSchema = Omit<
+  SelectInputSchema<ReferenceListsValues>,
   SelectUnsupported
 > &
   BaseSelectSchema;
@@ -66,7 +66,7 @@ type SelectReferentielijstenValuesSchema = Omit<
  */
 export type SelectComponentSchema = MultipleCapable<
   Require<
-    SelectManualValuesSchema | SelectVariableValuesSchema | SelectReferentielijstenValuesSchema,
+    SelectManualValuesSchema | SelectVariableValuesSchema | SelectReferenceListsValuesSchema,
     'openForms'
   >
 >;
