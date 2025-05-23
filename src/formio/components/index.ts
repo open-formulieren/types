@@ -25,6 +25,9 @@ export * from './editgrid';
 export * from './signature';
 export * from './cosign';
 
+// Special components
+export * from './partners';
+
 // Layout components
 export * from './content';
 export * from './columns';

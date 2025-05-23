@@ -18,6 +18,7 @@ import {
   MapComponentSchema,
   NpFamilyMembersComponentSchema,
   NumberComponentSchema,
+  PartnersComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
   ProductPriceComponentSchema,
@@ -81,6 +82,7 @@ export type AnyComponentSchema =
   | CosignV2ComponentSchema
   | MapComponentSchema
   | EditGridComponentSchema
+  | PartnersComponentSchema
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema
