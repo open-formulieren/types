@@ -26,6 +26,7 @@ export * from './signature';
 export * from './cosign';
 
 // Special components
+export * from './children';
 export * from './partners';
 
 // Layout components
