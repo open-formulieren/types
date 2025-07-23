@@ -2,6 +2,7 @@ import {
   AddressNLComponentSchema,
   BsnComponentSchema,
   CheckboxComponentSchema,
+  ChildrenComponentSchema,
   ColumnsComponentSchema,
   ContentComponentSchema,
   CosignV1ComponentSchema,
@@ -83,6 +84,7 @@ export type AnyComponentSchema =
   | MapComponentSchema
   | EditGridComponentSchema
   | PartnersComponentSchema
+  | ChildrenComponentSchema
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema
