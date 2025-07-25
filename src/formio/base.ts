@@ -1,4 +1,4 @@
-import {ComponentSchema} from 'formiojs';
+import {ComponentSchema as FormioComponentSchema} from 'formiojs';
 
 import {ComponentTranslations, ErrorTranslations} from './i18n';
 import {
@@ -59,6 +59,35 @@ export type PossibleValidatorErrorKeys<S extends SchemaWithValidation> = Exclude
   // also being a valid key, but it isn't.
   keyof Object
 >;
+
+/**
+ * Replacement of Formio's `ConditionalOptions`, changes are:
+ *
+ * - we don't support `json`
+ * - `eq` can be any JSON-serializable type, not just string. Note that our builder
+ *   uses appropriate JS types for the component type referenced via `when`.`
+ */
+export interface OFConditionalOptions {
+  /** If the field should show if the condition is true */
+  show?: boolean;
+  /** The field API key that it should compare its value against to determine if the condition is triggered. */
+  when?: string;
+  /**
+   * The value that should be checked against the comparison component.
+   *
+   * For array values, the array is checked if it contains the specified value.
+   *
+   * @note Only (a subset of) primitives are supported.
+   */
+  eq?: string | number | boolean;
+}
+
+interface ComponentSchema<T = any> extends Omit<FormioComponentSchema<T>, 'conditional'> {
+  /**
+   * Dynamically determines if the component is visible/available.
+   */
+  conditional?: OFConditionalOptions;
+}
 
 /**
  * @group Open Forms schema extensions
