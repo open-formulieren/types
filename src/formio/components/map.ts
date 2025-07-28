@@ -29,13 +29,13 @@ export interface MapComponentSchema
    * Leaflet zoom level is a range of 1-20, but the Dutch tile service only supports up
    * to level 13.
    *
-   * @todo Make property required, which requires a data migration.
+   * @privateRemarks Make property required, which requires a data migration.
    */
   defaultZoom?: null | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13;
   /**
    * Coordinates to center the map on initially.
    *
-   * @todo Make property required, which requires a data migration.
+   * @privateRemarks Make property required, which requires a data migration.
    */
   initialCenter?: {
     lat?: number;
@@ -70,7 +70,7 @@ export interface MapComponentSchema
    * map instance. This results in populating `defaultZoom` and `initialCenter`, so for
    * the SDK this property has no effect.
    *
-   * @todo Make property required, which requires a data migration.
+   * @privateRemarks Make property required, which requires a data migration.
    */
   useConfigDefaultMapSettings?: boolean;
   /**
@@ -78,7 +78,7 @@ export interface MapComponentSchema
    * case for pre-selecting a particular location on a map component, as the SDK asks
    * the user for their location anyway.
    *
-   * @todo Do not add the default value to the builder.
+   * @privateRemarks Do not add the default value to the builder.
    */
   defaultValue?: null | MapValue;
 }

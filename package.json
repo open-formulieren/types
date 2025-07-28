@@ -36,7 +36,7 @@
     "formiojs": "^4.14.13",
     "prettier": "^2.8.8",
     "tsd": "^0.28.1",
-    "typedoc": "^0.24.8",
+    "typedoc": "0.28.7",
     "typescript": "^5.0.4"
   }
 }
