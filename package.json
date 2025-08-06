@@ -35,8 +35,8 @@
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "formiojs": "^4.14.13",
     "prettier": "^2.8.8",
-    "tsd": "^0.28.1",
-    "typedoc": "^0.24.8",
-    "typescript": "^5.0.4"
+    "tsd": "^0.32.0",
+    "typedoc": "0.28.7",
+    "typescript": "^5.8.0"
   }
 }

@@ -19,7 +19,7 @@ export interface Column {
    *
    * The mobile size specifies the numbers of columns spanned in a 4-column grid.
    *
-   * @todo Add backend migration to ensure this attribute is set everywhere.
+   * @privateRemarks Add backend migration to ensure this attribute is set everywhere.
    */
   sizeMobile: 1 | 2 | 3 | 4;
   /**

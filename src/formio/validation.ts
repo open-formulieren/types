@@ -1,5 +1,5 @@
 /**
- * @file Types related to (client-side) formio validation and their error message overrides.
+ * @module validation Types related to (client-side) formio validation and their error message overrides.
  *
  * This module is responsible for defining:
  * - the available validation constraints

@@ -57,7 +57,7 @@ export type EditGridInputSchema = Omit<
  * Edit grids are essentially always 'multiple: true', so this property does not apply
  * to this component type either.
  *
- * @todo
+ * @privateRemarks
  *
  * There are probably a bunch of properties used in the SDK that are not exposed in the
  * form builder -> add them when we know what they are!
