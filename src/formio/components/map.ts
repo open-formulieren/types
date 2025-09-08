@@ -66,6 +66,37 @@ export interface MapComponentSchema
     marker: boolean;
   };
   /**
+   * Overlays to display on the map component.
+   *
+   * Overlays are used to provide additional visual information to the map component.
+   * They can be used to show heat-maps, highlight certain points of interest, or provide
+   * additional context. WMS and WFS tile layers provide access to lower-level layers,
+   * to specify which parts of the entire data-collection should be shown in the map.
+   *
+   * @property uuid The UUID of the selected WMS or WFS tile layer, defined in the OF
+   * admin.
+   * @property url The url of the selected WMS or WFS tile layer. This url should not be
+   * saved to the database, instead it should be fetched/defined before serving the map
+   * component to the frontend.
+   * @property label The label used for the layer button in the SDK layers menu.
+   * The button is used to toggle the display of the layer on and off.
+   * @property type The type of tile layer used for the overlay. This affects the
+   * retrieving and rendering of the layers. The `type` should reflect the type of the
+   * tile layer associated with the selected `uuid`.
+   * @property layers The lower-level layers of the selected WMS or WFS tile layer, that
+   * should be displayed in the SDK. These will actually determine the added visuals in
+   * the map. The order of this list affects the rendering of the layer. The first item
+   * is shown above the second, the second above the third, etc.
+   * See the leaflet example for WMS layers: https://leafletjs.com/examples/wms/wms.html#wms-in-leaflet
+   */
+  overlays?: {
+    uuid: string;
+    url: string;
+    label: string;
+    type: 'wms' | 'wfs';
+    layers: string[];
+  }[];
+  /**
    * If true, the backend must apply the globally configured defaults to a particular
    * map instance. This results in populating `defaultZoom` and `initialCenter`, so for
    * the SDK this property has no effect.
