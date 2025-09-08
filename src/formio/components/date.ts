@@ -19,6 +19,7 @@ type FutureDateConstraint = BaseFutureDateConstraint & IncludeToday;
 type PastDateConstraint = BasePastDateConstraint & IncludeToday;
 
 export interface DateExtensions {
+  widget?: 'inputGroup' | 'datePicker';
   minDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | FutureDateConstraint;
   maxDate?: Exclude<DateConstraintConfiguration, FutureOrPastDateConstraint> | PastDateConstraint;
 }
