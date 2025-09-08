@@ -80,7 +80,7 @@ export interface MapComponentSchema
    * component to the frontend.
    * @property label The label used for the layer button in the SDK layers menu.
    * The button is used to toggle the display of the layer on and off.
-   * @property type The type of tile layer used for the overlay. This effects the
+   * @property type The type of tile layer used for the overlay. This affects the
    * retrieving and rendering of the layers. The `type` should reflect the type of the
    * tile layer associated with the selected `uuid`.
    * @property layers The lower-level layers of the selected WMS or WFS tile layer, that
