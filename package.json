@@ -1,6 +1,6 @@
 {
   "name": "@open-formulieren/types",
-  "version": "0.46.0",
+  "version": "0.47.0",
   "description": "Typescript type definitions for Open Forms' Form.io extensions",
   "main": "index.js",
   "module": "./lib/index.js",
