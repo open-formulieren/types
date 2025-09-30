@@ -158,7 +158,10 @@ jobs:
           scope: '@open-formulieren'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          # update npm
+          npm install -g npm@latest
+          npm ci
 
       - name: Download build artifact
         uses: actions/download-artifact@v4
