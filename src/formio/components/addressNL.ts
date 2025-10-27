@@ -39,4 +39,5 @@ export interface AddressNLComponentSchema
   type: 'addressNL';
   deriveAddress: boolean;
   layout: 'singleColumn' | 'doubleColumn';
+  showStreetCity: boolean;
 }
