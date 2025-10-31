@@ -1,9 +1,9 @@
-import {InputComponentSchema, PrefillConfig} from '..';
+import {InputComponentSchema} from '..';
 
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-interface DigitalAddress {
+export interface DigitalAddress {
   address: string;
   useOnlyOnce?: boolean;
   isNewPreferred?: boolean;
@@ -41,5 +41,4 @@ export type CustomerInteractionComponentSchema = Omit<
   CustomerInteractionInputSchema,
   'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'
 > &
-  CustomerInteractionProperties &
-  PrefillConfig;
+  CustomerInteractionProperties;
