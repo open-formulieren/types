@@ -8,7 +8,7 @@ import {
   CosignV1ComponentSchema,
   CosignV2ComponentSchema,
   CurrencyComponentSchema,
-  CustomerInteractionComponentSchema,
+  CustomerProfileComponentSchema,
   DateComponentSchema,
   DateTimeComponentSchema,
   EditGridComponentSchema,
@@ -86,7 +86,7 @@ export type AnyComponentSchema =
   | EditGridComponentSchema
   | PartnersComponentSchema
   | ChildrenComponentSchema
-  | CustomerInteractionComponentSchema
+  | CustomerProfileComponentSchema
   // layout
   | ContentComponentSchema
   | ColumnsComponentSchema

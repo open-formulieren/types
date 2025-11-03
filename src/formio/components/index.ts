@@ -27,7 +27,7 @@ export * from './cosign';
 
 // Special components
 export * from './children';
-export * from './customerInteraction';
+export * from './customerProfile';
 export * from './partners';
 
 // Layout components

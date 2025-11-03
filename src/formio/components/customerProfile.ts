@@ -9,13 +9,13 @@ export interface DigitalAddress {
   isNewPreferred?: boolean;
 }
 
-export interface CustomerInteractionData {
+export interface CustomerProfileData {
   email?: DigitalAddress;
   phoneNumber?: DigitalAddress;
 }
 
-export type CustomerInteractionInputSchema = InputComponentSchema<
-  CustomerInteractionData,
+export type CustomerProfileInputSchema = InputComponentSchema<
+  CustomerProfileData,
   Validator,
   TranslatableKeys
 >;
@@ -24,8 +24,8 @@ export type CustomerInteractionInputSchema = InputComponentSchema<
  * @group Form.io components
  * @category Base types
  */
-export interface CustomerInteractionProperties {
-  type: 'customerInteraction';
+export interface CustomerProfileProperties {
+  type: 'customerProfile';
   shouldUpdateCustomerData: boolean;
   digitalAddressTypes: {
     email: boolean;
@@ -37,8 +37,8 @@ export interface CustomerInteractionProperties {
  * @group Form.io components
  * @category Concrete types
  */
-export type CustomerInteractionComponentSchema = Omit<
-  CustomerInteractionInputSchema,
+export type CustomerProfileComponentSchema = Omit<
+  CustomerProfileInputSchema,
   'hideLabel' | 'placeholder' | 'disabled' | 'validateOn'
 > &
-  CustomerInteractionProperties;
+  CustomerProfileProperties;
