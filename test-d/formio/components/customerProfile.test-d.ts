@@ -8,10 +8,7 @@ expectAssignable<CustomerProfileComponentSchema>({
   type: 'customerProfile',
   key: 'customerProfile',
   label: 'Customer profile',
-  digitalAddressTypes: {
-    email: true,
-    phoneNumber: true,
-  },
+  digitalAddressTypes: ['email', 'phoneNumber'],
   shouldUpdateCustomerData: false,
 });
 
@@ -23,10 +20,7 @@ expectAssignable<CustomerProfileComponentSchema>({
   label: 'Customer profile',
   description: 'Customer profile description',
   tooltip: 'Customer profile tooltip',
-  digitalAddressTypes: {
-    email: true,
-    phoneNumber: true,
-  },
+  digitalAddressTypes: ['email', 'phoneNumber'],
   shouldUpdateCustomerData: false,
 });
 
@@ -36,10 +30,7 @@ expectAssignable<CustomerProfileComponentSchema>({
   type: 'customerProfile',
   key: 'customerProfile',
   label: 'Customer profile',
-  digitalAddressTypes: {
-    email: true,
-    phoneNumber: true,
-  },
+  digitalAddressTypes: ['email', 'phoneNumber'],
   shouldUpdateCustomerData: false,
   openForms: {
     translations: {
