@@ -3,16 +3,28 @@ import {InputComponentSchema} from '..';
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-/**
- * The map value type.
- *
- * Currently this is limited to a tuple of coordinates identifying a single point on
- * the map. It is expected that in the future this will become a full blown GeoJSON
- * shape.
- */
 export type MapValue = [number, number];
+interface PointGeometry {
+  type: 'Point';
+  coordinates: MapValue;
+}
 
-export type MapInputSchema = InputComponentSchema<null | MapValue, Validator, TranslatableKeys>;
+interface LineGeometry {
+  type: 'LineString';
+  coordinates: MapValue[];
+}
+
+interface PolygonGeometry {
+  type: 'Polygon';
+  coordinates: MapValue[][];
+}
+export type GeoJsonGeometry = PointGeometry | LineGeometry | PolygonGeometry;
+
+export type MapInputSchema = InputComponentSchema<
+  null | GeoJsonGeometry,
+  Validator,
+  TranslatableKeys
+>;
 
 /**
  * Custom Formio component type.
@@ -111,5 +123,5 @@ export interface MapComponentSchema
    *
    * @privateRemarks Do not add the default value to the builder.
    */
-  defaultValue?: null | MapValue;
+  defaultValue?: null | GeoJsonGeometry;
 }
