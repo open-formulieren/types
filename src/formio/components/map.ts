@@ -3,20 +3,20 @@ import {InputComponentSchema} from '..';
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export type MapValue = [number, number];
+export type CoordinatePair = [number, number];
 interface PointGeometry {
   type: 'Point';
-  coordinates: MapValue;
+  coordinates: CoordinatePair;
 }
 
 interface LineGeometry {
   type: 'LineString';
-  coordinates: MapValue[];
+  coordinates: CoordinatePair[];
 }
 
 interface PolygonGeometry {
   type: 'Polygon';
-  coordinates: MapValue[][];
+  coordinates: CoordinatePair[][];
 }
 export type GeoJsonGeometry = PointGeometry | LineGeometry | PolygonGeometry;
 
