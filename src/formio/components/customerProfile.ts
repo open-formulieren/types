@@ -3,16 +3,16 @@ import {InputComponentSchema} from '..';
 type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
-export interface DigitalAddress {
+export type DigitalAddressType = 'email' | 'phoneNumber';
+
+export type DigitalAddress = {
   address: string;
+  type: DigitalAddressType;
   useOnlyOnce?: boolean;
   isNewPreferred?: boolean;
-}
+};
 
-export interface CustomerProfileData {
-  email?: DigitalAddress;
-  phoneNumber?: DigitalAddress;
-}
+export type CustomerProfileData = DigitalAddress[];
 
 export type CustomerProfileInputSchema = InputComponentSchema<
   CustomerProfileData,
@@ -27,10 +27,7 @@ export type CustomerProfileInputSchema = InputComponentSchema<
 export interface CustomerProfileProperties {
   type: 'customerProfile';
   shouldUpdateCustomerData: boolean;
-  digitalAddressTypes: {
-    email: boolean;
-    phoneNumber: boolean;
-  };
+  digitalAddressTypes: DigitalAddressType[];
 }
 
 /**
