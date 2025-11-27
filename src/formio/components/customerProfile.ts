@@ -4,12 +4,12 @@ type Validator = 'required';
 type TranslatableKeys = 'label' | 'description' | 'tooltip';
 
 export type DigitalAddressType = 'email' | 'phoneNumber';
+export type PreferenceUpdateOptions = 'useOnlyOnce' | 'isNewPreferred';
 
 export type DigitalAddress = {
   address: string;
   type: DigitalAddressType;
-  useOnlyOnce?: boolean;
-  isNewPreferred?: boolean;
+  preferenceUpdate?: PreferenceUpdateOptions;
 };
 
 export type CustomerProfileData = DigitalAddress[];
