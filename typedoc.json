@@ -1,9 +1,7 @@
 {
     "$schema": "https://typedoc.org/schema.json",
     "entryPoints": [
-      "src/index.ts",
-      "src/formio/i18n.ts",
-      "src/formio/validation.ts",
+      "src/**/*.ts",
     ],
     "groupOrder": [
         "Form.io components",

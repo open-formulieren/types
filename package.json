@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly",
-    "build:docs": "typedoc",
+    "build:docs": "typedoc --name 'Open Forms TS types'",
     "test": "npm run build && tsd",
     "format": "prettier --write 'src/**/*'",
     "checkformat": "prettier --check 'src/**/*'"
