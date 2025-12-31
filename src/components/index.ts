@@ -15,6 +15,7 @@ import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
 import {PostcodeComponentSchema} from './postcode';
 import {SignatureComponentSchema} from './signature';
+import {SoftRequiredErrorsComponentSchema} from './softRequiredErrors';
 import {TextareaComponentSchema} from './textarea';
 import {TextFieldComponentSchema} from './textfield';
 
@@ -36,6 +37,7 @@ export type AnyComponent =
   | CosignV2ComponentSchema
   // layout
   | ContentComponentSchema
+  | SoftRequiredErrorsComponentSchema
   // deprecated
   | CosignV1ComponentSchema;
 
@@ -57,6 +59,7 @@ export {
   CosignV2ComponentSchema,
   // layout
   ContentComponentSchema,
+  SoftRequiredErrorsComponentSchema,
   // deprecated
   CosignV1ComponentSchema,
 };
