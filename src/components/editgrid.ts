@@ -10,13 +10,13 @@ import {
 } from '../common';
 import {OFExtensions} from '../extensions';
 import {Validation} from '../validation';
-import {AnyComponent} from './index';
+import {AnyComponentSchema} from './index';
 
 interface EditGridExtras {
   /**
    * Form definition for each item in the repeating group.
    */
-  components: AnyComponent[];
+  components: AnyComponentSchema[];
   /**
    * If enabled, the label of the group will not be displayed.
    */

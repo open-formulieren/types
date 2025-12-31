@@ -8,7 +8,6 @@ expectAssignable<CheckboxComponentSchema>({
   type: 'checkbox',
   key: 'someCheckbox',
   label: 'Some checkbox',
-  defaultValue: true,
 });
 
 // full, correct schema
@@ -50,8 +49,6 @@ expectAssignable<CheckboxComponentSchema>({
       nl: {label: 'foo'},
     },
   },
-  // fixed but not editable
-  validateOn: 'blur',
 });
 
 // multiple not allowed

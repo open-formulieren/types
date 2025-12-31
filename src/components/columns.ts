@@ -1,6 +1,6 @@
 import {BaseComponent, Prettify} from '../base';
 import {ClearOnHide} from '../common';
-import {AnyComponent} from './index';
+import {AnyComponentSchema} from './index';
 
 /**
  * Configuration of a single column.
@@ -30,7 +30,7 @@ export interface Column {
   /**
    * Nested components inside a single column.
    */
-  components: AnyComponent[];
+  components: AnyComponentSchema[];
 }
 
 /**

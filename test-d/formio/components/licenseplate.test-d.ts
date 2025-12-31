@@ -11,7 +11,6 @@ expectAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
 });
 
 // multiple false and appropriate default value type
@@ -23,7 +22,6 @@ expectAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
   multiple: false,
   defaultValue: 'AA-123-AA',
 });
@@ -37,7 +35,6 @@ expectAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
   multiple: true,
   defaultValue: ['AA-123-AA'],
 });
@@ -46,7 +43,6 @@ expectAssignable<LicensePlateComponentSchema>({
 expectAssignable<LicensePlateComponentSchema>({
   id: 'yejak',
   type: 'licenseplate',
-  validateOn: 'blur',
   // basic tab in builder form
   label: 'Some input',
   key: 'someInput',
@@ -60,7 +56,6 @@ expectAssignable<LicensePlateComponentSchema>({
   clearOnHide: true,
   isSensitiveData: true,
   defaultValue: '',
-  disabled: false,
   // advanced tab in builder form
   conditional: {
     show: undefined,
@@ -107,7 +102,6 @@ expectNotAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
 } as const);
 
 // using unsupported properties
@@ -119,7 +113,6 @@ expectNotAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
   placeholder: 'no placeholder',
 } as const);
 
@@ -133,7 +126,6 @@ expectNotAssignable<LicensePlateComponentSchema>({
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
     maxLength: 7,
   },
-  validateOn: 'blur',
 } as const);
 
 // invalid, multiple true and non-array default value
@@ -145,7 +137,6 @@ expectNotAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 } as const);
@@ -159,7 +150,6 @@ expectNotAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 } as const);
@@ -173,7 +163,6 @@ expectNotAssignable<LicensePlateComponentSchema>({
   validate: {
     pattern: '^[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}\\-[a-zA-Z0-9]{1,3}$',
   },
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [123],
 } as const);

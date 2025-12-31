@@ -35,7 +35,15 @@ import {TextareaComponentSchema} from './textarea';
 import {TextFieldComponentSchema} from './textfield';
 import {TimeComponentSchema} from './time';
 
-export type AnyComponent =
+/**
+ * Convenience type alias for all supported component schemas.
+ *
+ * @remarks
+ * While the components may look like individual union members here, keep in mind that
+ * each component itself may be a union - this is common for components that support the
+ * `multiple` property.
+ */
+export type AnyComponentSchema =
   // basic
   | TextFieldComponentSchema
   | EmailComponentSchema

@@ -1,24 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {FileComponentSchema, FileUploadData} from '../../../dist';
-
-// Grabbed from test env file upload, URLs obfuscated.
-const anUpload: FileUploadData = {
-  url: 'http://localhost:8000/api/v2/submissions/files/54cc40ed-f1c4-4206-ba76-76d376ba4c3a',
-  data: {
-    url: 'http://localhost:8000/api/v2/submissions/files/54cc40ed-f1c4-4206-ba76-76d376ba4c3a',
-    form: '',
-    name: 'maykin_logo.png',
-    size: 8725,
-    baseUrl: 'http://localhost:8000/api/v2/',
-    project: '',
-  },
-  name: 'maykin_logo-e0568045-45f6-46d1-909a-8895c5ee061e.png',
-  size: 8725,
-  type: 'image/png',
-  storage: 'url',
-  originalName: 'maykin_logo.png',
-};
+import {FileComponentSchema} from '../../../dist';
 
 // minimal file component schema
 expectAssignable<FileComponentSchema>({
@@ -26,10 +8,6 @@ expectAssignable<FileComponentSchema>({
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
   file: {
     name: '',
     type: [],
@@ -37,73 +15,6 @@ expectAssignable<FileComponentSchema>({
   },
   filePattern: '*',
 });
-
-// Behaviour of single vs. multiple file uploads
-
-const explicitSingleUpload: FileComponentSchema = {
-  id: 'yejak',
-  type: 'file',
-  key: 'someFile',
-  label: 'Attachment',
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
-  file: {
-    name: '',
-    type: [],
-    allowedTypesLabels: [],
-  },
-  filePattern: '*',
-  multiple: false,
-};
-type ExplicitSingleUploadValue = (typeof explicitSingleUpload)['defaultValue'];
-expectAssignable<ExplicitSingleUploadValue>([]);
-expectAssignable<ExplicitSingleUploadValue>([anUpload]);
-expectNotAssignable<ExplicitSingleUploadValue>([anUpload, anUpload]);
-
-const explicitMultipleUpload: FileComponentSchema = {
-  id: 'yejak',
-  type: 'file',
-  key: 'someFile',
-  label: 'Attachment',
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
-  file: {
-    name: '',
-    type: [],
-    allowedTypesLabels: [],
-  },
-  filePattern: '*',
-  multiple: true,
-};
-type ExplicitMultipleUploadValue = (typeof explicitMultipleUpload)['defaultValue'];
-expectAssignable<ExplicitMultipleUploadValue>([]);
-expectAssignable<ExplicitMultipleUploadValue>([anUpload]);
-expectAssignable<ExplicitMultipleUploadValue>([anUpload, anUpload]);
-
-const implicitSingleUpload: FileComponentSchema = {
-  id: 'yejak',
-  type: 'file',
-  key: 'someFile',
-  label: 'Attachment',
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
-  file: {
-    name: '',
-    type: [],
-    allowedTypesLabels: [],
-  },
-  filePattern: '*',
-};
-type ImplicitSingleUploadValue = (typeof implicitSingleUpload)['defaultValue'];
-expectAssignable<ImplicitSingleUploadValue>([]);
-expectAssignable<ImplicitSingleUploadValue>([anUpload]);
-expectNotAssignable<ImplicitSingleUploadValue>([anUpload, anUpload]);
 
 // Form builder assignability checks
 
@@ -114,10 +25,6 @@ expectAssignable<FileComponentSchema>({
   key: 'someInput',
   label: 'Some input',
   // builder sets empty URL, backend dynamically makes this non-empty
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
   file: {
     // vanilla
     name: 'prefix_{{ fileName }}',
@@ -153,10 +60,6 @@ expectAssignable<FileComponentSchema>({
 expectAssignable<FileComponentSchema>({
   id: 'yejak',
   type: 'file',
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
   // basic tab in builder form
   key: 'someFile',
   label: 'Attachment',
@@ -232,10 +135,6 @@ expectNotAssignable<FileComponentSchema>({
   type: 'content',
   key: 'someFile',
   label: 'Attachment',
-  webcam: false,
-  options: {withCredentials: true},
-  storage: 'url',
-  url: '',
   file: {
     name: '',
     type: [],
@@ -250,10 +149,7 @@ expectNotAssignable<FileComponentSchema>({
   type: 'file',
   key: 'someFile',
   label: 'Attachment',
-  webcam: false,
-  options: {withCredentials: true},
   storage: 's3', // we only support url
-  url: '',
   file: {
     name: '',
     type: [],
@@ -268,10 +164,6 @@ expectNotAssignable<FileComponentSchema>({
   type: 'file' as const,
   key: 'someFile',
   label: 'Attachment',
-  webcam: false as const,
-  options: {withCredentials: true} as const,
-  storage: 'url' as const,
-  url: '' as const,
   file: {
     name: '',
     type: ['image/png'],

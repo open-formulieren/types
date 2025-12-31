@@ -22,7 +22,6 @@ expectAssignable<MapComponentSchema>({
     lng: 4.88969,
   },
   useConfigDefaultMapSettings: false,
-  defaultValue: null,
   tileLayerIdentifier: 'some-wmts-layer',
   tileLayerUrl:
     'https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_orthoHR/EPSG:28992/{z}/{x}/{y}.png',
@@ -46,7 +45,6 @@ expectAssignable<MapComponentSchema>({
 expectAssignable<MapComponentSchema>({
   id: 'yejak',
   type: 'map',
-  defaultValue: null,
   // basic tab in builder form
   label: 'Some map',
   key: 'someMap',

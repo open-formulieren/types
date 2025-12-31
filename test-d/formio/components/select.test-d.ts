@@ -6,8 +6,6 @@ import {SelectComponentSchema} from '../../../dist';
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   key: 'someSelect',
   label: 'Some select',
   openForms: {
@@ -28,74 +26,68 @@ expectAssignable<SelectComponentSchema>({
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   key: 'someSelect',
   label: 'Some select',
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  data: {values: []},
 });
 
 // minimal component schema, multiple false:
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   key: 'someSelect',
   label: 'Some select',
   multiple: false,
   defaultValue: 'dummy',
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  data: {values: []},
 });
 
 // minimal component schema, multiple true:
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   key: 'someSelect',
   label: 'Some select',
   multiple: true,
   defaultValue: ['dummy'],
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  data: {values: []},
 });
 
 // minimal component schema, multiple true and empty defaults:
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   key: 'someSelect',
   label: 'Some select',
   multiple: true,
   defaultValue: [],
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  data: {values: []},
 });
 
 // values translations
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   key: 'someSelect',
   label: 'Some select',
   defaultValue: 'dummy',
@@ -127,8 +119,6 @@ expectAssignable<SelectComponentSchema>({
 expectAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
-  dataType: 'string',
   // basic tab
   label: 'Some select',
   key: 'someSelect',
@@ -164,58 +154,56 @@ expectAssignable<SelectComponentSchema>({
       nl: {label: 'foo'},
     },
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
   },
-  // fixed but not editable
-  validateOn: 'blur',
+  data: {values: []},
 });
 
 // Missing openForms
 expectNotAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
   key: 'someSelect',
   label: 'Some select',
+  data: {values: []},
 });
 
 // multiple true, wrong default value
 expectNotAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
   key: 'someSelect',
   label: 'Some select',
   multiple: true,
   defaultValue: 'dummy',
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  data: {values: []},
 });
 
 // multiple false, wrong default value
 expectNotAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
   key: 'someSelect',
   label: 'Some select',
   multiple: false,
   defaultValue: ['dummy'],
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  data: {values: []},
 });
 
 // manual without values
 expectNotAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
   key: 'someSelect',
   label: 'Some select',
   openForms: {
@@ -229,11 +217,11 @@ expectNotAssignable<SelectComponentSchema>({
 expectNotAssignable<SelectComponentSchema>({
   id: 'yejak',
   type: 'select',
-  dataSrc: 'values',
   key: 'someSelect',
   label: 'Some select',
   openForms: {
     dataSrc: 'variable',
     translations: {},
   },
+  data: {values: []},
 });

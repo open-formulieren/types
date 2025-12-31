@@ -8,9 +8,6 @@ expectAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
 });
 
 // with translated error messages - the multiple messages is special here
@@ -19,9 +16,6 @@ expectAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   translatedErrors: {
     nl: {
       required: '',
@@ -41,9 +35,6 @@ expectAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: '09:47',
 });
@@ -54,9 +45,6 @@ expectAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: ['12:15'],
 });
@@ -65,9 +53,6 @@ expectAssignable<TimeComponentSchema>({
 expectAssignable<TimeComponentSchema>({
   id: 'ezftxdl',
   type: 'time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   // basic tab
   label: 'Some time',
   key: 'someTime',
@@ -127,9 +112,6 @@ expectNotAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 } as const);
@@ -140,9 +122,6 @@ expectNotAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 } as const);
@@ -153,9 +132,6 @@ expectNotAssignable<TimeComponentSchema>({
   type: 'time',
   key: 'someTime',
   label: 'Some time',
-  inputType: 'text',
-  format: 'HH:mm',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [new Date()],
 } as const);

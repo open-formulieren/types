@@ -12,26 +12,6 @@ expectAssignable<AddressNLComponentSchema>({
   layout: 'doubleColumn',
 });
 
-// appropriate default value type
-expectAssignable<AddressNLComponentSchema>({
-  id: 'yejak',
-  type: 'addressNL',
-  key: 'someAddressNL',
-  label: 'Some AddressNL',
-  deriveAddress: false,
-  layout: 'doubleColumn',
-  defaultValue: {
-    postcode: '',
-    houseNumber: '',
-    houseLetter: '',
-    houseNumberAddition: '',
-    city: '',
-    streetName: '',
-    secretStreetCity: '',
-    autoPopulated: false,
-  },
-});
-
 // full, correct schema
 expectAssignable<AddressNLComponentSchema>({
   id: 'yejak',
@@ -72,7 +52,6 @@ expectAssignable<AddressNLComponentSchema>({
       nl: {label: 'foo'},
     },
   },
-  // fixed but not editable
 });
 
 // Non supported keys

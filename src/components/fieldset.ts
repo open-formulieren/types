@@ -1,7 +1,7 @@
 import {BaseComponent, Prettify} from '../base';
 import {ClearOnHide, Hidden, Label, Tooltip} from '../common';
 import {Conditional, OFExtensions} from '../extensions';
-import {AnyComponent} from './index';
+import {AnyComponentSchema} from './index';
 
 /**
  * Component shape/options for a fieldset component.
@@ -31,6 +31,6 @@ export type FieldsetComponentSchema = Prettify<
       /**
        * Nested components/fields inside the fieldset.
        */
-      components: AnyComponent[];
+      components: AnyComponentSchema[];
     }
 >;

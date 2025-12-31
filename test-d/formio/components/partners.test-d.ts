@@ -18,13 +18,10 @@ expectAssignable<PartnersComponentSchema>({
   key: 'partners',
   label: 'Partners',
   isSensitiveData: true,
-  defaultValue: undefined,
   clearOnHide: false,
   hidden: false,
-  errors: {required: 'Lastname'},
   description: 'A description',
   tooltip: 'A tooltip',
-  hideLabel: false,
   // Advanced tab
   conditional: {
     show: undefined,

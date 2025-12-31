@@ -83,10 +83,6 @@ expectAssignable<TextareaComponentSchema>({
     required: 'Je moet een waarde opgeven!!!',
     maxLength: 'Een maximale lengte.',
   },
-  // registration tab in builder form
-  registration: {
-    attribute: '',
-  },
   // translations tab in builder form
   openForms: {
     translations: {

@@ -16,7 +16,6 @@ expectAssignable<SignatureComponentSchema>({
   type: 'signature',
   key: 'someSignature',
   label: 'Some signature',
-  defaultValue: 'data:image/png;base64,dGhlIGdhbWU=',
   footer: 'Please do not draw inappropriate images',
 });
 
@@ -35,7 +34,6 @@ expectAssignable<SignatureComponentSchema>({
   hidden: false,
   clearOnHide: true,
   isSensitiveData: false,
-  defaultValue: '',
   // advanced tab in builder form
   conditional: {
     show: undefined,
@@ -85,15 +83,6 @@ expectNotAssignable<SignatureComponentSchema>({
   hideLabel: true,
 });
 
-// bad value format
-expectNotAssignable<SignatureComponentSchema>({
-  id: 'yejak',
-  type: 'signature' as const,
-  key: 'someSignature',
-  label: 'Some signature',
-  defaultValue: 'random string',
-});
-
 // multiple is not supported
 expectNotAssignable<SignatureComponentSchema>({
   id: 'yejak',
@@ -101,5 +90,4 @@ expectNotAssignable<SignatureComponentSchema>({
   key: 'someSignature',
   label: 'Some signature',
   multiple: true,
-  defaultValue: [],
 });

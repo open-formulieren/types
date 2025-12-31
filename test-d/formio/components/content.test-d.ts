@@ -16,7 +16,6 @@ expectAssignable<ContentComponentSchema>({
   type: 'content',
   // Display tab
   html: 'inhoud',
-  label: 'Content',
   key: 'content',
   hidden: false,
   showInEmail: false,

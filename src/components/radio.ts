@@ -57,7 +57,8 @@ export type RadioComponentSchema = Prettify<
     Hidden &
     ClearOnHide &
     IsSensitiveData &
-    DefaultValue<string> &
+    // TODO: we can probably drop `null` because empty strings for `value` are not allowed.
+    DefaultValue<string | null> &
     RadioExtra &
     Conditional &
     Validation<'required'> &
