@@ -11,6 +11,7 @@ import {CurrencyComponentSchema} from './currency';
 import {EmailComponentSchema} from './email';
 import {IbanComponentSchema} from './iban';
 import {LicensePlateComponentSchema} from './licensePlate';
+import {NpFamilyMembersComponentSchema} from './npFamilyMembers';
 import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
 import {PostcodeComponentSchema} from './postcode';
@@ -33,6 +34,7 @@ export type AnyComponent =
   | IbanComponentSchema
   | LicensePlateComponentSchema
   | BsnComponentSchema
+  | NpFamilyMembersComponentSchema
   | SignatureComponentSchema
   | CosignV2ComponentSchema
   // layout
@@ -55,6 +57,7 @@ export {
   IbanComponentSchema,
   LicensePlateComponentSchema,
   BsnComponentSchema,
+  NpFamilyMembersComponentSchema,
   SignatureComponentSchema,
   CosignV2ComponentSchema,
   // layout
