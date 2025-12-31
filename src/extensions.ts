@@ -7,6 +7,8 @@
  *
  * @module extensions
  */
+import {Prettify} from 'base';
+
 import {SupportedLocales} from './i18n';
 
 /**
@@ -133,12 +135,17 @@ export interface Prefill {
  * The `Extra` type var allows injection of additional component-specific extensions
  * under the `openForms` key.
  */
-export interface OFExtensions<TP extends string = never, Extra = never> {
-  openForms?: {
-    translations?: {
-      [K in SupportedLocales]?: {
-        [K in TP]?: string;
+export interface OFExtensions<
+  TP extends string = never,
+  Extra extends object = Record<never, never>
+> {
+  openForms?: Prettify<
+    {
+      translations?: {
+        [K in SupportedLocales]?: {
+          [K in TP]?: string;
+        };
       };
-    };
-  } & Extra;
+    } & Extra
+  >;
 }
