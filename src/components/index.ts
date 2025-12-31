@@ -4,6 +4,7 @@
  * @module components
  */
 import {BsnComponentSchema} from './bsn';
+import {CheckboxComponentSchema} from './checkbox';
 import {EmailComponentSchema} from './email';
 import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
@@ -19,6 +20,7 @@ export type AnyComponent =
   | PostcodeComponentSchema
   | TextareaComponentSchema
   | NumberComponentSchema
+  | CheckboxComponentSchema
   // special
   | BsnComponentSchema;
 
@@ -30,6 +32,7 @@ export {
   PostcodeComponentSchema,
   TextareaComponentSchema,
   NumberComponentSchema,
+  CheckboxComponentSchema,
   // special
   BsnComponentSchema,
 };
