@@ -5,6 +5,7 @@
  */
 import {BsnComponentSchema} from './bsn';
 import {CheckboxComponentSchema} from './checkbox';
+import {CurrencyComponentSchema} from './currency';
 import {EmailComponentSchema} from './email';
 import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
@@ -21,6 +22,7 @@ export type AnyComponent =
   | TextareaComponentSchema
   | NumberComponentSchema
   | CheckboxComponentSchema
+  | CurrencyComponentSchema
   // special
   | BsnComponentSchema;
 
@@ -33,6 +35,7 @@ export {
   TextareaComponentSchema,
   NumberComponentSchema,
   CheckboxComponentSchema,
+  CurrencyComponentSchema,
   // special
   BsnComponentSchema,
 };
