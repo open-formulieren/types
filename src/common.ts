@@ -93,3 +93,13 @@ export type ShowCharCount = {
    */
   showCharCount?: boolean;
 };
+
+export type DefaultValue<T> = {
+  /**
+   * The default/initial value to populate the field with if no value is set yet.
+   *
+   * The typevar `T` determines the (intrinsic) value type of the component. If the
+   * component supports the `multiple` property, use the `WithMultiple` type instead.
+   */
+  defaultValue?: T;
+};
