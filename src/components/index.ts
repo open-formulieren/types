@@ -6,6 +6,7 @@
 import {BsnComponentSchema} from './bsn';
 import {CheckboxComponentSchema} from './checkbox';
 import {ContentComponentSchema} from './content';
+import {CosignV1ComponentSchema, CosignV2ComponentSchema} from './cosign';
 import {CurrencyComponentSchema} from './currency';
 import {EmailComponentSchema} from './email';
 import {IbanComponentSchema} from './iban';
@@ -30,8 +31,11 @@ export type AnyComponent =
   | IbanComponentSchema
   | LicensePlateComponentSchema
   | BsnComponentSchema
+  | CosignV2ComponentSchema
   // layout
-  | ContentComponentSchema;
+  | ContentComponentSchema
+  // deprecated
+  | CosignV1ComponentSchema;
 
 export {
   // basic
@@ -47,6 +51,9 @@ export {
   IbanComponentSchema,
   LicensePlateComponentSchema,
   BsnComponentSchema,
+  CosignV2ComponentSchema,
   // layout
   ContentComponentSchema,
+  // deprecated
+  CosignV1ComponentSchema,
 };
