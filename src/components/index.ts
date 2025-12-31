@@ -6,6 +6,7 @@
 import {AddressNLComponentSchema} from './addressNL';
 import {BsnComponentSchema} from './bsn';
 import {CheckboxComponentSchema} from './checkbox';
+import {ChildrenComponentSchema} from './children';
 import {ContentComponentSchema} from './content';
 import {CosignV1ComponentSchema, CosignV2ComponentSchema} from './cosign';
 import {CurrencyComponentSchema} from './currency';
@@ -41,6 +42,7 @@ export type AnyComponent =
   | SignatureComponentSchema
   | CosignV2ComponentSchema
   | AddressNLComponentSchema
+  | ChildrenComponentSchema
   // layout
   | ContentComponentSchema
   | SoftRequiredErrorsComponentSchema
@@ -66,6 +68,7 @@ export {
   SignatureComponentSchema,
   CosignV2ComponentSchema,
   AddressNLComponentSchema,
+  ChildrenComponentSchema,
   // layout
   ContentComponentSchema,
   SoftRequiredErrorsComponentSchema,
