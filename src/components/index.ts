@@ -3,6 +3,7 @@
  *
  * @module components
  */
+import {BsnComponentSchema} from './bsn';
 import {EmailComponentSchema} from './email';
 import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
@@ -17,13 +18,18 @@ export type AnyComponent =
   | PhoneNumberComponentSchema
   | PostcodeComponentSchema
   | TextareaComponentSchema
-  | NumberComponentSchema;
+  | NumberComponentSchema
+  // special
+  | BsnComponentSchema;
 
 export {
+  // basic
   TextFieldComponentSchema,
   EmailComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
   TextareaComponentSchema,
   NumberComponentSchema,
+  // special
+  BsnComponentSchema,
 };
