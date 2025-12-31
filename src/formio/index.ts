@@ -1,3 +1,4 @@
+import {EmailComponentSchema, NumberComponentSchema, TextFieldComponentSchema} from '../components';
 import {
   AddressNLComponentSchema,
   BsnComponentSchema,
@@ -12,14 +13,12 @@ import {
   DateComponentSchema,
   DateTimeComponentSchema,
   EditGridComponentSchema,
-  EmailComponentSchema,
   FieldsetComponentSchema,
   FileComponentSchema,
   IbanComponentSchema,
   LicensePlateComponentSchema,
   MapComponentSchema,
   NpFamilyMembersComponentSchema,
-  NumberComponentSchema,
   PartnersComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
@@ -29,7 +28,6 @@ import {
   SelectboxesComponentSchema,
   SignatureComponentSchema,
   SoftRequiredErrorsComponentSchema,
-  TextFieldComponentSchema,
   TextareaComponentSchema,
   TimeComponentSchema,
 } from './components';

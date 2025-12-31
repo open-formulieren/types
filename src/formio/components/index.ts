@@ -1,8 +1,6 @@
 // Input components
-export * from './textfield';
 export * from './textarea';
 export * from './currency';
-export * from './email';
 export * from './date';
 export * from './datetime';
 export * from './time';
@@ -13,7 +11,6 @@ export * from './licenseplate';
 export * from './bsn';
 export * from './npFamilyMembers';
 export * from './productPrice';
-export * from './number';
 export * from './select';
 export * from './checkbox';
 export * from './selectboxes';
