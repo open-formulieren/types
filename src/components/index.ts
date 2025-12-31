@@ -10,6 +10,7 @@ import {ContentComponentSchema} from './content';
 import {CosignV1ComponentSchema, CosignV2ComponentSchema} from './cosign';
 import {CurrencyComponentSchema} from './currency';
 import {EmailComponentSchema} from './email';
+import {FileComponentSchema} from './file';
 import {IbanComponentSchema} from './iban';
 import {LicensePlateComponentSchema} from './licensePlate';
 import {NpFamilyMembersComponentSchema} from './npFamilyMembers';
@@ -27,6 +28,7 @@ export type AnyComponent =
   | EmailComponentSchema
   | PhoneNumberComponentSchema
   | PostcodeComponentSchema
+  | FileComponentSchema
   | TextareaComponentSchema
   | NumberComponentSchema
   | CheckboxComponentSchema
@@ -51,6 +53,7 @@ export {
   EmailComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
+  FileComponentSchema,
   TextareaComponentSchema,
   NumberComponentSchema,
   CheckboxComponentSchema,
