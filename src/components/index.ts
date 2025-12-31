@@ -14,6 +14,7 @@ import {LicensePlateComponentSchema} from './licensePlate';
 import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
 import {PostcodeComponentSchema} from './postcode';
+import {SignatureComponentSchema} from './signature';
 import {TextareaComponentSchema} from './textarea';
 import {TextFieldComponentSchema} from './textfield';
 
@@ -31,6 +32,7 @@ export type AnyComponent =
   | IbanComponentSchema
   | LicensePlateComponentSchema
   | BsnComponentSchema
+  | SignatureComponentSchema
   | CosignV2ComponentSchema
   // layout
   | ContentComponentSchema
@@ -51,6 +53,7 @@ export {
   IbanComponentSchema,
   LicensePlateComponentSchema,
   BsnComponentSchema,
+  SignatureComponentSchema,
   CosignV2ComponentSchema,
   // layout
   ContentComponentSchema,
