@@ -5,6 +5,7 @@
  */
 import {BsnComponentSchema} from './bsn';
 import {CheckboxComponentSchema} from './checkbox';
+import {ContentComponentSchema} from './content';
 import {CurrencyComponentSchema} from './currency';
 import {EmailComponentSchema} from './email';
 import {IbanComponentSchema} from './iban';
@@ -28,7 +29,9 @@ export type AnyComponent =
   // special
   | IbanComponentSchema
   | LicensePlateComponentSchema
-  | BsnComponentSchema;
+  | BsnComponentSchema
+  // layout
+  | ContentComponentSchema;
 
 export {
   // basic
@@ -44,4 +47,6 @@ export {
   IbanComponentSchema,
   LicensePlateComponentSchema,
   BsnComponentSchema,
+  // layout
+  ContentComponentSchema,
 };
