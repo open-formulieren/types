@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {FileComponentSchema, FileUploadData} from '../../../lib';
+import {FileComponentSchema, FileUploadData} from '../../../dist';
 
 // Grabbed from test env file upload, URLs obfuscated.
 const anUpload: FileUploadData = {

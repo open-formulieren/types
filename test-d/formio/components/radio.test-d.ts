@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {RadioComponentSchema} from '../../../lib';
+import {RadioComponentSchema} from '../../../dist';
 
 // minimal component schema, manual:
 expectAssignable<RadioComponentSchema>({
@@ -17,7 +17,7 @@ expectAssignable<RadioComponentSchema>({
     {
       value: 'dummy',
       label: 'dummy',
-    }
+    },
   ],
 });
 
@@ -57,11 +57,11 @@ expectAssignable<RadioComponentSchema>({
           },
           nl: {
             label: 'dummy_nl',
-          }
-        }
-      }
-    }
-  ]
+          },
+        },
+      },
+    },
+  ],
 });
 
 // full, correct schema
@@ -191,9 +191,9 @@ expectNotAssignable<RadioComponentSchema>({
           },
           nl: {
             label: 'dummy_nl',
-          }
-        }
-      }
-    }
-  ]
+          },
+        },
+      },
+    },
+  ],
 });

@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {ProductPriceComponentSchema} from '../../../lib/';
+import {ProductPriceComponentSchema} from '../../../dist/';
 
 // minimal productPrice component schema
 expectAssignable<ProductPriceComponentSchema>({

@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {PostcodeComponentSchema} from '../../../lib/';
+import {PostcodeComponentSchema} from '../../../dist/';
 
 // minimal postcode component schema
 expectAssignable<PostcodeComponentSchema>({

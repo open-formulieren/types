@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {DateTimeComponentSchema} from '../../../lib';
+import {DateTimeComponentSchema} from '../../../dist';
 
 // minimal date component schema
 expectAssignable<DateTimeComponentSchema>({

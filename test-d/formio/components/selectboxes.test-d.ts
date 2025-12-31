@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {SelectboxesComponentSchema} from '../../../lib';
+import {SelectboxesComponentSchema} from '../../../dist';
 
 // minimal component schema, manual:
 expectAssignable<SelectboxesComponentSchema>({

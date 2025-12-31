@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {BsnComponentSchema} from '../../../lib/';
+import {BsnComponentSchema} from '../../../dist/';
 
 // minimal bsn component schema
 expectAssignable<BsnComponentSchema>({

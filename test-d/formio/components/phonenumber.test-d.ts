@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {PhoneNumberComponentSchema} from '../../../lib/';
+import {PhoneNumberComponentSchema} from '../../../dist/';
 
 // minimal textfield component schema
 expectAssignable<PhoneNumberComponentSchema>({

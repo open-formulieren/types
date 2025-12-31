@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {SelectComponentSchema} from '../../../lib';
+import {SelectComponentSchema} from '../../../dist';
 
 // minimal component schema, manual:
 expectAssignable<SelectComponentSchema>({

@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {CosignV1ComponentSchema} from '../../../lib/';
+import {CosignV1ComponentSchema} from '../../../dist/';
 
 // minimal CoSign component schema
 expectAssignable<CosignV1ComponentSchema>({

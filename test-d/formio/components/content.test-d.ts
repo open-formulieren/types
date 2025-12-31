@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {ContentComponentSchema} from '../../../lib';
+import {ContentComponentSchema} from '../../../dist';
 
 // Minimal schema
 expectAssignable<ContentComponentSchema>({

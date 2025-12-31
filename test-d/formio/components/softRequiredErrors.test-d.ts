@@ -1,6 +1,6 @@
 import {expectAssignable} from 'tsd';
 
-import {SoftRequiredErrorsComponentSchema} from '../../../lib';
+import {SoftRequiredErrorsComponentSchema} from '../../../dist';
 
 // Minimal schema
 expectAssignable<SoftRequiredErrorsComponentSchema>({

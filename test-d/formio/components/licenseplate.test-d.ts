@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {LicensePlateComponentSchema} from '../../../lib/';
+import {LicensePlateComponentSchema} from '../../../dist/';
 
 // minimal postcode component schema
 expectAssignable<LicensePlateComponentSchema>({

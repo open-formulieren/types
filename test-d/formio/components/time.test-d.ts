@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {TimeComponentSchema} from '../../../lib';
+import {TimeComponentSchema} from '../../../dist';
 
 // minimal time component schema
 expectAssignable<TimeComponentSchema>({

@@ -1,6 +1,6 @@
 import {expectAssignable} from 'tsd';
 
-import {CustomerProfileComponentSchema} from '../../../lib/';
+import {CustomerProfileComponentSchema} from '../../../dist/';
 
 // minimal customer profile component schema
 expectAssignable<CustomerProfileComponentSchema>({

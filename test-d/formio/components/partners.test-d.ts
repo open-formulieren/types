@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {PartnersComponentSchema} from '../../../lib';
+import {PartnersComponentSchema} from '../../../dist';
 
 // minimal partners component schema
 expectAssignable<PartnersComponentSchema>({

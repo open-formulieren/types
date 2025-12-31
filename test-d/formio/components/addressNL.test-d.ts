@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {AddressNLComponentSchema} from '../../../lib';
+import {AddressNLComponentSchema} from '../../../dist';
 
 // minimal Address (NL) component schema
 expectAssignable<AddressNLComponentSchema>({

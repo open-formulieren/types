@@ -1,13 +1,12 @@
 {
   "name": "@open-formulieren/types",
   "version": "0.52.0",
-  "description": "Typescript type definitions for Open Forms' Form.io extensions",
-  "main": "index.js",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "description": "Typescript type definitions for Open Forms' Form.io components",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "tsc --emitDeclarationOnly",
     "build:docs": "typedoc --name 'Open Forms TS types'",
@@ -20,9 +19,9 @@
     "url": "git+ssh://git@github.com/open-formulieren/types.git"
   },
   "keywords": [
+    "open forms",
+    "open formulieren",
     "formio",
-    "open",
-    "forms",
     "typescript"
   ],
   "author": "Maykin Media <support@maykinmedia.nl>",

@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {TextFieldComponentSchema} from '../../../lib/';
+import {TextFieldComponentSchema} from '../../../dist/';
 
 // minimal textfield component schema
 expectAssignable<TextFieldComponentSchema>({

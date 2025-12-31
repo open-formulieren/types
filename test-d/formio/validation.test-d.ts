@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {HasValidation} from '../../lib/';
+import {HasValidation} from '../../dist/';
 
 type OnlyRequired = HasValidation<'required'>;
 

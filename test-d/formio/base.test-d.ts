@@ -1,7 +1,7 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {TextFieldComponentSchema} from '../../lib';
-import {PossibleValidatorErrorKeys, SchemaWithValidation} from '../../lib/formio/base';
+import {TextFieldComponentSchema} from '../../dist';
+import {PossibleValidatorErrorKeys, SchemaWithValidation} from '../../dist/formio/base';
 
 // SchemaWithValidation tests
 

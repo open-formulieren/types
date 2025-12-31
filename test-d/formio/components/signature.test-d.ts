@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {SignatureComponentSchema} from '../../../lib/';
+import {SignatureComponentSchema} from '../../../dist/';
 
 // minimal signature component schema
 expectAssignable<SignatureComponentSchema>({

@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {MapComponentSchema} from '../../../lib/';
+import {MapComponentSchema} from '../../../dist/';
 
 // minimal map component schema
 expectAssignable<MapComponentSchema>({
@@ -24,7 +24,8 @@ expectAssignable<MapComponentSchema>({
   useConfigDefaultMapSettings: false,
   defaultValue: null,
   tileLayerIdentifier: 'some-wmts-layer',
-  tileLayerUrl: "https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_orthoHR/EPSG:28992/{z}/{x}/{y}.png",
+  tileLayerUrl:
+    'https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_orthoHR/EPSG:28992/{z}/{x}/{y}.png',
   interactions: {
     polygon: true,
     polyline: false,
@@ -32,13 +33,13 @@ expectAssignable<MapComponentSchema>({
   },
   overlays: [
     {
-      uuid: "623d703f-3d75-4720-bb9b-13c5fd783fcb",
-      url: "https://service.pdok.nl/lv/bag/wms/v2_0",
-      type: "wms",
-      label: "BAG pand and verblijfsobject layer",
-      layers: ["pand", "verblijfsobject"]
-    }
-  ]
+      uuid: '623d703f-3d75-4720-bb9b-13c5fd783fcb',
+      url: 'https://service.pdok.nl/lv/bag/wms/v2_0',
+      type: 'wms',
+      label: 'BAG pand and verblijfsobject layer',
+      layers: ['pand', 'verblijfsobject'],
+    },
+  ],
 });
 
 // full, correct schema
@@ -64,7 +65,8 @@ expectAssignable<MapComponentSchema>({
   },
   useConfigDefaultMapSettings: false,
   tileLayerIdentifier: 'some-wmts-layer',
-  tileLayerUrl: "https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_orthoHR/EPSG:28992/{z}/{x}/{y}.png",
+  tileLayerUrl:
+    'https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_orthoHR/EPSG:28992/{z}/{x}/{y}.png',
   interactions: {
     polygon: true,
     polyline: false,
@@ -72,12 +74,12 @@ expectAssignable<MapComponentSchema>({
   },
   overlays: [
     {
-      uuid: "623d703f-3d75-4720-bb9b-13c5fd783fcb",
-      url: "https://service.pdok.nl/lv/bag/wms/v2_0",
-      type: "wms",
-      label: "BAG pand and verblijfsobject layer",
-      layers: ["pand", "verblijfsobject"]
-    }
+      uuid: '623d703f-3d75-4720-bb9b-13c5fd783fcb',
+      url: 'https://service.pdok.nl/lv/bag/wms/v2_0',
+      type: 'wms',
+      label: 'BAG pand and verblijfsobject layer',
+      layers: ['pand', 'verblijfsobject'],
+    },
   ],
   // advanced tab in builder form
   conditional: {

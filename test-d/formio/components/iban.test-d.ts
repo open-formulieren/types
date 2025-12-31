@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {IbanComponentSchema} from '../../../lib';
+import {IbanComponentSchema} from '../../../dist';
 
 // minimal iban component schema
 expectAssignable<IbanComponentSchema>({
@@ -10,7 +10,6 @@ expectAssignable<IbanComponentSchema>({
   label: 'Some IBAN',
   validateOn: 'blur',
 });
-
 
 // multiple false and appropriate default value type
 expectAssignable<IbanComponentSchema>({

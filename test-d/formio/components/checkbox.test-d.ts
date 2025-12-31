@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {CheckboxComponentSchema} from '../../../lib';
+import {CheckboxComponentSchema} from '../../../dist';
 
 // minimal component schema
 expectAssignable<CheckboxComponentSchema>({
@@ -10,7 +10,6 @@ expectAssignable<CheckboxComponentSchema>({
   label: 'Some checkbox',
   defaultValue: true,
 });
-
 
 // full, correct schema
 expectAssignable<CheckboxComponentSchema>({
