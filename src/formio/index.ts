@@ -22,7 +22,6 @@ import {
   PartnersComponentSchema,
   PhoneNumberComponentSchema,
   PostcodeComponentSchema,
-  ProductPriceComponentSchema,
   RadioComponentSchema,
   SelectComponentSchema,
   SelectboxesComponentSchema,
@@ -77,7 +76,6 @@ export type AnyComponentSchema =
   | BsnComponentSchema
   | AddressNLComponentSchema
   | NpFamilyMembersComponentSchema
-  | ProductPriceComponentSchema
   | SignatureComponentSchema
   | CosignV2ComponentSchema
   | MapComponentSchema

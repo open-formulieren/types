@@ -10,7 +10,6 @@ export * from './iban';
 export * from './licenseplate';
 export * from './bsn';
 export * from './npFamilyMembers';
-export * from './productPrice';
 export * from './select';
 export * from './checkbox';
 export * from './selectboxes';
