@@ -5,7 +5,16 @@
  */
 import {EmailComponentSchema} from './email';
 import {NumberComponentSchema} from './number';
+import {TextareaComponentSchema} from './textarea';
 import {TextFieldComponentSchema} from './textfield';
 
-export type AnyComponent = TextFieldComponentSchema | EmailComponentSchema | NumberComponentSchema;
-export {TextFieldComponentSchema, EmailComponentSchema, NumberComponentSchema};
+export type AnyComponent =
+  // basic
+  TextFieldComponentSchema | EmailComponentSchema | TextareaComponentSchema | NumberComponentSchema;
+
+export {
+  TextFieldComponentSchema,
+  EmailComponentSchema,
+  TextareaComponentSchema,
+  NumberComponentSchema,
+};

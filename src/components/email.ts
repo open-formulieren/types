@@ -8,7 +8,7 @@ import {
   Label,
   Tooltip,
 } from '../common';
-import {ConditionalOptions, DisplayConfig, OFExtensions, Registration} from '../extensions';
+import {Conditional, DisplayConfig, OFExtensions, Registration} from '../extensions';
 import {Validation} from '../validation';
 
 interface EmailExtensions {
@@ -47,7 +47,7 @@ export type EmailComponentSchema = Prettify<
        * will also require backend updates.
        */
       confirmationRecipient?: boolean;
-    } & ConditionalOptions &
+    } & Conditional &
     Validation<'required'> &
     Registration &
     OFExtensions<'label' | 'description' | 'tooltip', EmailExtensions> &

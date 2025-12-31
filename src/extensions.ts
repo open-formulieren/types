@@ -55,7 +55,7 @@ export interface DisplayConfig {
  * - `eq` can be any JSON-serializable type, not just string. Note that our builder
  *   uses appropriate JS types for the component type referenced via `when`.
  */
-export interface ConditionalOptions {
+export interface Conditional {
   conditional?: {
     /**
      * Whether the field should be shown (`true`) or hidden (`false`) when the condition

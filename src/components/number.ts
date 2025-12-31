@@ -1,6 +1,5 @@
 import {BaseComponent, Prettify} from '../base';
 import {
-  AutoComplete,
   ClearOnHide,
   DefaultValue,
   Description,
@@ -9,13 +8,7 @@ import {
   Label,
   Tooltip,
 } from '../common';
-import {
-  ConditionalOptions,
-  DisplayConfig,
-  OFExtensions,
-  Prefill,
-  Registration,
-} from '../extensions';
+import {Conditional, DisplayConfig, OFExtensions, Prefill, Registration} from '../extensions';
 import {Validation} from '../validation';
 
 type NumberFieldExtras = {
@@ -67,8 +60,7 @@ export type NumberComponentSchema = Prettify<
     ClearOnHide &
     IsSensitiveData &
     DefaultValue<number | null> &
-    AutoComplete &
-    ConditionalOptions &
+    Conditional &
     Validation<'required' | 'min' | 'max'> &
     Registration &
     Prefill &

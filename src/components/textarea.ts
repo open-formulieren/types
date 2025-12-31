@@ -11,11 +11,22 @@ import {
   ShowCharCount,
   Tooltip,
 } from '../common';
-import {Conditional, DisplayConfig, OFExtensions, Prefill, Registration} from '../extensions';
+import {Conditional, DisplayConfig, OFExtensions} from '../extensions';
 import {Validation} from '../validation';
 
+type TextareaExtras = {
+  /**
+   * Number of rows making up the (starting) height of the textbox.
+   */
+  rows?: number;
+  /**
+   * If enabled, the textbox grows in size as the user types more text in it.
+   */
+  autoExpand: boolean;
+};
+
 /**
- * Component shape/options for a textfield component.
+ * Component shape/options for a number component.
  *
  * @warning The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
@@ -24,8 +35,8 @@ import {Validation} from '../validation';
  *
  * @category Basic components
  */
-export type TextFieldComponentSchema = Prettify<
-  BaseComponent<'textfield'> &
+export type TextareaComponentSchema = Prettify<
+  BaseComponent<'textarea'> &
     Label &
     Description &
     Tooltip &
@@ -39,25 +50,8 @@ export type TextFieldComponentSchema = Prettify<
     ShowCharCount &
     Conditional &
     Validation<'required' | 'maxLength' | 'pattern'> &
-    Registration &
-    Prefill & {
-      /**
-       * @deprecated in favour of addressNL component
-       */
-      deriveStreetName?: boolean;
-      /**
-       * @deprecated in favour of addressNL component
-       */
-      deriveCity?: boolean;
-      /**
-       * @deprecated in favour of addressNL component
-       */
-      derivePostcode?: string;
-      /**
-       * @deprecated in favour of addressNL component
-       */
-      deriveHouseNumber?: string;
-    } & OFExtensions<'label' | 'description' | 'tooltip' | 'placeholder'> &
+    OFExtensions<'label' | 'description' | 'tooltip' | 'placeholder'> &
+    TextareaExtras &
     // Unfortunately, this results in a top-level union and there's nothing we can do
     // about it due to TS limitations :(
     WithMultiple<string>
