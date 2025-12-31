@@ -3,6 +3,7 @@
  *
  * @module components
  */
+import {AddressNLComponentSchema} from './addressNL';
 import {BsnComponentSchema} from './bsn';
 import {CheckboxComponentSchema} from './checkbox';
 import {ContentComponentSchema} from './content';
@@ -37,6 +38,7 @@ export type AnyComponent =
   | NpFamilyMembersComponentSchema
   | SignatureComponentSchema
   | CosignV2ComponentSchema
+  | AddressNLComponentSchema
   // layout
   | ContentComponentSchema
   | SoftRequiredErrorsComponentSchema
@@ -60,6 +62,7 @@ export {
   NpFamilyMembersComponentSchema,
   SignatureComponentSchema,
   CosignV2ComponentSchema,
+  AddressNLComponentSchema,
   // layout
   ContentComponentSchema,
   SoftRequiredErrorsComponentSchema,
