@@ -8,6 +8,7 @@ import {CheckboxComponentSchema} from './checkbox';
 import {CurrencyComponentSchema} from './currency';
 import {EmailComponentSchema} from './email';
 import {IbanComponentSchema} from './iban';
+import {LicensePlateComponentSchema} from './licensePlate';
 import {NumberComponentSchema} from './number';
 import {PhoneNumberComponentSchema} from './phoneNumber';
 import {PostcodeComponentSchema} from './postcode';
@@ -26,6 +27,7 @@ export type AnyComponent =
   | CurrencyComponentSchema
   // special
   | IbanComponentSchema
+  | LicensePlateComponentSchema
   | BsnComponentSchema;
 
 export {
@@ -40,5 +42,6 @@ export {
   CurrencyComponentSchema,
   // special
   IbanComponentSchema,
+  LicensePlateComponentSchema,
   BsnComponentSchema,
 };
