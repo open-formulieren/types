@@ -29,7 +29,7 @@ interface EmailExtensions {
  *
  * @category Basic components
  */
-export type Email = Prettify<
+export type EmailComponentSchema = Prettify<
   BaseComponent<'email'> &
     Label &
     Description &

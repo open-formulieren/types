@@ -56,7 +56,7 @@ type NumberFieldExtras = {
  *
  * @category Basic components
  */
-export type Number = Prettify<
+export type NumberComponentSchema = Prettify<
   BaseComponent<'number'> &
     Label &
     Description &

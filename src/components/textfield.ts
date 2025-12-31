@@ -30,7 +30,7 @@ import {Validation} from '../validation';
  *
  * @category Basic components
  */
-export type TextField = Prettify<
+export type TextFieldComponentSchema = Prettify<
   BaseComponent<'textfield'> &
     Label &
     Description &

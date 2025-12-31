@@ -3,9 +3,9 @@
  *
  * @module components
  */
-import {Email} from './email';
-import {Number} from './number';
-import {TextField} from './textfield';
+import {EmailComponentSchema} from './email';
+import {NumberComponentSchema} from './number';
+import {TextFieldComponentSchema} from './textfield';
 
-export type AnyComponent = TextField | Email | Number;
-export {TextField, Email, Number};
+export type AnyComponent = TextFieldComponentSchema | EmailComponentSchema | NumberComponentSchema;
+export {TextFieldComponentSchema, EmailComponentSchema, NumberComponentSchema};
