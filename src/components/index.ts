@@ -24,12 +24,14 @@ import {SignatureComponentSchema} from './signature';
 import {SoftRequiredErrorsComponentSchema} from './softRequiredErrors';
 import {TextareaComponentSchema} from './textarea';
 import {TextFieldComponentSchema} from './textfield';
+import {TimeComponentSchema} from './time';
 
 export type AnyComponent =
   // basic
   | TextFieldComponentSchema
   | EmailComponentSchema
   | PhoneNumberComponentSchema
+  | TimeComponentSchema
   | PostcodeComponentSchema
   | FileComponentSchema
   | TextareaComponentSchema
@@ -58,6 +60,7 @@ export {
   TextFieldComponentSchema,
   EmailComponentSchema,
   PhoneNumberComponentSchema,
+  TimeComponentSchema,
   PostcodeComponentSchema,
   FileComponentSchema,
   TextareaComponentSchema,
