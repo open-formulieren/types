@@ -149,3 +149,112 @@ export interface OFExtensions<
     } & Extra
   >;
 }
+
+/**
+ * @groupDescription Date/datetime validations
+ *
+ * Date and datetime components can be configured with certain minimum/maximum date
+ * validation modes, which are evaluated dynamically in the backend to resolve to
+ * specific `min` or `max` values for the validation.
+ *
+ * The configurations are stored in the top-level `openForms` property of the component
+ * definitions.
+ *
+ * @showGroups
+ */
+
+/**
+ * Definition of a delta for a date constraint, in number of years, months and/or days.
+ *
+ * @remarks The numbers are expected to be integers.
+ *
+ * @group Date/datetime validations
+ */
+export interface DateConstraintDelta {
+  /**
+   * Number of years relative to the anchor date(time). Leaving this empty is equivalent
+   * to 0. Summed together with the other properties to calculate an offset.
+   */
+  years: number | null;
+  /**
+   * Number of months relative to the anchor date(time). Leaving this empty is equivalent
+   * to 0. Summed together with the other properties to calculate an offset.
+   */
+  months: number | null;
+  /**
+   * Number of days relative to the anchor date(time). Leaving this empty is equivalent
+   * to 0. Summed together with the other properties to calculate an offset.
+   */
+  days: number | null;
+}
+
+/**
+ * @group Date/datetime validations
+ */
+export interface NoDateConstraint {
+  mode: '';
+}
+
+/**
+ * Fixed date/datetime anchor point. The value is stored in the `component.datePicker`
+ * configuration.
+ *
+ * @group Date/datetime validations
+ */
+export interface FixedValueDateConstraint {
+  mode: 'fixedValue';
+}
+
+interface IncludeToday {
+  /**
+   * If true, then the current day/date is considered an allowed value too.
+   */
+  includeToday: boolean | null;
+}
+
+/**
+ * Allow dates later than "now/today". For dates, `includeToday` controls if the current
+ * day is valid too.
+ *
+ * @group Date/datetime validations
+ */
+export type FutureDateConstraint<WithIncludeToday extends boolean = false> = Prettify<
+  {
+    mode: 'future';
+  } & (WithIncludeToday extends true ? IncludeToday : Record<never, never>)
+>;
+
+/**
+ * Allow dates before "now/today". For dates, `includeToday` controls if the current
+ * day is valid too.
+ *
+ * @group Date/datetime validations
+ */
+export type PastDateConstraint<WithIncludeToday extends boolean = false> = Prettify<
+  {
+    mode: 'past';
+  } & (WithIncludeToday extends true ? IncludeToday : Record<never, never>)
+>;
+
+/**
+ * Allow values that fall within the range determined by applying a delta to the
+ * reference value/variable.
+ *
+ * @group Date/datetime validations
+ */
+export interface RelativeDateConstraint {
+  mode: 'relativeToVariable';
+  /**
+   * Which (other) variable to add or subtract the delta to/from, resulting in a
+   * calculated date/datetime to use as boundary.
+   */
+  variable?: string;
+  /**
+   * The amount of days to add to/subtract from the reference variable.
+   */
+  delta: DateConstraintDelta;
+  /**
+   * Whether to calculate a date after or before the reference variable.
+   */
+  operator?: 'add' | 'subtract';
+}
