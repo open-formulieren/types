@@ -14,6 +14,7 @@ import {CustomerProfileComponentSchema} from './customerProfile';
 import {DateComponentSchema} from './date';
 import {DateTimeComponentSchema} from './datetime';
 import {EmailComponentSchema} from './email';
+import {FieldsetComponentSchema} from './fieldset';
 import {FileComponentSchema} from './file';
 import {IbanComponentSchema} from './iban';
 import {LicensePlateComponentSchema} from './licensePlate';
@@ -55,6 +56,7 @@ export type AnyComponent =
   | CustomerProfileComponentSchema
   // layout
   | ContentComponentSchema
+  | FieldsetComponentSchema
   | SoftRequiredErrorsComponentSchema
   // deprecated
   | CosignV1ComponentSchema;
@@ -86,6 +88,7 @@ export {
   CustomerProfileComponentSchema,
   // layout
   ContentComponentSchema,
+  FieldsetComponentSchema,
   SoftRequiredErrorsComponentSchema,
   // deprecated
   CosignV1ComponentSchema,
