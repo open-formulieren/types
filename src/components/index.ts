@@ -10,6 +10,7 @@ import {ChildrenComponentSchema} from './children';
 import {ContentComponentSchema} from './content';
 import {CosignV1ComponentSchema, CosignV2ComponentSchema} from './cosign';
 import {CurrencyComponentSchema} from './currency';
+import {CustomerProfileComponentSchema} from './customerProfile';
 import {EmailComponentSchema} from './email';
 import {FileComponentSchema} from './file';
 import {IbanComponentSchema} from './iban';
@@ -45,6 +46,7 @@ export type AnyComponent =
   | AddressNLComponentSchema
   | PartnersComponentSchema
   | ChildrenComponentSchema
+  | CustomerProfileComponentSchema
   // layout
   | ContentComponentSchema
   | SoftRequiredErrorsComponentSchema
@@ -72,6 +74,7 @@ export {
   AddressNLComponentSchema,
   PartnersComponentSchema,
   ChildrenComponentSchema,
+  CustomerProfileComponentSchema,
   // layout
   ContentComponentSchema,
   SoftRequiredErrorsComponentSchema,
