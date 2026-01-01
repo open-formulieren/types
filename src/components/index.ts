@@ -12,6 +12,7 @@ import {CosignV1ComponentSchema, CosignV2ComponentSchema} from './cosign';
 import {CurrencyComponentSchema} from './currency';
 import {CustomerProfileComponentSchema} from './customerProfile';
 import {DateComponentSchema} from './date';
+import {DateTimeComponentSchema} from './datetime';
 import {EmailComponentSchema} from './email';
 import {FileComponentSchema} from './file';
 import {IbanComponentSchema} from './iban';
@@ -32,8 +33,9 @@ export type AnyComponent =
   | TextFieldComponentSchema
   | EmailComponentSchema
   | DateComponentSchema
-  | PhoneNumberComponentSchema
+  | DateTimeComponentSchema
   | TimeComponentSchema
+  | PhoneNumberComponentSchema
   | PostcodeComponentSchema
   | FileComponentSchema
   | TextareaComponentSchema
@@ -62,8 +64,9 @@ export {
   TextFieldComponentSchema,
   EmailComponentSchema,
   DateComponentSchema,
-  PhoneNumberComponentSchema,
+  DateTimeComponentSchema,
   TimeComponentSchema,
+  PhoneNumberComponentSchema,
   PostcodeComponentSchema,
   FileComponentSchema,
   TextareaComponentSchema,
