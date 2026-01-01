@@ -11,5 +11,3 @@
 export interface FallbackSchema {
   type?: string;
 }
-
-export * from './base';
