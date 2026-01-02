@@ -14,6 +14,7 @@ import {CurrencyComponentSchema} from './currency';
 import {CustomerProfileComponentSchema} from './customerProfile';
 import {DateComponentSchema} from './date';
 import {DateTimeComponentSchema} from './datetime';
+import {EditGridComponentSchema} from './editgrid';
 import {EmailComponentSchema} from './email';
 import {FieldsetComponentSchema} from './fieldset';
 import {FileComponentSchema} from './file';
@@ -51,6 +52,7 @@ export type AnyComponent =
   | NpFamilyMembersComponentSchema
   | SignatureComponentSchema
   | CosignV2ComponentSchema
+  | EditGridComponentSchema
   | AddressNLComponentSchema
   | PartnersComponentSchema
   | ChildrenComponentSchema
@@ -84,6 +86,7 @@ export {
   NpFamilyMembersComponentSchema,
   SignatureComponentSchema,
   CosignV2ComponentSchema,
+  EditGridComponentSchema,
   AddressNLComponentSchema,
   PartnersComponentSchema,
   ChildrenComponentSchema,
