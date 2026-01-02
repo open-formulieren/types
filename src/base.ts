@@ -51,7 +51,7 @@ export interface BaseComponent<T extends string> {
   key: string;
 }
 
-export type WithMultiple<TSingle, TMultiple = TSingle[]> =
+export type WithMultiple<TSingle> =
   | {
       /**
        * Flag that controls the multi-value mode of the field.
@@ -76,5 +76,5 @@ export type WithMultiple<TSingle, TMultiple = TSingle[]> =
       /**
        * The default/initial value to populate the field with if no value is set yet.
        */
-      defaultValue?: TMultiple;
+      defaultValue?: TSingle[];
     };

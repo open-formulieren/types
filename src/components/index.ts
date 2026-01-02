@@ -27,6 +27,7 @@ import {PartnersComponentSchema} from './partners';
 import {PhoneNumberComponentSchema} from './phoneNumber';
 import {PostcodeComponentSchema} from './postcode';
 import {RadioComponentSchema} from './radio';
+import {SelectComponentSchema} from './select';
 import {SelectboxesComponentSchema} from './selectboxes';
 import {SignatureComponentSchema} from './signature';
 import {SoftRequiredErrorsComponentSchema} from './softRequiredErrors';
@@ -48,6 +49,7 @@ export type AnyComponent =
   | NumberComponentSchema
   | CheckboxComponentSchema
   | SelectboxesComponentSchema
+  | SelectComponentSchema
   | CurrencyComponentSchema
   | RadioComponentSchema
   // special
@@ -85,6 +87,7 @@ export {
   NumberComponentSchema,
   CheckboxComponentSchema,
   SelectboxesComponentSchema,
+  SelectComponentSchema,
   CurrencyComponentSchema,
   RadioComponentSchema,
   // special
