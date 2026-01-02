@@ -1,6 +1,7 @@
 import {BaseComponent, Prettify} from '../base';
 import {ClearOnHide, Description, Hidden, IsSensitiveData, Label, Tooltip} from '../common';
 import {Conditional, DisplayConfig, OFExtensions} from '../extensions';
+import {Validation} from '../validation';
 
 /**
  * Different kinds of digital addresses that a user may wish to receive communication
@@ -73,5 +74,6 @@ export type CustomerProfileComponentSchema = Prettify<
     ClearOnHide &
     IsSensitiveData &
     Conditional &
+    Validation<'required'> &
     OFExtensions<'label' | 'description' | 'tooltip'>
 >;
