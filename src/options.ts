@@ -4,7 +4,7 @@
  * @module options
  */
 import {SupportedLocales} from './i18n';
-import {JsonValue} from './json';
+import {JSONValue} from './json';
 
 /**
  * A predefined choice/option definition.
@@ -65,7 +65,7 @@ export interface Option {
  * {"+": [{"var": "foo"}, {"var": "bar"}]}
  */
 export type JsonLogicExpression = {
-  [operator: string]: string | JsonValue[];
+  [operator: string]: string | JSONValue[];
 };
 
 /**
