@@ -58,8 +58,8 @@ interface AddressNLExtensions {
    * component.
    */
   components?: {
-    postcode?: Prettify<Pick<Validation<'pattern', false>, 'validate' | 'translatedErrors'>>;
-    city?: Prettify<Pick<Validation<'pattern', false>, 'validate' | 'translatedErrors'>>;
+    postcode?: Prettify<Validation<'pattern', false>>;
+    city?: Prettify<Validation<'pattern', false>>;
   };
 }
 
