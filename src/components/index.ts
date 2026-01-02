@@ -7,6 +7,7 @@ import {AddressNLComponentSchema} from './addressNL';
 import {BsnComponentSchema} from './bsn';
 import {CheckboxComponentSchema} from './checkbox';
 import {ChildrenComponentSchema} from './children';
+import {ColumnsComponentSchema} from './columns';
 import {ContentComponentSchema} from './content';
 import {CosignV1ComponentSchema, CosignV2ComponentSchema} from './cosign';
 import {CurrencyComponentSchema} from './currency';
@@ -56,6 +57,7 @@ export type AnyComponent =
   | CustomerProfileComponentSchema
   // layout
   | ContentComponentSchema
+  | ColumnsComponentSchema
   | FieldsetComponentSchema
   | SoftRequiredErrorsComponentSchema
   // deprecated
@@ -88,6 +90,7 @@ export {
   CustomerProfileComponentSchema,
   // layout
   ContentComponentSchema,
+  ColumnsComponentSchema,
   FieldsetComponentSchema,
   SoftRequiredErrorsComponentSchema,
   // deprecated
