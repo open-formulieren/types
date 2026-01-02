@@ -10,8 +10,6 @@
  * @module validation
  */
 import {Prettify} from './base';
-// TODO: move this!
-import {ComponentErrorKeys} from './formio/validation';
 import {SupportedLocales} from './i18n';
 
 export interface ValidateOptions {
@@ -89,6 +87,52 @@ export interface ValidateOptions {
 
 export type ValidatorNames = Prettify<Exclude<keyof ValidateOptions, 'plugins'>>;
 
+type AllSupportedErrorKeys =
+  | 'required'
+  | 'min'
+  | 'max'
+  | 'maxLength'
+  | 'invalid_email'
+  | 'pattern'
+  | 'minDate'
+  | 'maxDate'
+  | 'minSelectedCount'
+  | 'maxSelectedCount'
+  | 'invalid_date'
+  | 'minTime'
+  | 'maxTime'
+  | 'invalid_time'
+  | 'invalid_datetime';
+
+type ValidatorToErrorMap = Required<{[K in ValidatorNames]: AllSupportedErrorKeys}>;
+const VALIDATOR_TO_ERROR_KEY = {
+  required: 'required',
+  min: 'min',
+  max: 'max',
+  maxLength: 'maxLength',
+  pattern: 'pattern',
+  minSelectedCount: 'minSelectedCount',
+  maxSelectedCount: 'maxSelectedCount',
+  // 'email': 'invalid_email',  // email component is exposed, but adds the validation implicitly
+  // `min/maxDate` is a constraint used by both the date and datetime component:
+  minDate: 'minDate' as 'minDate' | 'invalid_date' | 'invalid_datetime',
+  maxDate: 'maxDate' as 'maxDate' | 'invalid_date' | 'invalid_datetime',
+  // custom, for time component
+  minTime: 'minTime' as 'minTime' | 'invalid_time',
+  maxTime: 'maxTime' as 'maxTime' | 'invalid_time',
+} as const satisfies ValidatorToErrorMap;
+
+/**
+ * Infer the available error message keys for the requested validators.
+ *
+ * The `VALIDATOR_TO_ERROR_KEY` mapping tracks which error message keys can be used
+ * by a given validator.
+ */
+export type ErrorMessageKeys<VN extends ValidatorNames> = Pick<
+  typeof VALIDATOR_TO_ERROR_KEY,
+  VN
+>[VN];
+
 /**
  * Build the validation properties from the requested validator names.
  *
@@ -124,7 +168,7 @@ export type Validation<V extends ValidatorNames, WithPlugins extends boolean = t
    */
   translatedErrors?: {
     [K in SupportedLocales]?: {
-      [K in ComponentErrorKeys<V>]?: string;
+      [K in ErrorMessageKeys<V>]?: string;
     };
   };
   /**
@@ -132,6 +176,6 @@ export type Validation<V extends ValidatorNames, WithPlugins extends boolean = t
    * `translatedErrors` - should never be written to.
    */
   readonly errors?: {
-    readonly [K in ComponentErrorKeys<V>]?: string;
+    readonly [K in ErrorMessageKeys<V>]?: string;
   };
 };
