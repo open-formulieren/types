@@ -59,7 +59,7 @@ export type MapValue = GeoJsonGeometry | null;
 /**
  * Definition of a single overlay layer in the map.
  */
-interface Overlay {
+export interface Overlay {
   /**
    * The unique identifier of the tile layer, defined in/by the backend.
    */
