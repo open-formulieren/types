@@ -137,7 +137,7 @@ export interface Prefill {
  */
 export interface OFExtensions<
   TP extends string = never,
-  Extra extends object = Record<never, never>
+  Extra extends object = Record<never, never>,
 > {
   openForms?: Prettify<
     {
