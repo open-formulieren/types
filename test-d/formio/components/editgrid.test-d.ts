@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {EditGridComponentSchema} from '../../../lib/';
+import {EditGridComponentSchema} from '../../../dist/';
 
 // minimal textfield component schema
 expectAssignable<EditGridComponentSchema>({

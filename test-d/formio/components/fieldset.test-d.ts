@@ -1,6 +1,6 @@
 import {expectAssignable} from 'tsd';
 
-import {FieldsetComponentSchema} from '../../../lib';
+import {FieldsetComponentSchema} from '../../../dist';
 
 // Minimal schema
 expectAssignable<FieldsetComponentSchema>({

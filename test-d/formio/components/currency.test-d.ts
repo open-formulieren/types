@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {CurrencyComponentSchema} from '../../../lib/';
+import {CurrencyComponentSchema} from '../../../dist/';
 
 // minimal currency component schema
 expectAssignable<CurrencyComponentSchema>({

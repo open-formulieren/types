@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {BsnComponentSchema} from '../../../lib/';
+import {BsnComponentSchema} from '../../../dist/';
 
 // minimal bsn component schema
 expectAssignable<BsnComponentSchema>({
@@ -8,8 +8,6 @@ expectAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
 });
 
 // multiple false and appropriate default value type
@@ -18,8 +16,6 @@ expectAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: '123456789',
 });
@@ -30,8 +26,6 @@ expectAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: ['123456789'],
 });
@@ -40,10 +34,8 @@ expectAssignable<BsnComponentSchema>({
 expectAssignable<BsnComponentSchema>({
   id: 'yejak',
   type: 'bsn',
-  validateOn: 'blur',
   // basic tab in builder form
   label: 'Some input',
-  inputMask: '999999999',
   key: 'someInput',
   description: 'A description',
   tooltip: 'A tooltip',
@@ -103,8 +95,6 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'textfield',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
 } as const);
 
 // using unsupported properties
@@ -113,8 +103,6 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
   placeholder: 'no placeholder',
 } as const);
 
@@ -124,11 +112,9 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
   validate: {
     maxLength: 7,
   },
-  validateOn: 'blur',
 } as const);
 
 // invalid, multiple true and non-array default value
@@ -137,8 +123,6 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 } as const);
@@ -149,8 +133,6 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 } as const);
@@ -161,8 +143,6 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [123],
 } as const);
@@ -173,5 +153,4 @@ expectNotAssignable<BsnComponentSchema>({
   type: 'bsn',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '999999999',
 });

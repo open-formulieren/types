@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {DateTimeComponentSchema} from '../../../lib';
+import {DateTimeComponentSchema} from '../../../dist';
 
 // minimal date component schema
 expectAssignable<DateTimeComponentSchema>({
@@ -30,13 +30,6 @@ expectAssignable<DateTimeComponentSchema>({
     },
   },
   datePicker: {
-    showWeeks: true,
-    startingDay: 0,
-    initDate: '',
-    minMode: 'day',
-    maxMode: 'year',
-    yearRows: 4,
-    yearColumns: 5,
     minDate: '2023-06-06T12:00Z',
     maxDate: null,
   },
@@ -100,13 +93,6 @@ expectAssignable<DateTimeComponentSchema>({
   },
   // dynamically set/mutated by the backend after processing openForms.minDate|maxDate
   datePicker: {
-    showWeeks: true,
-    startingDay: 0,
-    initDate: '',
-    minMode: 'day',
-    maxMode: 'year',
-    yearRows: 4,
-    yearColumns: 5,
     minDate: null,
     maxDate: null,
   },
@@ -133,9 +119,6 @@ expectAssignable<DateTimeComponentSchema>({
         tooltip: 'bar',
       },
     },
-  },
-  customOptions: {
-    allowInvalidPreload: true,
   },
 });
 

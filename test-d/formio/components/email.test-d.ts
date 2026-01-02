@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {EmailComponentSchema} from '../../../lib';
+import {EmailComponentSchema} from '../../../dist';
 
 // minimal email component schema
 expectAssignable<EmailComponentSchema>({
@@ -8,7 +8,6 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
 });
 
 // with additional, email-component specific properties
@@ -17,7 +16,6 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
   autocomplete: 'email',
   confirmationRecipient: false,
 });
@@ -28,7 +26,6 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: '',
 });
@@ -39,7 +36,6 @@ expectAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [''],
 });
@@ -88,19 +84,15 @@ expectAssignable<EmailComponentSchema>({
     requireVerification: true,
   },
   // fixed but not editable
-  validateOn: 'blur',
 });
 
-// validateOn not `blur`
 expectNotAssignable<EmailComponentSchema>({
   id: 'yejak',
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'change',
 });
 
-// missing validateOn
 expectNotAssignable<EmailComponentSchema>({
   id: 'yejak',
   type: 'email',
@@ -114,7 +106,6 @@ expectNotAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 });
@@ -125,7 +116,6 @@ expectNotAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 });
@@ -136,7 +126,6 @@ expectNotAssignable<EmailComponentSchema>({
   type: 'email',
   key: 'someEmail',
   label: 'Some email',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [0],
 });

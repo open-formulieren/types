@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {ContentComponentSchema} from '../../../lib';
+import {ContentComponentSchema} from '../../../dist';
 
 // Minimal schema
 expectAssignable<ContentComponentSchema>({
@@ -16,7 +16,6 @@ expectAssignable<ContentComponentSchema>({
   type: 'content',
   // Display tab
   html: 'inhoud',
-  label: 'Content',
   key: 'content',
   hidden: false,
   showInEmail: false,

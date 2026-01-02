@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {PostcodeComponentSchema} from '../../../lib/';
+import {PostcodeComponentSchema} from '../../../dist/';
 
 // minimal postcode component schema
 expectAssignable<PostcodeComponentSchema>({
@@ -8,25 +8,9 @@ expectAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
-});
-
-// with additional, phonenumber-component specific properties
-expectAssignable<PostcodeComponentSchema>({
-  id: 'yejak',
-  type: 'postcode',
-  key: 'someInput',
-  label: 'Some input',
-  inputMask: '9999 AA',
-  validate: {
-    pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
-  },
-  validateOn: 'blur',
-  autocomplete: 'postal-code',
 });
 
 // multiple false and appropriate default value type
@@ -35,11 +19,9 @@ expectAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
   multiple: false,
   defaultValue: '1015 CJ',
 });
@@ -50,11 +32,9 @@ expectAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
   multiple: true,
   defaultValue: ['1015 CJ'],
 });
@@ -63,8 +43,6 @@ expectAssignable<PostcodeComponentSchema>({
 expectAssignable<PostcodeComponentSchema>({
   id: 'yejak',
   type: 'postcode',
-  inputMask: '9999 AA',
-  validateOn: 'blur',
   // basic tab in builder form
   label: 'Some input',
   key: 'someInput',
@@ -122,11 +100,9 @@ expectNotAssignable<PostcodeComponentSchema>({
   type: 'textfield', // TODO: in the future this may become a specialized textfield alias?
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
 } as const);
 
 // using unsupported properties
@@ -135,11 +111,9 @@ expectNotAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
   placeholder: 'no placeholder',
 } as const);
 
@@ -149,12 +123,10 @@ expectNotAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
     maxLength: 7,
   },
-  validateOn: 'blur',
 } as const);
 
 // invalid, multiple true and non-array default value
@@ -163,11 +135,9 @@ expectNotAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 } as const);
@@ -178,11 +148,9 @@ expectNotAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 } as const);
@@ -193,11 +161,9 @@ expectNotAssignable<PostcodeComponentSchema>({
   type: 'postcode',
   key: 'someInput',
   label: 'Some input',
-  inputMask: '9999 AA',
   validate: {
     pattern: '^[1-9][0-9]{3} ?(?!sa|sd|ss|SA|SD|SS)[a-zA-Z]{2}$',
   },
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [123],
 } as const);

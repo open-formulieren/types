@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {AddressNLComponentSchema} from '../../../lib';
+import {AddressNLComponentSchema} from '../../../dist';
 
 // minimal Address (NL) component schema
 expectAssignable<AddressNLComponentSchema>({
@@ -10,26 +10,6 @@ expectAssignable<AddressNLComponentSchema>({
   label: 'Some AddressNL',
   deriveAddress: false,
   layout: 'doubleColumn',
-});
-
-// appropriate default value type
-expectAssignable<AddressNLComponentSchema>({
-  id: 'yejak',
-  type: 'addressNL',
-  key: 'someAddressNL',
-  label: 'Some AddressNL',
-  deriveAddress: false,
-  layout: 'doubleColumn',
-  defaultValue: {
-    postcode: '',
-    houseNumber: '',
-    houseLetter: '',
-    houseNumberAddition: '',
-    city: '',
-    streetName: '',
-    secretStreetCity: '',
-    autoPopulated: false,
-  },
 });
 
 // full, correct schema
@@ -72,7 +52,6 @@ expectAssignable<AddressNLComponentSchema>({
       nl: {label: 'foo'},
     },
   },
-  // fixed but not editable
 });
 
 // Non supported keys

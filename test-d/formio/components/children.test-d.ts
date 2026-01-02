@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {ChildrenComponentSchema} from '../../../lib';
+import {ChildrenComponentSchema} from '../../../dist';
 
 // minimal children component schema
 expectAssignable<ChildrenComponentSchema>({
@@ -20,13 +20,10 @@ expectAssignable<ChildrenComponentSchema>({
   label: 'children',
   enableSelection: false,
   isSensitiveData: true,
-  defaultValue: undefined,
   clearOnHide: false,
   hidden: false,
-  errors: {required: 'Lastname'},
   description: 'A description',
   tooltip: 'A tooltip',
-  hideLabel: false,
   // Advanced tab
   conditional: {
     show: undefined,

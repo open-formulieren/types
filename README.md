@@ -85,3 +85,20 @@ git push origin main --tags
 If you have PGP keys set up, you can use them for the git tag operation.
 
 The CI pipeline will then publish the new version to npmjs.
+
+## Coding style / guidelines
+
+A common debate in TS is `interface` vs `type` aliases. They're mostly equivalent - the biggest
+exception is probably that interfaces can be augmented by downstream code. Some may also argue that
+the code is cleaner.
+
+In this repository, we apply some rules to decide which to use:
+
+- when the shape of the object exists by itself and is not expected to be further extended, use an
+  `interface` for the improved readability
+- when the type is a base to be composed into more complex types (e.g. variants of the same
+  component type), use a `type`, combined with the `Prettify` helper on the final result for better
+  readability in code editors
+- for component types, always use `type` for consistency - there are a number of component
+  types/variants that result in unions, and allowing interfaces leads to a mix of types that are
+  harder to read.

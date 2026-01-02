@@ -1,6 +1,7 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {Column, ColumnsComponentSchema} from '../../../lib';
+import {ColumnsComponentSchema} from '../../../dist';
+import {Column} from '../../../dist/components/columns';
 
 // Minimal schema
 expectAssignable<ColumnsComponentSchema>({

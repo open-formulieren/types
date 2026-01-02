@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {NpFamilyMembersComponentSchema} from '../../../lib/';
+import {NpFamilyMembersComponentSchema} from '../../../dist/';
 
 // minimal npFamilyMembers component schema
 expectAssignable<NpFamilyMembersComponentSchema>({

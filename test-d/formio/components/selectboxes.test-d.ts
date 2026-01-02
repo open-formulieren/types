@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {SelectboxesComponentSchema} from '../../../lib';
+import {SelectboxesComponentSchema} from '../../../dist';
 
 // minimal component schema, manual:
 expectAssignable<SelectboxesComponentSchema>({
@@ -30,9 +30,10 @@ expectAssignable<SelectboxesComponentSchema>({
   defaultValue: {},
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  values: [],
 });
 
 // values translations
@@ -105,10 +106,9 @@ expectAssignable<SelectboxesComponentSchema>({
       nl: {label: 'foo'},
     },
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
   },
-  // fixed but not editable
-  validateOn: 'blur',
+  values: [],
 });
 
 // Missing openForms
@@ -117,6 +117,7 @@ expectNotAssignable<SelectboxesComponentSchema>({
   type: 'selectboxes',
   key: 'someSelectboxes',
   label: 'Some selectboxes',
+  values: [],
 });
 
 // multiple not allowed
@@ -125,12 +126,13 @@ expectNotAssignable<SelectboxesComponentSchema>({
   type: 'selectboxes',
   key: 'someSelectboxes',
   label: 'Some selectboxes',
-  multiple: 'dummy',
+  multiple: true,
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  values: [],
 });
 
 // defaultValue not allowed
@@ -142,9 +144,10 @@ expectNotAssignable<SelectboxesComponentSchema>({
   defaultValue: [{dummy: true}],
   openForms: {
     dataSrc: 'variable',
-    itemsExpression: 'dummy',
+    itemsExpression: {var: 'foo'},
     translations: {},
   },
+  values: [],
 });
 
 // manual without values
@@ -169,4 +172,5 @@ expectNotAssignable<SelectboxesComponentSchema>({
     dataSrc: 'variable',
     translations: {},
   },
+  values: [],
 });

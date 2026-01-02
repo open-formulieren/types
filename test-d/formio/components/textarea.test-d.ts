@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {TextareaComponentSchema} from '../../../lib/';
+import {TextareaComponentSchema} from '../../../dist/';
 
 // minimal textarea component schema
 expectAssignable<TextareaComponentSchema>({
@@ -82,10 +82,6 @@ expectAssignable<TextareaComponentSchema>({
     // translatedErrors is converted into errors by the backend
     required: 'Je moet een waarde opgeven!!!',
     maxLength: 'Een maximale lengte.',
-  },
-  // registration tab in builder form
-  registration: {
-    attribute: '',
   },
   // translations tab in builder form
   openForms: {

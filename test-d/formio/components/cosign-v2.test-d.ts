@@ -1,12 +1,11 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {CosignV2ComponentSchema} from '../../../lib/';
+import {CosignV2ComponentSchema} from '../../../dist/';
 
 // minimal cosign component schema
 expectAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign',
-  validateOn: 'blur',
   key: 'someCoSign',
   label: 'Some cosign',
 });
@@ -15,7 +14,6 @@ expectAssignable<CosignV2ComponentSchema>({
 expectAssignable<CosignV2ComponentSchema>({
   id: 'yejak',
   type: 'cosign',
-  validateOn: 'blur',
   // basic tab in builder form
   label: 'Some cosign',
   key: 'someCoSign',

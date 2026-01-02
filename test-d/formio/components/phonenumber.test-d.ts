@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {PhoneNumberComponentSchema} from '../../../lib/';
+import {PhoneNumberComponentSchema} from '../../../dist/';
 
 // minimal textfield component schema
 expectAssignable<PhoneNumberComponentSchema>({
@@ -8,7 +8,6 @@ expectAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
 });
 
 // with additional, phonenumber-component specific properties
@@ -17,8 +16,7 @@ expectAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
-  placeholder: 'tel',
+  autocomplete: 'tel',
 });
 
 // multiple false and appropriate default value type
@@ -27,7 +25,6 @@ expectAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   multiple: false,
   defaultValue: '',
 });
@@ -37,7 +34,6 @@ expectAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   multiple: true,
   defaultValue: [''],
 });
@@ -46,7 +42,6 @@ expectAssignable<PhoneNumberComponentSchema>({
 expectAssignable<PhoneNumberComponentSchema>({
   id: 'yejak',
   type: 'phoneNumber',
-  inputMask: null,
   // basic tab in builder form
   label: 'Some input',
   key: 'someInput',
@@ -105,7 +100,6 @@ expectNotAssignable<PhoneNumberComponentSchema>({
   type: 'textfield',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
 } as const);
 
 // using unsupported properties
@@ -114,7 +108,6 @@ expectNotAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   showCharCount: true,
 } as const);
 
@@ -124,7 +117,6 @@ expectNotAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   validate: {
     maxLength: 100,
   },
@@ -136,7 +128,6 @@ expectNotAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   multiple: true,
   defaultValue: '',
 } as const);
@@ -147,7 +138,6 @@ expectNotAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   multiple: false,
   defaultValue: [''],
 } as const);
@@ -158,7 +148,6 @@ expectNotAssignable<PhoneNumberComponentSchema>({
   type: 'phoneNumber',
   key: 'someInput',
   label: 'Some input',
-  inputMask: null,
   multiple: true,
   defaultValue: [123],
 } as const);

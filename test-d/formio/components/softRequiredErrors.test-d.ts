@@ -1,13 +1,12 @@
 import {expectAssignable} from 'tsd';
 
-import {SoftRequiredErrorsComponentSchema} from '../../../lib';
+import {SoftRequiredErrorsComponentSchema} from '../../../dist';
 
 // Minimal schema
 expectAssignable<SoftRequiredErrorsComponentSchema>({
   type: 'softRequiredErrors',
   id: 'iitral8',
   key: 'someKey',
-  label: 'Ignored',
   html: '<div>Will need to be properly {{ field_errors }} structured.</div>',
 });
 
@@ -16,7 +15,6 @@ expectAssignable<SoftRequiredErrorsComponentSchema>({
   type: 'softRequiredErrors',
   id: 'iitral8',
   key: 'someKey',
-  label: 'Ignored',
   html: '<div>Will need to be properly {{ field_errors }} structured.</div>',
   openForms: {
     translations: {

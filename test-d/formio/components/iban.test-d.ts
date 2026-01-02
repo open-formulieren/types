@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {IbanComponentSchema} from '../../../lib';
+import {IbanComponentSchema} from '../../../dist';
 
 // minimal iban component schema
 expectAssignable<IbanComponentSchema>({
@@ -8,9 +8,7 @@ expectAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
 });
-
 
 // multiple false and appropriate default value type
 expectAssignable<IbanComponentSchema>({
@@ -18,7 +16,6 @@ expectAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: '',
 });
@@ -29,7 +26,6 @@ expectAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [''],
 });
@@ -74,25 +70,6 @@ expectAssignable<IbanComponentSchema>({
       nl: {label: 'foo'},
     },
   },
-  // fixed but not editable
-  validateOn: 'blur',
-});
-
-// validateOn not `blur`
-expectNotAssignable<IbanComponentSchema>({
-  id: 'yejak',
-  type: 'iban',
-  key: 'someIban',
-  label: 'Some IBAN',
-  validateOn: 'change',
-});
-
-// missing validateOn
-expectNotAssignable<IbanComponentSchema>({
-  id: 'yejak',
-  type: 'iban',
-  key: 'someIban',
-  label: 'Some IBAN',
 });
 
 // invalid, multiple true and non-array default value
@@ -101,7 +78,6 @@ expectNotAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: '',
 });
@@ -112,7 +88,6 @@ expectNotAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
   multiple: false,
   defaultValue: [''],
 });
@@ -123,7 +98,6 @@ expectNotAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
   multiple: true,
   defaultValue: [0],
 });
@@ -133,6 +107,5 @@ expectNotAssignable<IbanComponentSchema>({
   type: 'iban',
   key: 'someIban',
   label: 'Some IBAN',
-  validateOn: 'blur',
   placeholder: '',
 } as const);

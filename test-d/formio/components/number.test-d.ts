@@ -1,6 +1,6 @@
 import {expectAssignable, expectNotAssignable} from 'tsd';
 
-import {NumberComponentSchema} from '../../../lib/';
+import {NumberComponentSchema} from '../../../dist/';
 
 // minimal number component schema
 expectAssignable<NumberComponentSchema>({
