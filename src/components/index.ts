@@ -20,6 +20,7 @@ import {FieldsetComponentSchema} from './fieldset';
 import {FileComponentSchema} from './file';
 import {IbanComponentSchema} from './iban';
 import {LicensePlateComponentSchema} from './licensePlate';
+import {MapComponentSchema} from './map';
 import {NpFamilyMembersComponentSchema} from './npFamilyMembers';
 import {NumberComponentSchema} from './number';
 import {PartnersComponentSchema} from './partners';
@@ -52,6 +53,7 @@ export type AnyComponent =
   | NpFamilyMembersComponentSchema
   | SignatureComponentSchema
   | CosignV2ComponentSchema
+  | MapComponentSchema
   | EditGridComponentSchema
   | AddressNLComponentSchema
   | PartnersComponentSchema
@@ -86,6 +88,7 @@ export {
   NpFamilyMembersComponentSchema,
   SignatureComponentSchema,
   CosignV2ComponentSchema,
+  MapComponentSchema,
   EditGridComponentSchema,
   AddressNLComponentSchema,
   PartnersComponentSchema,
