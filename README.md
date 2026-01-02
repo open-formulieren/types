@@ -4,26 +4,22 @@
 [![NPM package](https://img.shields.io/npm/v/@open-formulieren/types.svg)](https://www.npmjs.com/package/@open-formulieren/types)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 
-TypeScript types for Open Forms and Form.io.
-
-Form.io ships some type definitions itself, but as it is not implemented in TypeScript itself, the
-practicality of those types is a bit lacking. Open Forms supports a subset of Form.io's features and
-benefits from much stricter type definitions to make working with component types and certain
-generic features easier.
+Typescript type definitions for Open Forms' Form.io components
 
 ## Audience
 
-This library mostly serves the `@open-formulieren/formio-renderer` and
-`@open-formulieren/formio-builder` packages. In the longer term, they will become relevant for the
-`@open-formulieren/sdk` package too and any person wishing to extend our SDK using TypeScript.
+The type definitions are used in internal libraries of Open Forms:
+
+- [`@open-formulieren/formio-renderer`](https://github.com/open-formulieren/formio-renderer)
+- [`@open-formulieren/formio-builder`](https://github.com/open-formulieren/formio-builder)
+- [`@open-formulieren/open-forms-sdk`](https://github.com/open-formulieren/open-forms-sdk)
 
 ## Usage
 
-Install with npm or yarn:
+Install with your favourite package manager:
 
 ```bash
 npm install --save-dev @open-formulieren/types
-yarn add -D @open-formulieren/types
 ```
 
 It's recommended to install the library as dev-dependency as it's only relevant during compilation
@@ -31,52 +27,43 @@ and in source code.
 
 ### Specific schemas
 
-We provide schemas for the Form.io schemas used by Open Forms. Import them as:
+We provide schemas for the component types supported in Open Forms. Import them as:
 
 ```ts
-import {NumberComponentSchema, TextfieldSchema} from '@open-formulieren/types';
+import type {NumberComponentSchema, TextFieldComponentSchema} from '@open-formulieren/types';
 
-// use in your own interfaces:
+// use in your own types:
 interface TextfieldComponentProps {
-  component: TextfieldSchema;
-  value: TextfieldSchema['defaultValue'];
+  component: TextFieldComponentSchema;
+  value: TextFieldComponentSchema['defaultValue'];
   errors: string[];
 }
-
-// or even with generics
-interface ComponentProps<T> {
-  component: T;
-  value: T['defaultValue'];
-  errors: string[];
-}
-
-type TextfieldComponentProps = ComponentProps<TextfieldSchema>;
 ```
 
-### Base schemas
-
-The component-specific schemas are extended from the base schemas.
-
-You can use these to narrow your own component types, or provide them to interfaces where the exact
-component type is not known (yet).
+For types related to a particular component type, you can import them from their respective modules:
 
 ```ts
-import {
-  DisplayConfig, // additional common OF-specific properties
-  HasValidation, // subset of Form.io validate options + i18n of validation errors
-  InputComponentSchema, // base schema for any user-input component type
-  LayoutComponentSchema, // base schema for any purely layout component type (like fieldset) // custom backend prefill configuration
-  OFExtensions, // custom backend renderer configuration
-  PrefillConfig,
-} from '@open-formulieren/types';
+import type {MapValue} from '@open-formulieren/types/components/map';
+```
+
+### `AnyComponentSchema`
+
+The type `AnyComponentSchema` is a union of all supported component schemas. Use it where you can
+expect any valid Formio component definition.
+
+```ts
+import type {AnyComponentSchema} from '@open-formulieren/types';
 ```
 
 ## Release flow
 
-We don't let `npm` apply the git tags when releasing a new version, instead follow this process:
+Releases are published automatically to the npm package registry by the CI pipeline when a git tag
+is pushed.
+
+To prepare a release, bump the version number and tag the commit:
 
 ```bash
-npm version --no-git-tag-version minor
+npm version minor # or patch or major
 git commit -am ":bookmark: Bump to version <newVersion>"
 git tag "<newVersion>"
 git push origin main --tags
@@ -84,9 +71,26 @@ git push origin main --tags
 
 If you have PGP keys set up, you can use them for the git tag operation.
 
-The CI pipeline will then publish the new version to npmjs.
-
 ## Coding style / guidelines
+
+### Code formatting
+
+Code is formatted with `prettier`. Configure your editor to apply it on save, or ensure
+`npm run format` is applied as a pre-commit hook. The CI pipeline checks the formatting and fails
+the build if there are changes detected.
+
+### Exports
+
+Export the public API from `src/index.ts`. The public API consists of:
+
+- each supported component type
+- the JSON types
+- other general purpose types that are useful in downstream projects
+
+For highly specific types (e.g. supporting types for a particular component type), library users can
+import them from their respective modules. These do not need to be exported from the entrypoint.
+
+### `interface` vs. `type`
 
 A common debate in TS is `interface` vs `type` aliases. They're mostly equivalent - the biggest
 exception is probably that interfaces can be augmented by downstream code. Some may also argue that
@@ -102,3 +106,14 @@ In this repository, we apply some rules to decide which to use:
 - for component types, always use `type` for consistency - there are a number of component
   types/variants that result in unions, and allowing interfaces leads to a mix of types that are
   harder to read.
+
+### Documentation
+
+The documentation is built with [TypeDoc](https://typedoc.org/) - you can use the directives/tags
+that are available.
+
+We favour docblocks right above each property, rather than using the `@property` tags that are
+common in JSDoc. Keep documentation close to the item being documented.
+
+Use documentation for the intent behind the definition and provide context for the developers using
+the types.
