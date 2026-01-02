@@ -71,7 +71,7 @@ interface DateExtensions {
   minDate?:
     | NoDateConstraint
     | FixedValueDateConstraint
-    | FutureDateConstraint<true>
+    | FutureDateConstraint<false>
     | RelativeDateConstraint;
   /**
    * Options for how to derive/calculate the maximum allowed date.
@@ -79,7 +79,7 @@ interface DateExtensions {
   maxDate?:
     | NoDateConstraint
     | FixedValueDateConstraint
-    | PastDateConstraint<true>
+    | PastDateConstraint<false>
     | RelativeDateConstraint;
 }
 
