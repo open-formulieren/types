@@ -7,8 +7,7 @@
  *
  * @module extensions
  */
-import {Prettify} from 'base';
-
+import {Prettify} from './base';
 import {SupportedLocales} from './i18n';
 
 /**
