@@ -10,13 +10,13 @@ export interface AddressData {
   /**
    * The postcode of the address, in the format `1234 AB` (space optional).
    *
-   * Together with {@link houseNumber}, the street name and city can be derived.
+   * Together with `houseNumber`, the street name and city can be derived.
    */
   postcode: string;
   /**
    * The house/address number, without any additions.
    *
-   * Together with {@link postcode}, the street name and city can be derived.
+   * Together with `postcode`, the street name and city can be derived.
    */
   houseNumber: string;
   /**
@@ -40,7 +40,7 @@ export interface AddressData {
    */
   streetName?: string;
   /**
-   * Anti-tampering hash for the resolved {@link city} and {@link streetName} generated
+   * Anti-tampering hash for the resolved `city` and `streetName` generated
    * on the server. Client-side data tampering will invalidate the hash.
    */
   secretStreetCity?: string;
@@ -66,7 +66,7 @@ interface AddressNLExtensions {
 /**
  * Component shape/options for the addressNL component.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface
@@ -87,8 +87,8 @@ export type AddressNLComponentSchema = Prettify<
        */
       layout: 'singleColumn' | 'doubleColumn';
       /**
-       * Whether the {@link city} and {@link streetName} fields should be shown and
-       * auto-filled through the backend based on {@link postcode} and {@link houseNumber}.
+       * Whether the `city` and `streetName` fields should be shown and
+       * auto-filled through the backend based on `postcode` and `houseNumber`.
        */
       deriveAddress: boolean;
     } & Conditional &

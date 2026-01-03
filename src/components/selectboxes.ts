@@ -42,7 +42,7 @@ interface SelectboxesExtra {
  * The submission data value type is a mapping of the `option` value to a boolean that
  * indicates if the option is checked or not.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

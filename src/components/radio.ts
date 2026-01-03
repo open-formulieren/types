@@ -41,7 +41,7 @@ interface RadioExtra {
  * The submission data value type is the `value` property of the selected option, always
  * a string.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

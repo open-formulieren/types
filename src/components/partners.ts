@@ -20,7 +20,7 @@ export interface PartnerDetails {
  * The submission data type is always an array of `PartnerDetails`, even if at most one
  * partner is expected.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

@@ -32,7 +32,7 @@ export type Tooltip = {
 export type Hidden = {
   /**
    * Hide or show the form field. This only controls the visibility - whether
-   * submission data is retained or not is controlled through {@link clearOnHide}.
+   * submission data is retained or not is controlled through `clearOnHide`.
    */
   hidden?: boolean;
 };
@@ -43,7 +43,7 @@ export type ClearOnHide = {
    * hidden. This is applied if the component itself or any parent is hidden,
    * irrespective the mechanism that made it hidden.
    *
-   * Related: {@link hidden}, {@link conditional}
+   * Related: `hidden`, `conditional`.
    */
   clearOnHide?: boolean;
 };

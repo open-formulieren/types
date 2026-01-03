@@ -95,7 +95,7 @@ interface DateExtensions {
  * ISO-8601 date. A `Date` instance could be explored in the future, but the time aspect
  * of it will need to be discarded.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

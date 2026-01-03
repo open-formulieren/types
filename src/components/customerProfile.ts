@@ -56,7 +56,7 @@ interface CustomerProfileExtra {
  *
  * The intrinsic value type in the submission data is an array of `DigitalAddress` items.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

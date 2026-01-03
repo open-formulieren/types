@@ -20,7 +20,7 @@ import {Validation} from '../validation';
  * Note that the value/`defaultValue` type is just a plain string - a serialized
  * ISO-8601 time. There's no native time type in JS that we can use instead.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

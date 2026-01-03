@@ -22,7 +22,7 @@ interface EmailExtensions {
 /**
  * Component shape/options for an email component.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

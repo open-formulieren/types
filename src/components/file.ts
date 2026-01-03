@@ -184,7 +184,7 @@ interface FileExtensions {
  * The file component is a bit weird - it always uses an array of values, irrespective
  * of the `multiple` property value.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

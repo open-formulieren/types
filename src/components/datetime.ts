@@ -92,7 +92,7 @@ interface DateExtensions {
  * Note that the value/`defaultValue` type is just a plain string - a serialized
  * ISO-8601 datetime. A `Date` instance could be explored in the future.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

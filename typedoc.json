@@ -1,17 +1,12 @@
 {
-    "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": [
-      "src/**/*.ts",
-    ],
-    "groupOrder": [
-        "Form.io components",
-        "Schema primitives",
-        "Open Forms schema extensions",
-        "*",
-    ],
-    "categoryOrder": [
-        "Concrete types",
-        "Base types",
-        "*"
-    ]
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "entryPointStrategy": "expand",
+  "navigation": {
+    "includeFolders": true,
+    "includeGroups": true,
+    "includeCategories": true
+  },
+  "categorizeByGroup": true,
+  "categoryOrder": ["Basic components", "Special components", "Layout components", "*"]
 }

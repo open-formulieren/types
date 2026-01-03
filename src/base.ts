@@ -66,15 +66,6 @@ export type WithMultiple<TSingle> =
       defaultValue?: TSingle;
     }
   | {
-      /**
-       * Flag that controls the multi-value mode of the field.
-       *
-       * If multiple values are enabled, typically an array of values will be submitted
-       * for the field instead of a single item.
-       */
       multiple: true;
-      /**
-       * The default/initial value to populate the field with if no value is set yet.
-       */
       defaultValue?: TSingle[];
     };

@@ -16,7 +16,7 @@ export type SignatureValue = `data:image/png;base64,${string}`;
  * @deprecated The signature component has serious accesibility issues - ideally we'd
  * like to remove it.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

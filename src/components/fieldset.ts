@@ -6,7 +6,7 @@ import {AnyComponentSchema} from './index';
 /**
  * Component shape/options for a fieldset component.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface

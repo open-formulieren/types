@@ -168,7 +168,7 @@ interface MapExtras {
  *
  * Map components do not have default values.
  *
- * @warning The generated documentation might be slightly off due to rendering the type
+ * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
  *
  * @interface
