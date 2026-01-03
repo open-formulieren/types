@@ -1,6 +1,6 @@
 {
   "name": "@open-formulieren/types",
-  "version": "0.52.0",
+  "version": "1.0.0",
   "description": "Typescript type definitions for Open Forms' Form.io components",
   "types": "./dist/index.d.ts",
   "files": [
