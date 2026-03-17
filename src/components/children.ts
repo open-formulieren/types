@@ -11,9 +11,9 @@ export interface ChildDetails {
    */
   dateOfBirth: string;
   /**
-   * If child selection is enabled, the submission data will include this key.
+   * If child selection is enabled, the type of the value will be a boolean, otherwise null.
    */
-  selected?: boolean;
+  selected: boolean | null;
 }
 
 /**
