@@ -46,6 +46,10 @@ interface CustomerProfileExtra {
    * profile.
    */
   shouldUpdateCustomerData: boolean;
+  /**
+   * Whether to use the email addresses when sending an confirmation email.
+   */
+  confirmationRecipient?: boolean;
 }
 
 /**
