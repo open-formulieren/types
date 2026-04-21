@@ -1,5 +1,5 @@
 import {BaseComponent, Prettify} from '../base';
-import {ClearOnHide} from '../common';
+import {ClearOnHide, Hidden} from '../common';
 import {AnyComponentSchema} from './index';
 
 /**
@@ -45,6 +45,7 @@ export interface Column {
  */
 export type ColumnsComponentSchema = Prettify<
   BaseComponent<'columns'> &
+    Hidden &
     ClearOnHide & {
       /**
        * The columns to display side-by-side, each with their configured size.
