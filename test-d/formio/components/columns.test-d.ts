@@ -16,6 +16,8 @@ expectAssignable<ColumnsComponentSchema>({
   id: 'eqegfc',
   type: 'columns',
   key: 'columns',
+  hidden: false,
+  clearOnHide: false,
   columns: [
     {
       size: 6,
