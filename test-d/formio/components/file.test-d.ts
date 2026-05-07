@@ -113,10 +113,17 @@ expectAssignable<FileComponentSchema>({
   maxNumberOfFiles: 3, // custom setting
   // registration tab in builder form
   registration: {
-    informatieobjecttype: '',
     bronorganisatie: '',
     docVertrouwelijkheidaanduiding: 'openbaar',
     titel: '',
+    informatieobjecttype: '',
+    documentType: {
+      catalogue: {
+        rsin: '000000000',
+        domain: 'VTH',
+      },
+      description: 'Attachment',
+    },
   },
   // (mostly) translations tab in builder form
   openForms: {
