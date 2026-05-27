@@ -18,6 +18,7 @@ expectAssignable<AddressNLComponentSchema>({
   type: 'addressNL',
   // basic tab
   label: 'Some AddressNL',
+  hideLabel: true,
   key: 'someAddressNL',
   description: '',
   tooltip: 'A tooltip',
