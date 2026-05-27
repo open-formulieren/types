@@ -94,5 +94,10 @@ export type AddressNLComponentSchema = Prettify<
     } & Conditional &
     Validation<'required'> &
     Registration &
-    OFExtensions<'label' | 'description' | 'tooltip', AddressNLExtensions>
+    OFExtensions<'label' | 'description' | 'tooltip', AddressNLExtensions> & {
+      /**
+       * Control whether the container fieldset header/legend is displayed or not.
+       */
+      hideLabel?: boolean;
+    }
 >;
