@@ -1,5 +1,13 @@
 import {BaseComponent, Prettify, WithMultiple} from '../base';
-import {ClearOnHide, Description, Hidden, IsSensitiveData, Label, Tooltip} from '../common';
+import {
+  ClearOnHide,
+  Description,
+  FAQItems,
+  Hidden,
+  IsSensitiveData,
+  Label,
+  Tooltip,
+} from '../common';
 import {Conditional, DisplayConfig, OFExtensions, Registration} from '../extensions';
 import {Validation} from '../validation';
 
@@ -18,6 +26,7 @@ export type LicensePlateComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

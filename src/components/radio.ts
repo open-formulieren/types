@@ -3,6 +3,7 @@ import {
   ClearOnHide,
   DefaultValue,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -53,6 +54,7 @@ export type RadioComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

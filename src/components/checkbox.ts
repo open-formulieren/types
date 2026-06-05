@@ -3,6 +3,7 @@ import {
   ClearOnHide,
   DefaultValue,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -26,6 +27,7 @@ export type CheckboxComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &
