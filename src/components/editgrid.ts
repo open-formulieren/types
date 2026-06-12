@@ -3,6 +3,7 @@ import {
   ClearOnHide,
   DefaultValue,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -67,6 +68,7 @@ export type EditGridComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     Hidden &
     // TODO: see if we can drop the `null`
     DefaultValue<unknown[] | null> &

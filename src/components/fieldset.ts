@@ -1,5 +1,5 @@
 import {BaseComponent, Prettify} from '../base';
-import {ClearOnHide, Hidden, Label, Tooltip} from '../common';
+import {ClearOnHide, FAQItems, Hidden, Label, Tooltip} from '../common';
 import {Conditional, OFExtensions} from '../extensions';
 import {AnyComponentSchema} from './index';
 
@@ -17,6 +17,7 @@ export type FieldsetComponentSchema = Prettify<
   BaseComponent<'fieldset'> &
     Label &
     Tooltip &
+    FAQItems &
     Hidden &
     ClearOnHide &
     Conditional &

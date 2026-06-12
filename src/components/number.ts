@@ -3,6 +3,7 @@ import {
   ClearOnHide,
   DefaultValue,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -54,6 +55,7 @@ export type NumberComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     NumberFieldExtras &
     DisplayConfig &
     Hidden &

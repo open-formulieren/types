@@ -3,6 +3,7 @@ import {
   AutoComplete,
   ClearOnHide,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -34,6 +35,7 @@ export type EmailComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

@@ -4,6 +4,7 @@ import {
   ClearOnHide,
   DefaultValue,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -51,6 +52,7 @@ export type CosignV2ComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

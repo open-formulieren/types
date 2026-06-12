@@ -1,5 +1,13 @@
 import {BaseComponent, Prettify, WithMultiple} from '../base';
-import {ClearOnHide, Description, Hidden, IsSensitiveData, Label, Tooltip} from '../common';
+import {
+  ClearOnHide,
+  Description,
+  FAQItems,
+  Hidden,
+  IsSensitiveData,
+  Label,
+  Tooltip,
+} from '../common';
 import {Conditional, DisplayConfig, OFExtensions, Registration} from '../extensions';
 import {ManualValues, Option, ReferenceListsValues, VariableValues} from '../options';
 import {Validation} from '../validation';
@@ -63,6 +71,7 @@ export type SelectComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

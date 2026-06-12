@@ -2,6 +2,7 @@ import {BaseComponent, Prettify, WithMultiple} from '../base';
 import {
   ClearOnHide,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -26,6 +27,7 @@ export type BsnComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

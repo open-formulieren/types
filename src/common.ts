@@ -6,6 +6,7 @@
  *
  * @module common
  */
+import {SupportedLocales} from './i18n';
 
 export type Label = {
   /**
@@ -27,6 +28,33 @@ export type Tooltip = {
    * with the tooltip icon/control near the label.
    */
   tooltip?: string;
+};
+
+export type FAQItem = {
+  /**
+   * Short interactive label. Interacting will result in the content being displayed.
+   */
+  label: string;
+  /**
+   * Rich text content, displayed in a modal after interacting with the label.
+   */
+  content: string;
+  openforms?: {
+    /**
+     * Translations for the user-facing texts. The backend processes this and assigns
+     * the matching top-level properties.
+     */
+    translations: {
+      [K in SupportedLocales]?: {
+        label?: string;
+        content?: string;
+      };
+    };
+  };
+};
+
+export type FAQItems = {
+  faqItems?: FAQItem[];
 };
 
 export type Hidden = {

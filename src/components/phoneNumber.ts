@@ -3,6 +3,7 @@ import {
   AutoComplete,
   ClearOnHide,
   Description,
+  FAQItems,
   Hidden,
   IsSensitiveData,
   Label,
@@ -26,6 +27,7 @@ export type PhoneNumberComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     DisplayConfig &
     Hidden &
     ClearOnHide &

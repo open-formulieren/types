@@ -1,5 +1,13 @@
 import {BaseComponent, Prettify} from '../base';
-import {ClearOnHide, Description, Hidden, IsSensitiveData, Label, Tooltip} from '../common';
+import {
+  ClearOnHide,
+  Description,
+  FAQItems,
+  Hidden,
+  IsSensitiveData,
+  Label,
+  Tooltip,
+} from '../common';
 import {Conditional, OFExtensions, Registration} from '../extensions';
 
 export interface PartnerDetails {
@@ -32,6 +40,7 @@ export type PartnersComponentSchema = Prettify<
     Label &
     Description &
     Tooltip &
+    FAQItems &
     Hidden &
     ClearOnHide &
     IsSensitiveData &
