@@ -46,8 +46,6 @@ export interface AddressData {
   secretStreetCity?: string;
   /**
    * Marker to indicate that the address was autofilled or not (manually filled).
-   *
-   * Currently unused, but planned to be used in the component improvements.
    */
   autoPopulated?: boolean;
 }
