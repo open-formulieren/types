@@ -157,45 +157,6 @@ interface FileExtras {
    * To be moved in the `validate` configuration options?
    */
   maxNumberOfFiles?: number | null;
-
-  /**
-   * Custom registration options for registration plugins.
-   *
-   * @deprecated
-   * This will be moved to a dedicated section in the new admin UI and removed from the
-   * component configuration, as it doesn't play well with multiple registration backend
-   * configurations/options at the form level.
-   */
-  registration?: {
-    bronorganisatie?: string;
-    docVertrouwelijkheidaanduiding?: string;
-    titel?: string;
-
-    /**
-     * Configuration to resolve the document type to use. Replaces the
-     * `informatieobjecttype` fixed URL reference.
-     *
-     * See the `ZaakOptionsSerializer` serializer in the backend for prior art and usage.
-     */
-    documentType?: {
-      catalogue: {
-        domain: string;
-        rsin: string;
-      };
-      /**
-       * Description of the document type to use. The backend will resolve it at runtime
-       * and automatically select the appropriate version. It is looked up within the
-       * specified catalogue.
-       */
-      description: string;
-    };
-    /**
-     * URL reference to the informatieobjecttype in the Catalogi API.
-     *
-     * @deprecated Deprecated in favour of the catalogue + description references.
-     */
-    informatieobjecttype?: string;
-  };
 }
 
 interface FileExtensions {

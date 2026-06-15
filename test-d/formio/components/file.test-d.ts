@@ -33,12 +33,6 @@ expectAssignable<FileComponentSchema>({
     allowedTypesLabels: ['.png', '.pdf'],
   },
   useConfigFiletypes: false, // custom option to dynamically set allowed file types
-  registration: {
-    informatieobjecttype: '',
-    bronorganisatie: '',
-    docVertrouwelijkheidaanduiding: '',
-    titel: '',
-  },
   openForms: {
     translations: {},
   },
@@ -111,20 +105,6 @@ expectAssignable<FileComponentSchema>({
   filePattern: 'image/png,application/pdf',
   fileMaxSize: '10MB',
   maxNumberOfFiles: 3, // custom setting
-  // registration tab in builder form
-  registration: {
-    bronorganisatie: '',
-    docVertrouwelijkheidaanduiding: 'openbaar',
-    titel: '',
-    informatieobjecttype: '',
-    documentType: {
-      catalogue: {
-        rsin: '000000000',
-        domain: 'VTH',
-      },
-      description: 'Attachment',
-    },
-  },
   // (mostly) translations tab in builder form
   openForms: {
     softRequired: true,
