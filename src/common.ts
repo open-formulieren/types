@@ -39,7 +39,7 @@ export type FAQItem = {
    * Rich text content, displayed in a modal after interacting with the label.
    */
   content: string;
-  openforms?: {
+  openForms?: {
     /**
      * Translations for the user-facing texts. The backend processes this and assigns
      * the matching top-level properties.
