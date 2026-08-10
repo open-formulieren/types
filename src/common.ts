@@ -32,6 +32,10 @@ export type Tooltip = {
 
 export type FAQItem = {
   /**
+   * Unique ID for a FAQ item in a list of FAQ items. Used to render unique HTML elements.
+   */
+  id: string;
+  /**
    * Short interactive label. Interacting will result in the content being displayed.
    */
   label: string;
