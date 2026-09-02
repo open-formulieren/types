@@ -86,6 +86,8 @@ interface DateExtensions {
     | RelativeDateConstraint;
 }
 
+export type DateValue = string | null;
+
 /**
  * Component shape/options for a date component.
  *
@@ -94,7 +96,7 @@ interface DateExtensions {
  * @remarks
  * Note that the value/`defaultValue` type is just a plain string - a serialized
  * ISO-8601 date. A `Date` instance could be explored in the future, but the time aspect
- * of it will need to be discarded.
+ * of it will need to be discarded. Empty values are modeled as `null`.
  *
  * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
@@ -122,5 +124,5 @@ export type DateComponentSchema = Prettify<
     OFExtensions<'label' | 'description' | 'tooltip', DateExtensions> &
     // Unfortunately, this results in a top-level union and there's nothing we can do
     // about it due to TS limitations :(
-    WithMultiple<string>
+    WithMultiple<DateValue>
 >;
