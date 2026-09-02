@@ -42,7 +42,7 @@ expectAssignable<DateComponentSchema>({
   key: 'someDate',
   label: 'Some date',
   multiple: false,
-  defaultValue: '',
+  defaultValue: null,
 });
 // multiple true and appropriate default value type
 expectAssignable<DateComponentSchema>({
@@ -51,7 +51,7 @@ expectAssignable<DateComponentSchema>({
   key: 'someDate',
   label: 'Some date',
   multiple: true,
-  defaultValue: [''],
+  defaultValue: [null],
 });
 
 // full, correct schema
@@ -70,7 +70,7 @@ expectAssignable<DateComponentSchema>({
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
-  defaultValue: '',
+  defaultValue: null,
   disabled: false,
   // Advanced tab
   conditional: {
@@ -129,7 +129,7 @@ expectNotAssignable<DateComponentSchema>({
   key: 'someDate',
   label: 'Some date',
   multiple: true,
-  defaultValue: '',
+  defaultValue: null,
 });
 
 // invalid, multiple false and array default value
@@ -139,7 +139,7 @@ expectNotAssignable<DateComponentSchema>({
   key: 'someDate',
   label: 'Some date',
   multiple: false,
-  defaultValue: [''],
+  defaultValue: [null],
 });
 
 // invalid, multiple true and wrong default value in array element
