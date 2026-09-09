@@ -65,7 +65,7 @@ expectAssignable<TimeComponentSchema>({
   hidden: false,
   clearOnHide: true,
   isSensitiveData: false,
-  defaultValue: '',
+  defaultValue: null,
   // Advanced tab
   conditional: {
     show: undefined,
@@ -113,7 +113,7 @@ expectNotAssignable<TimeComponentSchema>({
   key: 'someTime',
   label: 'Some time',
   multiple: true,
-  defaultValue: '',
+  defaultValue: null,
 } as const);
 
 // invalid, multiple false and array default value
@@ -123,7 +123,7 @@ expectNotAssignable<TimeComponentSchema>({
   key: 'someTime',
   label: 'Some time',
   multiple: false,
-  defaultValue: [''],
+  defaultValue: [null],
 } as const);
 
 // invalid, multiple true and wrong default value in array element

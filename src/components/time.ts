@@ -12,6 +12,8 @@ import {
 import {Conditional, DisplayConfig, OFExtensions, Registration} from '../extensions';
 import {Validation} from '../validation';
 
+export type TimeValue = string | null;
+
 /**
  * Component shape/options for a time component.
  *
@@ -19,7 +21,8 @@ import {Validation} from '../validation';
  *
  * @remarks
  * Note that the value/`defaultValue` type is just a plain string - a serialized
- * ISO-8601 time. There's no native time type in JS that we can use instead.
+ * ISO-8601 time. There's no native time type in JS that we can use instead. Empty
+ * values are modeled as `null`.
  *
  * @remarks The generated documentation might be slightly off due to rendering the type
  * alias as an interface. Double check with the actual TS types!
@@ -45,5 +48,5 @@ export type TimeComponentSchema = Prettify<
     OFExtensions<'label' | 'description' | 'tooltip'> &
     // Unfortunately, this results in a top-level union and there's nothing we can do
     // about it due to TS limitations :(
-    WithMultiple<string>
+    WithMultiple<TimeValue>
 >;
