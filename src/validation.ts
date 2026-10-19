@@ -20,7 +20,7 @@ export interface ValidateOptions {
   /**
    * Maximum length of a value for text-based fields.
    */
-  maxLength?: number;
+  maxLength?: number | null;
   /**
    * RegExp pattern that the value of text-based fields must match.
    */
@@ -28,21 +28,21 @@ export interface ValidateOptions {
   /**
    * Minimum value for numeric values.
    */
-  min?: number;
+  min?: number | null;
   /**
    * Maximum value for numeric values.
    */
-  max?: number;
+  max?: number | null;
   /**
    * The minimum number of options that must be selected for fields that support
    * multi-option selection, like select and selectboxes.
    */
-  minSelectedCount?: number;
+  minSelectedCount?: number | null;
   /**
    * The maximum number of options that may be selected for fields that support
    * multi-option selection, like select and selectboxes.
    */
-  maxSelectedCount?: number;
+  maxSelectedCount?: number | null;
   /**
    * Minimum date or datetime, including the boundary. The value must be on or after
    * this day/moment.
