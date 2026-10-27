@@ -12,6 +12,12 @@ import {Conditional, DisplayConfig, OFExtensions} from '../extensions';
 import {Validation} from '../validation';
 
 /**
+ * A basic shape of a mime type. This is not supposed to contain wildcards, comma's
+ * or semi-colons - it's intended to represent a fully qualified mime type.
+ */
+export type MimeType = `${string}/${string}`;
+
+/**
  * Shape of a single file upload from Form.io to the backend.
  */
 export interface FileUploadData {
@@ -62,7 +68,7 @@ export interface FileUploadData {
    * it, it seems to be an empty string (see https://github.com/open-formulieren/open-forms-sdk/
    * blob/27877938249cdd627294871b70291ab8dc66fd61/src/formio/components/FileField.js#L279)
    */
-  type: string;
+  type: MimeType | '';
   /**
    * Full backend URL of the uploaded file (API endpoint).
    */
@@ -96,10 +102,19 @@ interface FileExtras {
      */
     name: string;
     /**
-     * Allowed file types, expressed as mime type (e.g. `image/*`) or the wildcard
-     * literal.
+     * Allowed file types, expressed as mime type (e.g. `'image/*'`) or the wildcard
+     * literal `'*'`.
+     *
+     * This may also be a comma-separated list of mime types, where each mime type can
+     * contain wildcards. Examples:
+     *
+     * - `image/png,image/jpeg`
+     * - `application/application/vnd.oasis.opendocument.*,application/vnd.stardivision.*,application/vnd.sun.xml.*`
+     *
+     * When there's a wildcard present, it's expected to only occur once at the end of
+     * the mime type.
      */
-    type: (`${string}/${string}` | '*')[];
+    type: string[];
     /**
      * Display labels for the specified allowed file types, injected by the backend.
      */
