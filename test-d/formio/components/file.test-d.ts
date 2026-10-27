@@ -88,9 +88,13 @@ expectAssignable<FileComponentSchema>({
   // file tab in builder form
   file: {
     name: 'prefix_{{ fileName }}',
-    type: ['image/png', 'application/pdf'],
+    type: [
+      'image/png',
+      'application/pdf',
+      'application/application/vnd.oasis.opendocument.*,application/vnd.stardivision.*,application/vnd.sun.xml.*',
+    ],
     // custom
-    allowedTypesLabels: ['.png', '.pdf'],
+    allowedTypesLabels: ['.png', '.pdf', 'Open Office'],
   },
   useConfigFiletypes: false, // custom option to dynamically set allowed file types
   of: {
