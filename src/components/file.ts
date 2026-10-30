@@ -81,17 +81,12 @@ export interface FileUploadData {
  * There are many more Formio properties for the file component that we omitted because
  * they're irrelevant for our builder/renderer anyway, e.g. the `storage` and `webcam`
  * properties.
+ *
+ * The maximum number of allowed files is specified through `validate.maxLength`. If
+ * this property is absent or null, runtime code must allow (unspecified) multiple file
+ * uploads.
  */
 interface FileExtras {
-  /**
-   * Flag that controls the multi-value mode of the field.
-   *
-   * @remarks
-   * There is some interaction with the configuration option for the maximum number of
-   * files - it could be inferred if that is unset, then multiple is allowed, otherwise
-   * set it to `1` or any other fixed number.
-   */
-  multiple?: boolean;
   /**
    * File selection and processing options.
    */
@@ -121,17 +116,6 @@ interface FileExtras {
     readonly allowedTypesLabels: string[];
   };
   /**
-   * File pattern string, created from the allowed file types and used for the browser
-   * file selection input (the `accept` attribute).
-   *
-   * May be an empty string, which has the same behaviour as a wildcard.
-   *
-   * @deprecated
-   * This is probably obsoleted by the new renderer, which uses the {@link file}
-   * configuration instead.
-   */
-  filePattern: string;
-  /**
    * The file size limit for an individual file.
    *
    * Example values: 10MB, 1GB...
@@ -139,39 +123,6 @@ interface FileExtras {
    * The value is parsed into a "number of bytes" integer.
    */
   fileMaxSize?: string; // strings like 10MB, 1GB... parsed by Form.io
-
-  /**
-   * Apply the file type configuration from the global configuration instead of options
-   * on this component.
-   *
-   * @deprecated
-   * To be moved into the `openForms` top-level key.
-   */
-  useConfigFiletypes?: boolean;
-  /**
-   * Image processing configuration options. Only used in the backend.
-   *
-   * @deprecated
-   * To be moved into the `openForms` top-level key.
-   */
-  of?: {
-    image?: {
-      resize?: {
-        apply?: boolean;
-        // backend falls back to defaults if the keys are absent, but if they are
-        // provided, they must be ints
-        width?: number;
-        height?: number;
-      };
-    };
-  };
-  /**
-   * The maximum number of files that may be added for this component.
-   *
-   * @deprecated
-   * To be moved in the `validate` configuration options?
-   */
-  maxNumberOfFiles?: number | null;
 }
 
 interface FileExtensions {
@@ -184,6 +135,25 @@ interface FileExtensions {
    * the field empty.
    */
   softRequired?: boolean;
+  /**
+   * Apply the file type configuration from the global configuration instead of options
+   * on this component.
+   */
+  useConfigFiletypes?: boolean;
+  /**
+   * Image processing configuration options. Only used in the backend.
+   *
+   * Used to be configured in `of.image`.
+   */
+  image?: {
+    resize?: {
+      apply?: boolean;
+      // backend falls back to defaults if the keys are absent, but if they are
+      // provided, they must be ints
+      width?: number;
+      height?: number;
+    };
+  };
 }
 
 /**
@@ -210,7 +180,7 @@ export type FileComponentSchema = Prettify<
     ClearOnHide &
     IsSensitiveData &
     Conditional &
-    Validation<'required', false> &
+    Validation<'required' | 'maxLength', false> &
     OFExtensions<'label' | 'description' | 'tooltip', FileExtensions> &
     FileExtras
 >;

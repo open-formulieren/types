@@ -13,7 +13,22 @@ expectAssignable<FileComponentSchema>({
     type: [],
     allowedTypesLabels: [],
   },
-  filePattern: '*',
+});
+
+// unlimited number of file uploads allowed
+expectAssignable<FileComponentSchema>({
+  id: 'yejak',
+  type: 'file',
+  key: 'someFile',
+  label: 'Attachment',
+  file: {
+    name: '',
+    type: [],
+    allowedTypesLabels: [],
+  },
+  validate: {
+    maxLength: null,
+  },
 });
 
 // Form builder assignability checks
@@ -32,11 +47,9 @@ expectAssignable<FileComponentSchema>({
     // custom
     allowedTypesLabels: ['.png', '.pdf'],
   },
-  useConfigFiletypes: false, // custom option to dynamically set allowed file types
   openForms: {
+    useConfigFiletypes: false, // custom option to dynamically set allowed file types
     translations: {},
-  },
-  of: {
     image: {
       resize: {
         apply: true,
@@ -45,9 +58,7 @@ expectAssignable<FileComponentSchema>({
       },
     },
   },
-  filePattern: 'image/png,application/pdf',
   fileMaxSize: '10MB',
-  maxNumberOfFiles: 3, // custom setting
 });
 
 // full, correct schema
@@ -62,7 +73,6 @@ expectAssignable<FileComponentSchema>({
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
-  multiple: false,
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
@@ -75,6 +85,7 @@ expectAssignable<FileComponentSchema>({
   // validation tab in builder form
   validate: {
     required: false,
+    maxLength: 3, // use to be a custom setting
   },
   translatedErrors: {
     nl: {
@@ -97,8 +108,10 @@ expectAssignable<FileComponentSchema>({
     // custom
     allowedTypesLabels: ['.png', '.pdf', 'Open Office', '.zip'],
   },
-  useConfigFiletypes: false, // custom option to dynamically set allowed file types
-  of: {
+  fileMaxSize: '10MB',
+  // (mostly) translations tab in builder form
+  openForms: {
+    useConfigFiletypes: false, // custom option to dynamically set allowed file types
     image: {
       resize: {
         apply: true,
@@ -106,12 +119,6 @@ expectAssignable<FileComponentSchema>({
         height: 2000,
       },
     },
-  },
-  filePattern: 'image/png,application/pdf',
-  fileMaxSize: '10MB',
-  maxNumberOfFiles: 3, // custom setting
-  // (mostly) translations tab in builder form
-  openForms: {
     softRequired: true,
     translations: {
       nl: {
@@ -132,22 +139,20 @@ expectNotAssignable<FileComponentSchema>({
     type: [],
     allowedTypesLabels: [],
   },
-  filePattern: '*',
 });
 
 // using unsupported properties
 expectNotAssignable<FileComponentSchema>({
   id: 'yejak',
-  type: 'file',
+  type: 'file' as const,
   key: 'someFile',
   label: 'Attachment',
-  storage: 's3', // we only support url
   file: {
     name: '',
     type: [],
     allowedTypesLabels: [],
   },
-  filePattern: '*',
+  maxNumberOfFiles: 3, // move to validate.maxLength
 });
 
 // plugins validator is not relevant for file component
@@ -161,7 +166,6 @@ expectNotAssignable<FileComponentSchema>({
     type: ['image/png'],
     allowedTypesLabels: ['.png'],
   },
-  filePattern: 'image/*',
   validate: {
     plugins: ['some-plugin'],
   },
