@@ -121,17 +121,6 @@ interface FileExtras {
     readonly allowedTypesLabels: string[];
   };
   /**
-   * File pattern string, created from the allowed file types and used for the browser
-   * file selection input (the `accept` attribute).
-   *
-   * May be an empty string, which has the same behaviour as a wildcard.
-   *
-   * @deprecated
-   * This is probably obsoleted by the new renderer, which uses the {@link file}
-   * configuration instead.
-   */
-  filePattern: string;
-  /**
    * The file size limit for an individual file.
    *
    * Example values: 10MB, 1GB...

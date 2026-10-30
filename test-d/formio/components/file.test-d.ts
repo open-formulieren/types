@@ -13,7 +13,6 @@ expectAssignable<FileComponentSchema>({
     type: [],
     allowedTypesLabels: [],
   },
-  filePattern: '*',
 });
 
 // Form builder assignability checks
@@ -45,7 +44,6 @@ expectAssignable<FileComponentSchema>({
       },
     },
   },
-  filePattern: 'image/png,application/pdf',
   fileMaxSize: '10MB',
   maxNumberOfFiles: 3, // custom setting
 });
@@ -107,7 +105,6 @@ expectAssignable<FileComponentSchema>({
       },
     },
   },
-  filePattern: 'image/png,application/pdf',
   fileMaxSize: '10MB',
   maxNumberOfFiles: 3, // custom setting
   // (mostly) translations tab in builder form
@@ -132,7 +129,6 @@ expectNotAssignable<FileComponentSchema>({
     type: [],
     allowedTypesLabels: [],
   },
-  filePattern: '*',
 });
 
 // using unsupported properties
@@ -147,7 +143,6 @@ expectNotAssignable<FileComponentSchema>({
     type: [],
     allowedTypesLabels: [],
   },
-  filePattern: '*',
 });
 
 // plugins validator is not relevant for file component
@@ -161,7 +156,6 @@ expectNotAssignable<FileComponentSchema>({
     type: ['image/png'],
     allowedTypesLabels: ['.png'],
   },
-  filePattern: 'image/*',
   validate: {
     plugins: ['some-plugin'],
   },
