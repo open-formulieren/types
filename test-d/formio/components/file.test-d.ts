@@ -15,6 +15,22 @@ expectAssignable<FileComponentSchema>({
   },
 });
 
+// unlimited number of file uploads allowed
+expectAssignable<FileComponentSchema>({
+  id: 'yejak',
+  type: 'file',
+  key: 'someFile',
+  label: 'Attachment',
+  file: {
+    name: '',
+    type: [],
+    allowedTypesLabels: [],
+  },
+  validate: {
+    maxLength: null,
+  },
+});
+
 // Form builder assignability checks
 
 // with additional, file-component specific properties
@@ -43,7 +59,6 @@ expectAssignable<FileComponentSchema>({
     },
   },
   fileMaxSize: '10MB',
-  maxNumberOfFiles: 3, // custom setting
 });
 
 // full, correct schema
@@ -58,7 +73,6 @@ expectAssignable<FileComponentSchema>({
   showInSummary: true,
   showInEmail: false,
   showInPDF: true,
-  multiple: false,
   hidden: false,
   clearOnHide: true,
   isSensitiveData: true,
@@ -71,6 +85,7 @@ expectAssignable<FileComponentSchema>({
   // validation tab in builder form
   validate: {
     required: false,
+    maxLength: 3, // use to be a custom setting
   },
   translatedErrors: {
     nl: {
@@ -94,7 +109,6 @@ expectAssignable<FileComponentSchema>({
     allowedTypesLabels: ['.png', '.pdf', 'Open Office', '.zip'],
   },
   fileMaxSize: '10MB',
-  maxNumberOfFiles: 3, // custom setting
   // (mostly) translations tab in builder form
   openForms: {
     useConfigFiletypes: false, // custom option to dynamically set allowed file types
@@ -130,15 +144,15 @@ expectNotAssignable<FileComponentSchema>({
 // using unsupported properties
 expectNotAssignable<FileComponentSchema>({
   id: 'yejak',
-  type: 'file',
+  type: 'file' as const,
   key: 'someFile',
   label: 'Attachment',
-  storage: 's3', // we only support url
   file: {
     name: '',
     type: [],
     allowedTypesLabels: [],
   },
+  maxNumberOfFiles: 3, // move to validate.maxLength
 });
 
 // plugins validator is not relevant for file component
