@@ -128,32 +128,6 @@ interface FileExtras {
    * The value is parsed into a "number of bytes" integer.
    */
   fileMaxSize?: string; // strings like 10MB, 1GB... parsed by Form.io
-
-  /**
-   * Apply the file type configuration from the global configuration instead of options
-   * on this component.
-   *
-   * @deprecated
-   * To be moved into the `openForms` top-level key.
-   */
-  useConfigFiletypes?: boolean;
-  /**
-   * Image processing configuration options. Only used in the backend.
-   *
-   * @deprecated
-   * To be moved into the `openForms` top-level key.
-   */
-  of?: {
-    image?: {
-      resize?: {
-        apply?: boolean;
-        // backend falls back to defaults if the keys are absent, but if they are
-        // provided, they must be ints
-        width?: number;
-        height?: number;
-      };
-    };
-  };
   /**
    * The maximum number of files that may be added for this component.
    *
@@ -173,6 +147,25 @@ interface FileExtensions {
    * the field empty.
    */
   softRequired?: boolean;
+  /**
+   * Apply the file type configuration from the global configuration instead of options
+   * on this component.
+   */
+  useConfigFiletypes?: boolean;
+  /**
+   * Image processing configuration options. Only used in the backend.
+   *
+   * Used to be configured in `of.image`.
+   */
+  image?: {
+    resize?: {
+      apply?: boolean;
+      // backend falls back to defaults if the keys are absent, but if they are
+      // provided, they must be ints
+      width?: number;
+      height?: number;
+    };
+  };
 }
 
 /**

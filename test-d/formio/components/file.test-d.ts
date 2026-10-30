@@ -31,11 +31,9 @@ expectAssignable<FileComponentSchema>({
     // custom
     allowedTypesLabels: ['.png', '.pdf'],
   },
-  useConfigFiletypes: false, // custom option to dynamically set allowed file types
   openForms: {
+    useConfigFiletypes: false, // custom option to dynamically set allowed file types
     translations: {},
-  },
-  of: {
     image: {
       resize: {
         apply: true,
@@ -95,8 +93,11 @@ expectAssignable<FileComponentSchema>({
     // custom
     allowedTypesLabels: ['.png', '.pdf', 'Open Office', '.zip'],
   },
-  useConfigFiletypes: false, // custom option to dynamically set allowed file types
-  of: {
+  fileMaxSize: '10MB',
+  maxNumberOfFiles: 3, // custom setting
+  // (mostly) translations tab in builder form
+  openForms: {
+    useConfigFiletypes: false, // custom option to dynamically set allowed file types
     image: {
       resize: {
         apply: true,
@@ -104,11 +105,6 @@ expectAssignable<FileComponentSchema>({
         height: 2000,
       },
     },
-  },
-  fileMaxSize: '10MB',
-  maxNumberOfFiles: 3, // custom setting
-  // (mostly) translations tab in builder form
-  openForms: {
     softRequired: true,
     translations: {
       nl: {
